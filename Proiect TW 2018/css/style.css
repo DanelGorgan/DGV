@@ -1,106 +1,168 @@
-@import
-url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
-
-
-*{
-    box-sizing: border-box;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:15px;
+  line-height: 1.5;
+  padding:0;
+  margin: 0;
+  background-color: #f4f4f4;
 }
-
-body {
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-}
-
-img{
-    max-width:  100%;
-    height: auto;
-}
-
+/* Global */
 .container{
-    width: 95%;
-    margin: 0 auto;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
-/* typography
-=================*/
-
-
-.title{
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.title span {
-    font-weight: 300;
-    display: block;
-    font-size: 0.5em;
-}
-
-
-
-/*button 
-================*/
-.button {
-    display: inline-block;
-    font-size: 1.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-width: 2px;
-    border-style: solid;
-    padding: .5rem .75rem;
-}
-
-
-.button-accent {
-    color:#00ff6c;
-    border-color: #00ff6c;
-}
-
-.button-accent:hover, .button-accent.focus{
-    background: #00ff6c;
-    color: #232323;
-}
-
-/* header
-=================*/
-
+/* Header */
 header{
-    position: absolute; 
-    left: 0;
-    right: 0;
-    margin-top: 1em;
+  background: #22252c;
+  color:#ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #e14658 3px solid;
+
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+header a{
+  color:#ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
-nav li{
-    display: inline-block;
-    margin: 1em;
+header ul{
+  margin: 0;
+  padding: 0;
 }
 
-nav a {
-    font-weight: 900;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: .8rem;
-    padding: .5em;
-    color: aqua;
+header li{
+  float:left;
+  display: inline;
+  padding: 0 20px 0 20px;
 }
 
-nav a:hover, nav a:focus{
-    color: red;
+header #branding{
+  float:left;
 }
 
-/* home-hero
-=================*/
+header #branding h1{
+  margin:0;
+}
 
-.home-hero{
-    background-image: url(../img/hero-bg.jpg);
-    padding: 10em 0;
-    color: #FFF;
+header nav{
+  float: right;
+  margin-top: 10px;
+}
+
+.search-bar-wrapper{
+  display: inline-flex;
+  font-size: 16px;
+}
+
+.search-box-input{
+    width: 600px;
+    font-size: inherit;
+    border: 0.2em solid white;
+    border-radius: 0.5em 0 0 0.5em;
+    padding: 0.2em 0.5em;
+    border-right: 0;
+    margin-top: 8px;
+    margin-left: 16px;
+    outline:0;
+    transition: ease-in-out, width .35s ease-in-out;
+
+}
+.search-box-input:focus {
+    width: 700px;
+}
+
+.search-box-button{
+  display: inline-flex;
+  font-size: inherit;
+  border: 0.2em solid white;
+  border-radius: 0 0.5em 0.5em 0;
+  border-left: 0;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-left: 0;
+  background-color: white;
+  color: white;
+  font-weight: bold;
+  padding: 0 0.7em;
+  outline:0;
+  cursor: pointer;
+}
+.search-box-button img{
+  width: 15px;
+  padding: 1px 0 0 0;
+}
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  display: inline-flex;
+  float: right;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #e14658;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
