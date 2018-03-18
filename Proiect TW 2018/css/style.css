@@ -253,3 +253,15 @@ input[type=checkbox] + label:active:before{
   background: #ddd;
   color: black;
 }
+
+@media screen and (max-width: 500px) {
+  .bigcontainer{
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+  
+  }
+}
