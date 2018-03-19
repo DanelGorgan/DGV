@@ -15,6 +15,13 @@ body{
   margin: auto;
   overflow: hidden;
 }
+
+.showcaserecipe{
+  float: left;
+  margin-right: 1em;
+  width: 100%;
+}
+
 .showcase{
   float: left;
   margin-left: 2em;
@@ -37,11 +44,16 @@ body{
   background-color: #ccc;
 }
 
-.showcase h2{
-  margin-left: 17em;
+
+/*-----------*/
+.showcaserecipe h2{
+  text-align: center;
   font-style: italic;
   font:italic bold 25px/43px Georgia, serif;
 }
+
+/*------------*/
+
 .grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,12 +62,45 @@ body{
   grid-auto-rows: minmax(100px, auto);
 
 }
+
+/*------------*/
+.gridrecipe{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 1 em;
+  grid-auto-rows: minmax(100px, auto);
+
+}
+/*------------*/
+
 .grid img{
   float:left;
   display: block;
   height: 200px;
   width: 400px;
 }
+
+/* ------
+recipes.html
+-------*/
+.gridrecipe img{
+  margin:auto;
+  display: block;
+  height: 150px;
+  width: 300px;
+}
+
+.gridrecipe img:hover{
+  transform: scale(1.2);
+}
+
+.gridrecipe p{
+  padding-top: 12px;
+  display: block;
+  text-align: center;
+}
+
+/*------*/
 
 .grid p{
   padding-top: 12px;
@@ -68,8 +113,22 @@ body{
   border-radius:16px;
   box-shadow:0 0 3px #c5c2a9;
   display:block;
-  
+
 }
+
+
+/* ------
+recipes.html
+-------*/
+.box-img1 img{ 
+  padding:10px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 0 3px #c5c2a9;
+  display:block;
+}
+
+/*------*/
 
 .bigcontainer{
   overflow: hidden;
