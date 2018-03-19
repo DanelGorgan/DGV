@@ -1,7 +1,7 @@
 body{
 
   background: url(../img/food.png);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:15px;
   line-height: 1.5;
   padding:0;
@@ -10,7 +10,6 @@ body{
 }
 /* Global */
 .container{
-  line-height: 40px;
   display: block;
   width: 80%;
   margin: auto;
@@ -19,17 +18,35 @@ body{
 .showcase{
   float: left;
   margin-left: 2em;
-  width: 75%
+  width: 75%;
 
+}
+.grid a{
+  background-color: #d53827;
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: left;
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
+}
+.grid a:hover {
+  background-color: #333;
+}
+.grid a:visited {
+  background-color: #ccc;
 }
 
 .showcase h2{
   margin-left: 17em;
+  font-style: italic;
+  font:italic bold 25px/43px Georgia, serif;
 }
 .grid{
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: 1em;
+  grid-row-gap: 1 em;
   grid-auto-rows: minmax(100px, auto);
 
 }
@@ -39,13 +56,11 @@ body{
   height: 200px;
   width: 400px;
 }
-.grid a{
-  float: right;
-}
+
 .grid p{
-  margin-top: 3%;
+  padding-top: 12px;
   display: block;
-  margin-left: 50%;
+  text-align: justify;
  }
 .box-img img{ 
   padding:10px;
@@ -93,12 +108,35 @@ header{
   min-height: 70px; 
   border-radius: 0.3em 0.3em 0.3em 0.3em;
 }
+footer{
+  background-color: white;
+  color:black;
+  padding-top: 5px;
+  padding-bottom: 5PX;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  min-height: 70px; 
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
+}
+footer a{
+  text-decoration: none;
+  color: black;
+}
+footer a:hover{
+  color:#ddd;
+}
+
+footer p{
+  text-align: center;
+  line-height: 0.7;
+}
 
 
-header a{
+header a {
   color:#ffffff;
   text-decoration: none;
-  text-transform: uppercase;
   font-size: 16px;
 }
 
@@ -171,11 +209,11 @@ header #branding{
 
 /* Links inside the navbar */
 .navbar a {
+  padding-bottom: 5px;
   float: left;
-  font-size: 16px;
+  font-size: 20px;
   color: black;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
 }
 
@@ -187,7 +225,7 @@ header #branding{
 
 /* Dropdown button */
 .dropdown .dropbtn {
-   border-radius: 0.3em 0.3em 0.3em 0.3em;
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
   font-size: 20px;
   border: none;
   outline: none;
@@ -197,7 +235,6 @@ header #branding{
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
 }
-
 /* Add a yellow background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #fac564;
@@ -216,6 +253,7 @@ header #branding{
 
 /* Links inside the dropdown */
 .dropdown-content a {
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
   float: none;
   color: black;
   padding: 12px 16px;
@@ -226,7 +264,7 @@ header #branding{
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #fac564;;
 }
 
 /* Show the dropdown menu on hover */
