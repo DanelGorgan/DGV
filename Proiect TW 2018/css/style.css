@@ -10,21 +10,68 @@ body{
 }
 /* Global */
 .container{
+  line-height: 40px;
+  display: block;
   width: 80%;
   margin: auto;
   overflow: hidden;
 }
+.showcase{
+  float: left;
+  margin-left: 2em;
+  width: 75%
+
+}
+
+.showcase h2{
+  margin-left: 17em;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+
+}
+.grid img{
+  float:left;
+  display: block;
+  height: 200px;
+  width: 400px;
+}
+.grid a{
+  float: right;
+}
+.grid p{
+  margin-top: 3%;
+  display: block;
+  margin-left: 50%;
+ }
+.box-img img{ 
+  padding:10px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 0 3px #c5c2a9;
+  display:block;
+  
+}
+
 .bigcontainer{
   overflow: hidden;
   margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 100px;
   margin-right: 100px;
   background-color: white;
   border-radius: 0.3em 0.3em 0.3em 0.3em;
 
 }
+.smallcontainer{
+  float: left;
+}
 
 .containerfilter {
+  margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -43,6 +90,7 @@ header{
   margin-top: 20px;
   margin-left: 100px;
   margin-right: 100px;
+  min-height: 70px; 
   border-radius: 0.3em 0.3em 0.3em 0.3em;
 }
 
@@ -64,24 +112,21 @@ header li{
   display: inline;
   padding: 0 20px 0 20px;
 }
-
+#branding img{
+  vertical-align: middle;
+}
 header #branding{
   float:left;
+
 }
 
-header #branding h1{
-  margin:0;
-}
-
-header nav{
-  float: right;
-  margin-top: 10px;
-}
 
 .search-bar-wrapper{
   display: inline-flex;
   font-size: 16px;
   float: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .search-box-input{
@@ -92,7 +137,7 @@ header nav{
     padding: 0.2em 0.5em;
     border-right: 0;
     margin-top: 8px;
-    margin-left: 16px;
+    margin-left: 20px;
     outline:0;
 
 }
@@ -112,7 +157,7 @@ header nav{
   cursor: pointer;
 }
 .search-box-button img{
-  width: 15px;
+  width: 20px;
   padding: 1px 0 0 0;
 }
 
@@ -121,6 +166,7 @@ header nav{
   overflow: hidden;
   display: inline-flex;
   float: right;
+  margin-top: 30px;
 }
 
 /* Links inside the navbar */
