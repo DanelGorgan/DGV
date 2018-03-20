@@ -3,24 +3,22 @@
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width">
-      <title>Cooking | Home Page</title>
+      <title>CuH | Home Page</title>
       <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
       <header>
         <div class="container">
-            <div id="branding">
-              <h1 id="brand"><img src="./img/chef.png"></h1>
+        	<div id="branding">
+              <h1><a href="./index.html"><img src="./img/chef.png"></a></h1>
           </div>
           <div class="search-bar-wrapper">
             <input class="search-box-input" type="text" placeholder="Search...">
-            <button class="search-box-button"><img src="./img/search.png" alt="Search"></button>
+            <button class="search-box-button"><img src="./img/search.png" alt=""></button>
           </div>
-          <div class="navbar">
+          <nav class="navbar">
             <div class="dropdown">
-              <button class="dropbtn">Recipes
-                <i class="fa fa-caret-down"></i>
-              </button>
+              <button class="dropbtn"><a href="recipes.html">Recipes</a></button>
               <div class="dropdown-content">
                 <a href="#">Link 1</a>
                 <a href="#">Link 2</a>
@@ -28,20 +26,17 @@
               </div>
             </div>
             <div class="dropdown">
-              <button class="dropbtn">My Account
-                <i class="fa fa-caret-down"></i>
-              </button>
+              <button class="dropbtn"><a href="./html/MyAccount.html">My Account</a></button>
               <div class="dropdown-content">
                 <a href="./html/Login.html">Login</a>
                 <a href="./html/Register.html">Register</a>
               </div>
             </div>
-          </div>
+          </nav>
        </div>
-
       </header>
       <div class="bigcontainer">
-
+      		 <div class="smallcontainer">
               <div class="containerfilter">
                   <p>Ingrediente</p>
                   <form>
@@ -54,7 +49,7 @@
                           <input type="checkbox" id="ingredient4">
                               <label for="ingredient4">Mujdei</label>
                   </form>
-          </div>
+         	 </div>
           <div class="containerfilter">
               <p>Aparatura</p>
           </header>
@@ -84,11 +79,38 @@
           </form>
     </div>
     <a href="" class="button button-accent">Find Recipes</a>
-
-      <section id="showcase">
-        <div class="container">
-          <h2>Cooking text</h2>
-          <p>asdfasbiyfdguhwevbuih</p>
+ </div>
+      <section class="showcase">
+      	 <h2>New recipes</h2>
+        <div class="grid">
+          	<div>
+    			<figure class="box-img"><img src="./img/img1.jpg" alt=""></figure>
+        </div>
+        <div>
+    			<p>&emsp;Skillet Chicken with Brussels Sprouts and Apples, consectetur adipiscing elit. Suspendisse pharetra rhoncus hendrerit. Maecenas at arcu a velit vestibulum sagittis. Vivamus lacus libero, ornare id sollicitudin quis, interdum at velit. Mauris gravida, velit eu vestibulum tempor, nibh sapien facilisis massa, at consectetur augue est et augue.</p>
+      			<a href="./html/reteta.html" class="btn">View recipe</a> </article>
+    		</div>
+    		<div>
+    			<figure class="box-img"><img src="./img/img2.jpg" alt=""></figure>
+    		</div>
+        <div>	
+          <p>&emsp;Chicken and Arugula Cacio e Pepe, consectetur adipiscing elit. Suspendisse pharetra rhoncus hendrerit. Maecenas at arcu a velit vestibulum sagittis. Vivamus lacus libero, ornare id sollicitudin quis, interdum at velit. Mauris gravida, velit eu vestibulum tempor, nibh sapien facilisis massa, at consectetur augue est et augue.</p>
+      			<a href="./html/reteta.html" class="btn">View recipe</a> </article>
+    		</div>
+    		<div>
+    			<figure class="box-img"><img src="./img/img3.jpg" alt=""></figure>
+    		</div>
+        <div>	
+          <p>&emsp;Coriander-Maple Glazed Carrots, consectetur adipiscing elit. Suspendisse pharetra rhoncus hendrerit. Maecenas at arcu a velit vestibulum sagittis. Vivamus lacus libero, ornare id sollicitudin quis, interdum at velit. Mauris gravida, velit eu vestibulum tempor, nibh sapien facilisis massa, at consectetur augue est et augue.</p>
+      			<a href="./html/reteta.html" class="btn">View recipe</a> </article>
+    		</div>
+    		<div>
+    			<figure class="box-img"><img src="./img/img4.jpg" alt=""></figure>
+    		</div>
+        <div>	
+          <p>&emsp;Hot Cross Buns, consectetur adipiscing elit. Suspendisse pharetra rhoncus hendrerit. Maecenas at arcu a velit vestibulum sagittis. Vivamus lacus libero, ornare id sollicitudin quis, interdum at velit. Mauris gravida, velit eu vestibulum tempor, nibh sapien facilisis massa, at consectetur augue est et augue.</p>
+      			<a href="./html/reteta.html" class="btn">View recipe</a> </article>
+    		</div>
         </div>
       </section>
       <section id="newsletter">
@@ -108,5 +130,10 @@
         </div>
       </section>
      </div>
+     <footer >
+  <p>Copyright &copy; 2018 Cuisine Web Helper</p>
+  <a href="mailto:contacts@cuh.com"><p>Contact us</p></a>
+
+	</footer>
     </body>
   </html>
