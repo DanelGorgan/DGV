@@ -143,7 +143,7 @@ button{
         font-size:20px;
         margin-bottom: 30px;
     }
-  }
+}
 
   @media screen and (max-width: 776px) and (min-width: 400px){
     button{
@@ -167,7 +167,6 @@ button{
     }
   }
 
-  
 @media screen and (max-width: 600px) {
     .bigcontainer{
       overflow: hidden;
@@ -178,4 +177,4 @@ button{
       border-radius: 0.3em 0.3em 0.3em 0.3em;
     
     }
-  }
+}
