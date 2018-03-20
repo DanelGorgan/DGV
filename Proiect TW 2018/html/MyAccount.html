@@ -2,44 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, height=device-height">
     <title>
         My account
     </title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/MyAccount.css"
+    <link rel="stylesheet" href="../css/MyAccount.css">
   </head>
   <body>
 
     </header>
-    <div class="bigcontainer">
-        <h1>My account preferences</h1>    
+    <div class="bigcontainer">   
         <div class="account-preferences">
+            <h1>My account preferences</h1> 
                 <input id="profile-photo" type="image" src="../img/eu.jpg">
-                <section id="account-preferences-text">
-                  <div>
-                    <p class="text"> Name </p>
-                    <input type="text" placeholder="name">
-                  </div>
-                  <div>
-                    <p class="text"> Surname </p>
-                    <input type="text" placeholder="surname">
-                  </div>
-                  <div>
-                    <p class="text"> E-mail </p>
-                    <input type="email" placeholder="email">
-                  </div>
-                  <div>
-                    <p class="text"> Telefon </p>
-                    <input type="text" placeholder="07xxxxxxxx">
-                  </div>
-                  <div>
-                    <p class="text"> Address </p>
-                    <input type="text" placeholder="address">
-                  </div>
-              </section>
-               <button> Submit changes </button>
 
+                    <section class="text">
+                      <p> Name </p>
+                      <p> Surname </p>
+                      <p> E-mail </p>
+                      <p> Telefon </p>
+                      <p> Address </p>
+                      <p> Regim alimentar</p>
+                    </section>
+
+                    <section class="input">
+                      <input type="text" placeholder="name">
+                      <input type="text" placeholder="surname">
+                      <input type="email" placeholder="email">
+                      <input type="text" placeholder="07xxxxxxxx">
+                      <input type="text" placeholder="address">
+                      <select name="regim">
+                          <option value="diet" selcted>No diet</option>
+                          <option value="post">Post</option>
+                          <option value="vegan">Vegan</option>
+                          <option value="vegetarian">Vegetarian</option>
+                          <option value="diabetes">Diabetes</option>
+                          <option value="alergy">Alergy</option>
+                          <option value="other">Other</option>
+                        </select>
+                    </section>
+               <button> Submit changes </button>
         </div>   
    </div>
   </body>

@@ -50,38 +50,36 @@
     width:305px;
     height: 50px;
     cursor: pointer;
-    background-color: #009933;
+    background-color: #0033FF;
     border: 0;
     margin-top:10px;
 
 }
 
 .login-form .message a{
-    color:#04802d;
+    color:#0000FF;
     text-decoration: none;
     font-size:12px;
 }
 
 .login-form .message {
     margin-left: 12.5%;
-    color: #b3b3b3;
+    color: #0033FF;
     font-size: 12px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .login-form button:hover{
-    background-color: #04802d;
+    background-color: #0000FF;
 }
 
 body{
-    background-image: url(../img/5.png);
-    background-repeat: no-repeat;
-    background-size:cover;
+    background-image: url(../img/food.png);
     margin:0;
 }
 
 h1{
-    color: #b3b3b3;
+    color: #0033FF;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-left:25%;
     margin-top:0;
