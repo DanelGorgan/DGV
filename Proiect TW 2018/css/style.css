@@ -8,6 +8,8 @@ body{
   margin: 0;
   background-color: #f4f4f4;
 }
+
+
 /* Global */
 .container{
   display: block;
@@ -22,12 +24,25 @@ body{
   width: 100%;
 }
 
+.showcase h2{
+  text-align: center;
+  font-style: italic;
+  font:italic bold 25px/43px Georgia, serif;
+}
+
 .showcase{
   float: left;
   margin-left: 2em;
   width: 75%;
 
 }
+
+.pfilter{
+  text-align: center;
+  font-style: italic;
+  font:italic bold 15px/35px Georgia, serif;
+}
+
 .grid a{
   background-color: #d53827;
   color: white;
@@ -151,11 +166,34 @@ recipes.html
   border-radius: 5px;
   background: #FFFFFF;
   max-width: 200px;
-  padding-bottom: 45px;
+  max-height: 250px;
+  padding-bottom: 10px;
   padding-left: 20px;
   padding-top: 2px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
+.containerfilter1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  max-width: 200px;
+  max-height: 250px;
+  padding-bottom: 10px;
+  padding-top: 40px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+div.scroll {
+  width: 200px;
+  height: 200px;
+  overflow-y:scroll;
+}
+
 
 /* Header */
 header{

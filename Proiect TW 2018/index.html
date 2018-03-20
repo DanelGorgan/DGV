@@ -37,47 +37,94 @@
       </header>
       <div class="bigcontainer">
       		 <div class="smallcontainer">
+              <p class="pfilter">Regim alimentar</p>
               <div class="containerfilter">
-                  <p>Ingrediente</p>
+                  <div class="scroll">
                   <form>
                           <input type="checkbox" id="ingredient1">
-                              <label for="ingredient1">Fasole</label>
+                              <label for="ingredient1">Diabet</label>
                           <input type="checkbox" id="ingredient2">
-                              <label for="ingredient2">Carnat</label>
+                              <label for="ingredient2">Ulcer</label>
                           <input type="checkbox" id="ingredient3">
-                              <label for="ingredient3">Mamaliga</label>
+                              <label for="ingredient3">Giovanetti</label>
                           <input type="checkbox" id="ingredient4">
-                              <label for="ingredient4">Mujdei</label>
+                              <label for="ingredient4">Kempner</label>
+                          <input type="checkbox" id="ingredient5">
+                              <label for="ingredient5">Hidric</label>
+                          <input type="checkbox" id="ingredient6">
+                              <label for="ingredient6">Hidrozaharat</label>
+                          <input type="checkbox" id="ingredient6">
+                              <label for="ingredient6">Hipoproteic</label>
+                          <input type="checkbox" id="ingredient6">
+                              <label for="ingredient6">Hiposodat</label>
                   </form>
-         	 </div>
-          <div class="containerfilter">
-              <p>Aparatura</p>
-          </header>
+              </div>
+          </div>
+          <p class="pfilter">Stil de viata </p>
+          <div class="containerfilter"> 
               <form>
                       <input type="checkbox" id="aragaz">
-                          <label for="aragaz">Aragaz cu butelie</label>
+                          <label for="aragaz">Vegan</label>
                       <input type="checkbox" id="plita" >
-                          <label for="plita">Plita</label>
-                      <input type="checkbox" id="foc" >
-                          <label for="foc">La foc </label>
-                      <input type="checkbox" id="fara">
-                          <label for="fara">Fara aparate</label>
+                          <label for="plita">Vegetarian</label>
               </form>
       </div>
+      <p class="pfilter">Practica spirituala</p>
       <div class="containerfilter">
-          <p>Filtru 3</p>
-      </header>
           <form>
                   <input type="checkbox" id="chestie1">
-                      <label for="chestie1">Dani</label>
-                  <input type="checkbox" id="chestie2">
-                      <label for="chestie2">Gabi</label>
-                  <input type="checkbox" id="chestie3">
-                      <label for="chestie3">Vlad</label>
-                  <input type="checkbox" id="chestie4">
-                      <label for="chestie4">Nimeni</label>
+                      <label for="chestie1">Post</label>
           </form>
     </div>
+
+    <p class="pfilter">Gastronomie</p>
+      <div class="containerfilter">
+          <form>
+                  <input type="checkbox" id="gastronomie1">
+                      <label for="gastronomie1">Frantuzeasca</label>
+                  <input type="checkbox" id="gastronomie2">
+                      <label for="gastronomie2">Romaneasca</label>
+                  <input type="checkbox" id="gastronomie3">
+                      <label for="gastronomie3">Italiana</label>
+                  <input type="checkbox" id="gastronomie4">
+                      <label for="gastronomie4">Chinezeasca</label>
+                  <input type="checkbox" id="gastronomie5">
+                      <label for="gastronomie5">Indiana</label>
+          </form>
+    </div>
+
+    <p class="pfilter">Dificultate</p>
+      <div class="containerfilter">
+          <form>
+                  <input type="checkbox" id="dificultate1">
+                      <label for="dificultate1">Usoara</label>
+                  <input type="checkbox" id="dificultate2">
+                      <label for="dificultate2">Medie</label>
+                  <input type="checkbox" id="dificultate3">
+                      <label for="dificultate3">Grea</label>
+          </form>
+    </div>
+     <p class="pfilter">Timp</p>
+       <div class="containerfilter1">
+          <input type="range" min="30" max="120" value="30" id="myRange">
+          <p>Value: <span id="demo"></span> min</p>
+      </div>
+
+      <p class="pfilter">Dotari bucatarie</p>
+      <div class="containerfilter">
+          <form>
+                  <input type="checkbox" id="dotare1">
+                      <label for="dotare1">Aragaz</label>
+                  <input type="checkbox" id="dotare2">
+                      <label for="dotare2">Cuptor</label>
+                  <input type="checkbox" id="dotare3">
+                      <label for="dotare3">Cuptor cu microunde</label>
+                  <input type="checkbox" id="dotare4">
+                      <label for="dotare4">Robot de bucatarie</label>
+          </form>
+    </div>
+
+
     <a href="" class="button button-accent">Find Recipes</a>
  </div>
       <section class="showcase">
@@ -113,6 +160,8 @@
     		</div>
         </div>
       </section>
+
+
       <section id="newsletter">
         <div class="container">
           <h2>Subscribe</h2>
@@ -129,11 +178,21 @@
           </div>
         </div>
       </section>
+
      </div>
      <footer >
   <p>Copyright &copy; 2018 Cuisine Web Helper</p>
   <a href="mailto:contacts@cuh.com"><p>Contact us</p></a>
 
-	</footer>
+  </footer>    
+    <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    </script>
     </body>
   </html>
