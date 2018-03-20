@@ -1,0 +1,81 @@
+/***body***/
+body{
+
+    background: url(../img/food.png);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
+    line-height: 1.5;
+    padding:0;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+/***container***/
+.bigcontainer{
+    overflow: hidden;
+    margin:10%; 
+    background-color: white;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    height: 100%;
+    padding: 5%;
+  }
+
+.favorite-box{
+    padding:15px;
+    border: 0.5px solid rgb(219, 219, 219);
+    display: block;
+    margin:auto;
+    background: #F0F8FF;
+}
+
+.box{
+    border: 1px solid #ccc;
+    margin-bottom:20px;
+    padding:20px;
+    background: white;
+}
+
+.box:nth-of-type(1){
+    margin-top:20px;
+}
+
+h1{
+    font-size: 15px;
+    display:inline;
+    margin: 0px;
+}
+
+button[type="button"]{
+    background: #0033FF;
+    border-radius: 0.5em;
+    outline:0;
+    color:white;
+    padding:10px;
+    margin-left:10px;
+}
+
+button:hover{
+    background-color: rgb(0, 0, 233);
+    cursor: pointer;
+}
+
+p{
+    display:inline-block;
+}
+
+.box button{
+    margin-top: 6.5px;
+    float:right;
+    border-radius: 0.5em;
+    border: 0.5px solid rgb(219, 219, 219);
+    background:white;
+    outline:0;
+    padding: 10px;
+    color:black;
+    
+}
+
+.box button:hover{
+    background: #ddd;
+    cursor: pointer;
+}
