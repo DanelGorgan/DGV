@@ -264,7 +264,7 @@ header #branding{
 }
 
 .search-box-input{
-    width: 600px;
+    width: 85%;
     font-size: inherit;
     border: 0.2em solid #ddd;
     border-radius: 0.5em 0 0 0.5em;
@@ -432,4 +432,42 @@ input[type=checkbox] + label:active:before{
 .button-accent:hover, .button-accent.focus{
   background: #ddd;
   color: black;
+}
+
+
+
+/* medias */
+@media screen and (max-width: 600px) {
+  .bigcontainer{
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+  }
+  
+  footer{
+    margin-left: 20px;
+    margin-right: 20px;
+
+  }
+
+  header{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .container{
+    height: 70%;
+  }
+
+  .search-bar-wrapper{
+    width: 70%;
+  }
+
+  .search-box-input{
+    width: 70%;
+  }
+    
 }
