@@ -72,7 +72,6 @@ body{
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1em;
   grid-row-gap: 1 em;
-  grid-auto-rows: minmax(100px, auto);
 
 }
 
@@ -437,7 +436,7 @@ input[type=checkbox] + label:active:before{
 
 
 /* medias */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
   .bigcontainer{
     overflow: hidden;
     margin-top: 10px;
@@ -446,7 +445,28 @@ input[type=checkbox] + label:active:before{
     background-color: white;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
   }
-  
+  .smallcontainer{
+    margin-left: 12%;
+  }
+  .showcase{
+    margin-left: 10%
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .grid img{
+    height: 100%;
+    width: 100%;
+
+  }
+  .grid p:nth-child(odd){
+    margin: 5%;
+  }
+  .grid a{
+    float: right;
+  }
+
   footer{
     margin-left: 20px;
     margin-right: 20px;
