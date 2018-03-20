@@ -18,8 +18,8 @@ margin: 0;
 padding: 0;
 }
 
-li:first-child{
-margin-bottom: 50px;
+p#subtitle{
+  display: block;
 }
 
 
@@ -300,6 +300,7 @@ header #branding{
   float: left;
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 70%;
 }
 
 .search-box-input{
@@ -365,7 +366,7 @@ header #branding{
   border: none;
   outline: none;
   color: black;
-  padding: 14px 14px;
+  padding: 14px 16px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
@@ -484,8 +485,53 @@ input[type=checkbox] + label:active:before{
   }
   .box-container{
     width: 90%;
+
   }
   .ingrediente{
     width: 80%;
+  }
+  footer{
+    margin-left: 20px;
+    margin-right: 20px;
+
+  }
+
+  header{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .container{
+    height: 70%;
+  }
+
+  .search-bar-wrapper{
+    width: 70%;
+  }
+
+  .search-box-input{
+    width: 70%;
+  }
+    
+}
+
+@media screen and (max-width: 1400px) and (min-width: 801px) {
+  .box-container{
+    width: 50%;
+    margin-left: 2px;
+  }
+  .ingrediente{
+    width: 40%;
+  }
+}
+
+
+@media screen and (max-width: 1100px) and (min-width: 100px) {
+  .box-container{
+    width: 80%;
+    margin-left: 8%;
+  }
+  .ingrediente{
+    width: 40%;
   }
 }
