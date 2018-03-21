@@ -23,6 +23,7 @@
             <div class="dropdown">
               <button class="dropbtn"><a href="./html/MyAccount.html">My Account</a></button>
               <div class="dropdown-content">
+                <a href="./html/myRecipes.html">My Recipes</a>
                 <a href="./html/Login.html">Login</a>
                 <a href="./html/Register.html">Register</a>
               </div>
@@ -32,8 +33,8 @@
       </header>
       <div class="bigcontainer">
       		 <div class="smallcontainer">
-              <p class="pfilter">Regim alimentar</p>
               <div class="containerfilter">
+                 <p class="pfilter">Regim alimentar</p>
                   <div class="scroll">
                   <form>
                           <input type="checkbox" id="ingredient1">
@@ -48,15 +49,16 @@
                               <label for="ingredient5">Hidric</label>
                           <input type="checkbox" id="ingredient6">
                               <label for="ingredient6">Hidrozaharat</label>
-                          <input type="checkbox" id="ingredient6">
-                              <label for="ingredient6">Hipoproteic</label>
-                          <input type="checkbox" id="ingredient6">
-                              <label for="ingredient6">Hiposodat</label>
+                          <input type="checkbox" id="ingredient7">
+                              <label for="ingredient7">Hipoproteic</label>
+                          <input type="checkbox" id="ingredient8">
+                              <label for="ingredient8">Hiposodat</label>
                   </form>
               </div>
           </div>
-          <p class="pfilter">Stil de viata </p>
+          
           <div class="containerfilter"> 
+            <p class="pfilter">Stil de viata </p>
               <form>
                       <input type="checkbox" id="aragaz">
                           <label for="aragaz">Vegan</label>
@@ -64,16 +66,17 @@
                           <label for="plita">Vegetarian</label>
               </form>
       </div>
-      <p class="pfilter">Practica spirituala</p>
       <div class="containerfilter">
+          <p class="pfilter">Practica spirituala</p>
           <form>
                   <input type="checkbox" id="chestie1">
                       <label for="chestie1">Post</label>
           </form>
     </div>
 
-    <p class="pfilter">Gastronomie</p>
+    
       <div class="containerfilter">
+        <p class="pfilter">Gastronomie</p>
           <form>
                   <input type="checkbox" id="gastronomie1">
                       <label for="gastronomie1">Frantuzeasca</label>
@@ -88,8 +91,9 @@
           </form>
     </div>
 
-    <p class="pfilter">Dificultate</p>
+    
       <div class="containerfilter">
+        <p class="pfilter">Dificultate</p>
           <form>
                   <input type="checkbox" id="dificultate1">
                       <label for="dificultate1">Usoara</label>
@@ -99,14 +103,8 @@
                       <label for="dificultate3">Grea</label>
           </form>
     </div>
-     <p class="pfilter">Timp</p>
-       <div class="containerfilter1">
-          <input type="range" min="30" max="120" value="30" id="myRange">
-          <p>Value: <span id="demo"></span> min</p>
-      </div>
-
-      <p class="pfilter">Dotari bucatarie</p>
       <div class="containerfilter">
+      <p class="pfilter">Dotari bucatarie</p>
           <form>
                   <input type="checkbox" id="dotare1">
                       <label for="dotare1">Aragaz</label>
@@ -118,14 +116,18 @@
                       <label for="dotare4">Robot de bucatarie</label>
           </form>
     </div>
-
+       <div class="containerfilter">
+         <p class="pfilter">Timp</p>
+          <input type="range" min="10" max="120" value="10" class="slider" id="myRange">
+          <p>Minute: <span id="demo"></span></p>
+      </div>
 
     <a href="" class="button button-accent">Find Recipes</a>
  </div>
       <section class="showcase">
-      	
+      	  <h2>New recipes</h2>
         <div class="grid">
-           <h2>New recipes</h2>
+         
           	<div>
     			<figure class="box-img"><img src="./img/img1.jpg" alt=""></figure>
         </div>
@@ -170,8 +172,8 @@
   <p>Copyright &copy; 2018 Cuisine Web Helper</p>
   <a href="mailto:contacts@cuh.com"><p>Contact us</p></a>
 
-  </footer>    
-    <script>
+  </footer>  
+  <script>
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
     output.innerHTML = slider.value;
@@ -179,6 +181,6 @@
     slider.oninput = function() {
       output.innerHTML = this.value;
     }
-    </script>
+    </script>  
     </body>
   </html>
