@@ -83,7 +83,11 @@ input[type="password"]{
     font-size: 15px;
     color: white;
     width:100%;
+<<<<<<< HEAD
     padding:15px;
+=======
+    height: 8%;
+>>>>>>> 435efcb8c490d8bd53dfcff8d4ac60948967596d
     cursor: pointer;
     background-color: #0033FF;
     border: 0;
