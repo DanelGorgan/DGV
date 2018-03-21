@@ -53,7 +53,17 @@ input[type="password"]{
     width:30px;
     margin-top: 4px;
 }
+
+#login-checkbox1{
+    float: left;
+    width:30px;
+    margin-top: 4px;
+}
+
 #showPassword{
+    margin: 0 0 10% 0;
+}
+#showPassword1{
     margin: 0 0 10% 0;
 }
 
@@ -73,7 +83,11 @@ input[type="password"]{
     font-size: 15px;
     color: white;
     width:100%;
+<<<<<<< HEAD
+    padding:15px;
+=======
     height: 8%;
+>>>>>>> 435efcb8c490d8bd53dfcff8d4ac60948967596d
     cursor: pointer;
     background-color: #0033FF;
     border: 0;
