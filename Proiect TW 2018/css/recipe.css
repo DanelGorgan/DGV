@@ -227,7 +227,7 @@ div.scroll {
   float: left;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   padding: 10px;
-  margin-left: 10px;
+  margin-left: 1%;
 
 }
 
@@ -485,7 +485,6 @@ input[type=checkbox] + label:active:before{
   }
   .box-container{
     width: 90%;
-
   }
   .ingrediente{
     width: 80%;
@@ -494,6 +493,10 @@ input[type=checkbox] + label:active:before{
     margin-left: 20px;
     margin-right: 20px;
 
+  }
+
+  p{
+    display: inline;
   }
 
   header{
@@ -529,7 +532,7 @@ input[type=checkbox] + label:active:before{
 @media screen and (max-width: 1100px) and (min-width: 100px) {
   .box-container{
     width: 80%;
-    margin-left: 8%;
+    margin-left: 6.3%;
   }
   .ingrediente{
     width: 40%;
