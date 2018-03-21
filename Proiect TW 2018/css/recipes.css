@@ -9,6 +9,7 @@ div.gallery:hover {
 div.gallery img {
   width: 100%;
   height: auto;
+  position: relative;
 }
 
 div.desc {
@@ -36,6 +37,17 @@ div.desc {
 .test{
   float: none;
 }
+.bigcontainer{
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 0;
+}
+h4{
+  margin-bottom:0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
 
 @media only screen and (max-width: 700px) {
   .responsive {
