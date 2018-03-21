@@ -376,6 +376,11 @@ input[type=checkbox] + label:active:before{
 
 
 /* medias */
+@media screen and (max-width: 1250px) and (min-width: 650px){
+  .smallcontainer{
+    padding-left: 25%;
+  }
+}
 @media screen and (max-width: 1250px) {
   .bigcontainer{
     overflow: hidden;
