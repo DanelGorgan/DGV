@@ -8,7 +8,7 @@ body{
   margin: 0;
 }
 
-.h1{
+h1{
   text-align: center;   
 }
 
@@ -33,8 +33,13 @@ p#subtitle{
 .container1{
   width: 98.5%;
   margin: auto;
+  margin-left: 5%;
   overflow: hidden;
 }
+
+
+
+
 
 .showcaserecipe{
   float: left;
@@ -469,10 +474,40 @@ input[type=checkbox] + label:active:before{
 }
 
 
+/*--------*/
+
 .button-accent:hover, .button-accent.focus{
   background: #ddd;
   color: black;
 }
+
+.tag {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+.center{
+  display: block;
+  text-align: center;
+  margin: 0 auto 20px; 
+  width: 50%;
+  height: 400px;
+}
+
+#imagine{
+  width: 22%;
+  height: auto;
+}
+
+
+
 
 @media screen and (max-width: 600px) {
   .bigcontainer{
@@ -494,6 +529,20 @@ input[type=checkbox] + label:active:before{
     margin-right: 20px;
 
   }
+  
+  #imagine{
+    width: 85%;
+  }
+
+  .center{
+    width: 70%;
+    height: auto;
+  }
+
+  .navbar{
+    margin-top: 0;
+  }
+
 
   p{
     display: inline;
@@ -515,6 +564,8 @@ input[type=checkbox] + label:active:before{
   .search-box-input{
     width: 70%;
   }
+
+
     
 }
 
@@ -526,6 +577,13 @@ input[type=checkbox] + label:active:before{
   .ingrediente{
     width: 40%;
   }
+  .search-box-input{
+    width: 60%;
+  }
+
+  .search-bar-wrapper{
+    width: 60%;
+  }
 }
 
 
@@ -534,7 +592,23 @@ input[type=checkbox] + label:active:before{
     width: 80%;
     margin-left: 6.3%;
   }
-  .ingrediente{
-    width: 40%;
+  .search-bar-wrapper{
+    width: 50%;
   }
+  .center{
+    width: 60%;
+  }
+
+}
+
+@media screen and (max-width: 800px) and (min-width: 700px) {
+  .navbar{
+    margin-top: 0;
+  }
+
+  .center{
+    width: 50%;
+    height: auto;
+  }
+
 }
