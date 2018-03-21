@@ -1,8 +1,8 @@
   <!DOCTYPE html>
-  <html>
+  <html lang="en">
     <head>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width" initial-scale="1">
+      <meta name="viewport" content="width=device-width">
       <title>CuH | Home Page</title>
       <link rel="stylesheet" href="./css/style.css">
     </head>
@@ -10,7 +10,7 @@
       <header>
         <div class="container">
         	<div id="branding">
-              <h1><a href="./index.html"><img src="./img/chef.png"></a></h1>
+              <h1><a href="./index.html"><img src="./img/chef.png" alt=""></a> </h1>
           </div>
           <div class="search-bar-wrapper">
             <input class="search-box-input" type="text" placeholder="Search...">
@@ -18,10 +18,14 @@
           </div>
           <nav class="navbar">
             <div class="dropdown">
-              <button class="dropbtn"><a href="./html/recipes.html">Recipes</a></button>
+              <form action="./html/recipes.html" method="get">
+              <button class="dropbtn">Recipes</button>
+              </form>
             </div>
             <div class="dropdown">
-              <button class="dropbtn"><a href="./html/MyAccount.html">My Account</a></button>
+              <form action="./html/MyAccount.html" method="get">
+              <button class="dropbtn">My Account</button>
+              </form>
               <div class="dropdown-content">
                 <a href="./html/myRecipes.html">My Recipes</a>
                 <a href="./html/Login.html">Login</a>
