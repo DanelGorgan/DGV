@@ -15,6 +15,10 @@ body{
   margin: auto;
   overflow: hidden;
 }
+form:hover{
+  cursor: pointer;
+
+}
 
 .showcaserecipe{
   float: left;
