@@ -48,9 +48,24 @@ input[type="password"]{
     padding-left:60px;
 }
 
+#login-checkbox{
+    float: left;
+    width:30px;
+    margin-top: 4px;
+}
+#showPassword{
+    margin: 0 0 10% 0;
+}
+
 .color{
     background: #f2f2f2;
-    margin-bottom: 10%;
+    margin-bottom: 10%;  
+}
+.color:nth-of-type(3){
+    margin-bottom: 5%;  
+}
+.color:nth-of-type(4){
+    margin-bottom: 5%;  
 }
 
 .register-form button{
