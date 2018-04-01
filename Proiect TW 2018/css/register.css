@@ -48,13 +48,13 @@ input[type="password"]{
     padding-left:60px;
 }
 
-#login-checkbox{
+#register-checkbox{
     float: left;
     width:30px;
     margin-top: 4px;
 }
 
-#login-checkbox1{
+#register-checkbox1{
     float: left;
     width:30px;
     margin-top: 4px;
