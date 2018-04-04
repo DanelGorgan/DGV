@@ -3,6 +3,7 @@
 
 <head> 
     <link rel="stylesheet" href="../css/register.css">
+    <script type="text/javascript" src="../javascriptFiles/register.js"></script>
     <meta name="viewport" content="width=device-width">
     <meta charset="utf-8">
     <title>Register</title>
@@ -18,14 +19,14 @@
                     <input type="email" placeholder="Email">
                 </div>
                 <div class="color">
-                    <input type="password" placeholder="Password">
+                    <input type="password" id="pword1" placeholder="Password">
                 </div>
-                <input id="register-checkbox" type="checkbox"> <p id="showPassword">Show password</p>
+                <input id="register-checkbox" type="checkbox" onclick="showPassword1()"> <p id="showPassword">Show password</p>
                 <div class="color">
-                    <input type="password" placeholder="Confirm Password">
+                    <input type="password" id="pword2" placeholder="Confirm Password">
                 </div>
-                <input id="register-checkbox1" type="checkbox"> <p id="showPassword1">Show password</p>
-                <button> REGISTER </button>
+                <input id="register-checkbox1" type="checkbox" onclick="showPassword2()" <p id="showPassword1">Show password</p>
+                <input type="Submit" value="REGISTER">
                 <p class="message"> Already have an accout?  <a href="./Login.html"> Sign in </a> </p>
             </div>
         </div>    
