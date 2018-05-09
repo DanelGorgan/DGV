@@ -7,11 +7,8 @@ var http = require("http"),
 http.createServer(function(request, response) {
 
     var filename = path.join(process.cwd(), request.url);
-    
-    console.log("request url is  " + request.url);
-    console.log("Process is " + process.cwd());
-    console.log(filename);
-  fs.exists(filename, function(exists) {
+
+    fs.exists(filename, function(exists) {
     if(!exists) {
       response.writeHead(404, {"Content-Type": "text/plain"});
       response.write("404 Not Found\n");
@@ -19,7 +16,7 @@ http.createServer(function(request, response) {
       return;
     }
     console.log(filename);
-
+  
 	if (fs.statSync(filename).isDirectory()) filename += '/index.html';
 
     fs.readFile(filename, "binary", function(err, file) {
