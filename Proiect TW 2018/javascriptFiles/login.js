@@ -12,6 +12,10 @@ function validateForm() {
     }
 }
 
+//vezi MVC
+//fa cookie ca atunci cand unn utilizator se logheaza, la a doua logare sa apara sugestia cand scrie
+//Sesiuni. Atunci cand se logheaza, dupa c inchide browser-ul, cand intra inapoi sa nu fie delogat userul
+
 function showPassword(){
     var password = document.getElementById('pword');
     if (password.type == "password"){

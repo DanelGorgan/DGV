@@ -8,7 +8,7 @@
     </head>
     <body>
       <header>
-        <div class="container">
+        <div class="container" id="cont">
         	<div id="branding">
               <h1><a href="./index.html"><img src="./img/chef.png" alt=""></a> </h1>
           </div>
@@ -27,7 +27,7 @@
               <button class="dropbtn">My Account</button>
               </form>
               <div class="dropdown-content">
-                <a href="./html/myRecipes.html">My Recipes</a>
+                <a href="./html/myRecipes.html" onclick="myFunction()">My Recipes</a>
                 <a href="./html/Login.html">Login</a>
                 <a href="./html/Register.html">Register</a>
               </div>
@@ -177,14 +177,6 @@
   <a href="mailto:contacts@cuh.com"><p>Contact us</p></a>
 
   </footer>  
-  <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-    
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-    </script>  
+    <script type="text/javascript" src="../javascriptFiles/index.js"></script>  
     </body>
   </html>

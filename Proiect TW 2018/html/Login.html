@@ -3,24 +3,25 @@
 <head> 
     <link rel="stylesheet" href="../css/Login.css">
     <meta name="viewport" content="width=device-width">
-    <script type="text/javascript" src="../javascriptFiles/login.js"></script>
     <meta charset="utf-8">
     <title>Login</title>
 </head>    
     <body>
         <div class="login-page">
-            <form class="login-form" onSubmit="return validateForm();" action="../index.html">
+            <form class="login-form" name="myform" onSubmit="return validateForm();" action="../index.html" method="GET">
                 <h1>Welcome!</h1>
                 <div class="color">
-                    <input type="email" id="usr" placeholder="Email">
+                    <input type="email" name="client" id="usr" placeholder="Email">
                 </div>
                 <div class="color">
                     <input type="password" id="pword" placeholder="Password">
                 </div>
                 <input id="login-checkbox" type="checkbox" onclick="showPassword()"> <p id="showPassword">Show password</p>
-                <input type="Submit" value="LOGIN">
+                <input type="Submit" value="LOGIN" onclick="readCookie()">
                 <p class="message"> Don't have an account?  <a href="./Register.html"> Create an account </a> </p>
             </form>
-        </div>   
+        </div> 
+    <script type="text/javascript" src="../javascriptFiles/login.js"></script>      
+    <script type="text/javascript" src="../javascriptFiles/cookie.js"></script>
     </body>
 </html>
