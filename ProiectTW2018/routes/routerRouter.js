@@ -39,7 +39,6 @@ module.exports.recipesRoute = (request, response) => {
             }
         }
         else {
-            console.log('suntem aici')
             response.writeHead(200, {'Content-Type': contentType});
             response.end(content, 'utf-8');
         }

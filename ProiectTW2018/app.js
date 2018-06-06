@@ -1,6 +1,12 @@
 const serverHandle = require('./helpers/serverHandler.js')
 const http = require('http');
 const router = require('./routes/routerRouter')
+const mongo = require('./Database/connection')
+
+
+//connect with mongoose
+mongo.mongoose
+
 
 http.createServer(function (req, res) {
     var path = req.url;

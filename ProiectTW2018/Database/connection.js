@@ -11,3 +11,5 @@ mongoose
     .catch(err => {
         console.log(`Error while connecting to db ${err}`);
     })
+
+exports.mongoose = mongoose;
