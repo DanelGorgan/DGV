@@ -14,6 +14,7 @@ http.createServer(function (req, res) {
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
+            //aici o sa punem functia care pune in baza de date
             break;
         case '/recipe':
             router.recipesRoute(req, res);
@@ -25,6 +26,9 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/Login':
+            router.recipesRoute(req, res);
+            break;
+        case '/myAccount':
             router.recipesRoute(req, res);
             break;
         default:
