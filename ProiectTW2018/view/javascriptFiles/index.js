@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // document.body.innerHTML="";
 // //document.getElementById("cont").innerHTML ="./html/myRecipes.html";
 //
@@ -12,3 +13,4 @@
 //
 //
 //
+

@@ -1,4 +1,4 @@
-function writeCookie(){
+/*function writeCookie(){
     var cookievalue = escape(document.myform.client.value) + ";";
     document.cookie="name=" + cookievalue;
 } 
@@ -13,4 +13,4 @@ function readCookie(){
         document.write("Key is: " +  name + "and Values is: " + value); 
     }
 }
-
+*/
