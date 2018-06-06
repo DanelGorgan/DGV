@@ -1,14 +1,14 @@
 const serverHandle = require('./helpers/serverHandler.js')
 const http = require('http');
-const router = require('./routes/routerRouter')
-const mongo = require('./Database/connection')
-
+const mongo = require('./Database/connection.js')
+const router = require('./routes/Routes')
 
 //connect with mongoose
 mongo.mongoose
 
 
 http.createServer(function (req, res) {
+
     var path = req.url;
     console.log('Requestul este ' + path)
     switch (path) {
@@ -17,7 +17,7 @@ http.createServer(function (req, res) {
             break;
         case '/recipe':
             router.recipesRoute(req, res);
-            break;    
+            break;
         case '/myRecipes':
             router.recipesRoute(req, res);
             break;
@@ -29,9 +29,8 @@ http.createServer(function (req, res) {
             break;
         default:
             serverHandle.serverHandler(req, res);
-           // res.send({message: 'success'})
+        // res.send({message: 'success'})
     }
-
 }).listen(8125, () => {
     console.log('Server running at http:localhost:8125/');
 });

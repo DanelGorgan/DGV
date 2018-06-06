@@ -6,15 +6,15 @@ let UserSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        trim = true
+        trim: true
     },
-    email:{
+    email: {
         type: String,
         required: true,
         unique: true,
-        trim = true
+        trim: true
     },
-    password:{
+    password: {
         type: String,
         required: true
     }
@@ -22,35 +22,35 @@ let UserSchema = new mongoose.Schema({
 
 let User = mongoose.model('User', UserSchema)
 
-UserSchema.methods.comparePassword = function(password){
+UserSchema.methods.comparePassword = function (password) {
     return this.password == password;
 }
 
-module.exports.create = (username,email,password) =>{
+module.exports.create = (username, email, password) => {
     let newUser = new User({
         username: username,
         email: email,
         password: password
     })
 
-    return newUser.save().then(user =>{
-        return{
+    return newUser.save().then(user => {
+        return {
             _id: user._id,
             email: user.email
         }
     });
 }
 
-module.exports.login = (email, password) =>{
+module.exports.login = (email, password) => {
     return User
         .findOne({email: email}).then(user => {
             return user.comparePassword(password)
-                       .then( itMatches => {
-                           if (itMatches){
-                               return Promise.resolve();
-                           } else{
-                               return Promise.reject();
-                           }
-                       });
+                .then(itMatches => {
+                    if (itMatches) {
+                        return Promise.resolve();
+                    } else {
+                        return Promise.reject();
+                    }
+                });
         });
 }
