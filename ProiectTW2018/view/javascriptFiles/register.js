@@ -24,8 +24,6 @@ function validateForm(){
     var pw1 = document.getElementById('pword1').value;
     var pw2 = document.getElementById('pword2').value;
 
-    console.log(pw1 + ' ' + pw2);
-    
     if (pw1 === pw2){
         alert("Passwords match!");
         return true;
@@ -35,5 +33,4 @@ function validateForm(){
         return false;
     }
 
-    return true;
 }

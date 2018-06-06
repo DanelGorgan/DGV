@@ -6,13 +6,13 @@ let UserSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        trim = true
+        trim : true
     },
     email:{
         type: String,
         required: true,
         unique: true,
-        trim = true
+        trim : true
     },
     password:{
         type: String,
@@ -26,7 +26,7 @@ UserSchema.methods.comparePassword = function(password){
     return this.password == password;
 }
 
-module.exports.create = (username,email,password) =>{
+module.exports.create = (username,email,password) => {
     let newUser = new User({
         username: username,
         email: email,
