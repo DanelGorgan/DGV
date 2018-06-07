@@ -1,4 +1,4 @@
-//var createUser = require ('../../Database/user.js')
+//var createUser = require ('../../models/user.js')
 
 function showPassword1(){
     var password = document.getElementById('pword1');

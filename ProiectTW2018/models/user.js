@@ -6,21 +6,14 @@ let UserSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-<<<<<<< HEAD
-        trim : true
-=======
         trim: true
->>>>>>> 57440339896a06545b48220ef04f2193d7e772aa
+
     },
     email: {
         type: String,
         required: true,
         unique: true,
-<<<<<<< HEAD
-        trim : true
-=======
         trim: true
->>>>>>> 57440339896a06545b48220ef04f2193d7e772aa
     },
     password: {
         type: String,
@@ -34,11 +27,8 @@ UserSchema.methods.comparePassword = function (password) {
     return this.password == password;
 }
 
-<<<<<<< HEAD
-module.exports.create = (username,email,password) => {
-=======
 module.exports.create = (username, email, password) => {
->>>>>>> 57440339896a06545b48220ef04f2193d7e772aa
+
     let newUser = new User({
         username: username,
         email: email,
