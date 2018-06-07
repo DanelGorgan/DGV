@@ -3,6 +3,7 @@ const http = require('http');
 const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
 const register = require('./controllers/register.controller')
+const login = require('./controllers/login.controller')
 // const bodyParser = require('body-parser')
 
 //connect with mongoose
@@ -27,12 +28,11 @@ http.createServer(function (req, res) {
             break;
         case '/Register':
             router.recipesRoute(req, res);
-            //aici o sa punem functia care pune in baza de date
-            console.log('intram in register')
             register.register(req,res)
             break;
         case '/Login':
             router.recipesRoute(req, res);
+            login.login(req,res)
             break;
         case '/myAccount':
             router.recipesRoute(req, res);

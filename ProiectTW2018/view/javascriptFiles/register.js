@@ -26,11 +26,28 @@ function validateForm(){
 
     if (pw1 === pw2){
         alert("Passwords match!");
-        return true;
     }
     else{
         alert("Passwords doesn't match!");
-        return false;
     }
+
+    var url = 'http://localhost:8125/Register';
+    var data = {
+        username: un,
+        email: em,
+        password: pw
+    };
+    console.log(data.em + ' ' + data.password + ' ' + data.username);
+
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-type", "application/json");
+
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200){
+            console.log('nu stiu ce fac, manca-ti-as');
+        }
+    }
+
+    xhr.send(JSON.stringify(data));
 
 }

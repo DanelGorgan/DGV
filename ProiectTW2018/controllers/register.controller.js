@@ -7,17 +7,13 @@ module.exports.register = (req, res) => {
     });
     req.on('end', () => {
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end(JSON.parse(body));
+        body = JSON.parse(body)
+        let ok = UserModel.create(body.username, body.email, body.password)
+        if (ok) {
+            res.end('Success');
+        } else {
+            res.end('Failure');
+        }
     });
 }
-
-// module.exports.register = (req, res) => {
-//     console.log('we re here');
-//     console.log(req.body.email)
-//     UserModel
-//         .create(req.body.email,req.body.password)
-//         .then (user => {
-//             res.end(user);
-//         })
-// }
 

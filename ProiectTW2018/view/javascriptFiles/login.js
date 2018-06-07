@@ -1,12 +1,12 @@
 var xhr = new XMLHttpRequest();
 
 function validateForm() {
-    var un = document.getElementById('usr').value;
+    var em = document.getElementById('usr').value;
     var pw = document.getElementById('pword').value;
     
     var url = 'http://localhost:8125/Login';
     var data = {
-        username: un,
+        email: em,
         password: pw
     };
     console.log(data.username + ' ' + data.password);
@@ -20,12 +20,9 @@ function validateForm() {
         }
     }
 
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(data);
 
 }
-//vezi MVC
-//fa cookie ca atunci cand unn utilizator se logheaza, la a doua logare sa apara sugestia cand scrie
-//Sesiuni. Atunci cand se logheaza, dupa c inchide browser-ul, cand intra inapoi sa nu fie delogat userul
 
 function showPassword(){
     var password = document.getElementById('pword');
@@ -35,3 +32,7 @@ function showPassword(){
         password.type="password";
     }
 }
+
+//vezi MVC
+//fa cookie ca atunci cand unn utilizator se logheaza, la a doua logare sa apara sugestia cand scrie
+//Sesiuni. Atunci cand se logheaza, dupa c inchide browser-ul, cand intra inapoi sa nu fie delogat userul
