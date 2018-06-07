@@ -13,7 +13,7 @@ let UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        trim: true
+        trim : true
     },
     password: {
         type: String,
@@ -42,7 +42,8 @@ let User = mongoose.model('User', UserSchema)
 //     return bcrypt.compare(password, this.password);
 // }
 
-module.exports.create = (username, email, password) => {
+
+module.exports.create = (username,email,password) => {
     let newUser = new User({
         username: username,
         email: email,
