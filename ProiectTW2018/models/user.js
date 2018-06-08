@@ -38,13 +38,8 @@ UserSchema.pre('save', function (next) {
 
 let User = mongoose.model('User', UserSchema)
 
-// UserSchema.methods.comparePassword = function (password) {
-//     return bcrypt.compare(password, this.password);
-// }
-
-
 module.exports.check = (username, email,callback) => {
-     User.find({email: email, username: username}, function (err, user) {
+    User.find({email: email, username: username}, function (err, user) {
         callback(user)
     });
 }
