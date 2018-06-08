@@ -6,7 +6,7 @@ module.exports.serverHandler = (request, res) => {
 
     var filePath = '.' + request.url;
     if (filePath == './') {
-        filePath = './view/test.ejs';
+        filePath = './view/html/recipe.ejs';
     } else {
         filePath = './view' + request.url;
     }
