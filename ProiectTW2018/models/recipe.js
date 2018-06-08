@@ -68,7 +68,6 @@ module.exports.search = (name, callback) => {
         },
 
         function (err, recipe) {
-            console.log(recipe)
             callback(recipe)
         }
     )
