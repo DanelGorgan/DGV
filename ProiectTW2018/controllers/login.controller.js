@@ -6,16 +6,18 @@ module.exports.login = (req, res) => {
         body += chunk;
     });
     req.on('end', () => {
-        res.writeHead(200, {'Content-Type': 'text/plain'});
         body = JSON.parse(body)
         UserModel
             .login(body.email, body.password)
             .then(() => {
+                res.writeHead(200, {'Content-Type': 'text/plain'});
                 res.end('Success');
+                console.log('success')
             })
             .catch(err => {
-                console.log('eroarea este ' + err)
+                res.writeHead(200, {'Content-Type': 'text/plain'});
                 res.end('Failure')
+                console.log('eroarea este ' + err)
             })
     });
 }

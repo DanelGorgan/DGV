@@ -13,7 +13,7 @@ let UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        trim : true
+        trim: true
     },
     password: {
         type: String,
@@ -43,15 +43,20 @@ let User = mongoose.model('User', UserSchema)
 // }
 
 
-module.exports.create = (username,email,password) => {
+module.exports.check = (username, email,callback) => {
+     User.find({email: email, username: username}, function (err, user) {
+        callback(user)
+    });
+}
+module.exports.create = (username, email, password) => {
     let newUser = new User({
         username: username,
         email: email,
         password: password
     })
-
     return newUser.save().then(user => {
         return {
+            username: user.username,
             _id: user._id,
             email: user.email
         }
@@ -62,23 +67,20 @@ module.exports.login = (email, password) => {
     return User
         .findOne({email: email})
         .then(user => {
-            console.log(user)
+            console.log('Userul este ' + user)
             console.log(password)
-            // return user
-            //     .comparePassword(password)
-            let ok = bcrypt.compare(password, user.password)
-            console.log('ok este ' + ok)
-            if (ok) {
-                return Promise.resolve()
+            if (user) {
+                return bcrypt.compare(password, user.password)
+                    .then(itMatches => {
+                        console.log('itMatches este ' + itMatches)
+                        if (itMatches) {
+                            return Promise.resolve();
+                        } else {
+                            return Promise.reject();
+                        }
+                    });
             } else {
-                return Promise.reject()
+                 return Promise.reject();
             }
-            // .then(itMatches => {
-            //     if (itMatches) {
-            //         return Promise.resolve();
-            //     } else {
-            //         return Promise.reject();
-            //     }
-            // });
         });
 }

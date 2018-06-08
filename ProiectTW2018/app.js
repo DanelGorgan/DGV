@@ -27,19 +27,28 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/Register':
+            //de separat recipesRoute de register => facem alta cale
             router.recipesRoute(req, res);
-            register.register(req,res)
+            // de facut o alta ruta aici /Register/submit de ex
+            break;
+        case '/Register/submit':
+            if (req.method == 'POST') {
+                register.register(req, res)
+            }
             break;
         case '/Login':
             router.recipesRoute(req, res);
-            login.login(req,res)
+            break;
+        case '/Login/submit':
+            if (req.method == 'POST') {
+                login.login(req, res)
+            }
             break;
         case '/myAccount':
             router.recipesRoute(req, res);
             break;
         default:
             serverHandle.serverHandler(req, res);
-        // res.send({message: 'success'})
     }
 }).listen(8125, () => {
     console.log('Server running at http:localhost:8125/');

@@ -5,15 +5,19 @@ module.exports.register = (req, res) => {
     req.on('data', chunk => {
         body += chunk;
     });
-    req.on('end', () => {
-        res.writeHead(200, {'Content-Type': 'text/plain'});
+    req.on('end', function () {
         body = JSON.parse(body)
-        let ok = UserModel.create(body.username, body.email, body.password)
-        if (ok) {
-            res.end('Success');
-        } else {
-            res.end('Failure');
-        }
+        console.log(body)
+        UserModel.check(body.username, body.email, (user) => {
+            if (user.length === 0) {
+                UserModel.create(body.username, body.email, body.password)
+                res.writeHead(200, {"Content-Type": "text/plain"});
+                res.end('Success')
+            } else {
+                res.writeHead(200, {"Content-Type": "text/plain"});
+                res.end('Failure')
+            }
+        })
     });
 }
 
