@@ -15,12 +15,21 @@ function validateForm() {
     xhr.setRequestHeader("Content-type", "application/json");
 
     xhr.onreadystatechange = function(){
-        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200){
-            console.log('nu stiu ce fac, manca-ti-as');
+        if (xhr.readyState == XMLHttpRequest.DONE){
+            //console.log('xhr.readyState=XMLHttpRequest.done');
+            if (xhr.status==200){   
+                //console.log('xhr response text is ' + xhr.responseText);
+                if (xhr.responseText === "Success"){
+                    alert("You have succesfully logged in!");
+                    window.location.href = "http://localhost:8125/";
+                }else{
+                    alert("Wrong user or password! Try again.");
+                }
+            }
         }
     }
 
-    xhr.send(JSON.stringify(data);
+    xhr.send(JSON.stringify(data));
 
 }
 
