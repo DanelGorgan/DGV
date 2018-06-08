@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const stringParser = require('../helpers/stringParser')
 
 const recipeSchema = new mongoose.Schema({
     name: {
@@ -28,7 +29,7 @@ const recipeSchema = new mongoose.Schema({
     },
     regim: {
         required: true,
-        type: String
+        type: Array
     },
     dotari: {
         required: true,
@@ -50,10 +51,27 @@ const recipeSchema = new mongoose.Schema({
 
 const Recipes = mongoose.model('recipes', recipeSchema);
 
-module.exports.check = (name, description,callback) => {
+module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
         callback(recipe)
     });
+}
+
+module.exports.search = (name, callback) => {
+
+    let newName = stringParser.parseName(name)
+    Recipes.find({
+            name: {
+                '$regex': decodeURIComponent(newName).replace(/[()]/g, ''),
+                '$options': 'i'
+            }
+        },
+
+        function (err, recipe) {
+            console.log(recipe)
+            callback(recipe)
+        }
+    )
 }
 
 module.exports.create = (name, description, style,
@@ -66,25 +84,20 @@ module.exports.create = (name, description, style,
         difficulty: difficulty,
         link: link,
         post: post,
-        regim: regim,
+        regim: [],
         dotari: [],
         gastronomy: gastronomy,
         duration: duration,
         ingredients: []
     });
-     for (let i = 0; i< dotari.length; i++) {
-         newRecipe.dotari.push(dotari[i])
-     }
-    for (let i = 0; i< ingredients.length; i++) {
+    for (let i = 0; i < dotari.length; i++) {
+        newRecipe.dotari.push(dotari[i])
+    }
+    for (let i = 0; i < ingredients.length; i++) {
         newRecipe.ingredients.push(ingredients[i])
+    }
+    for (let i = 0; i < regim.length; i++) {
+        newRecipe.regim.push(regim[i])
     }
     return newRecipe.save();
 }
-
-// module.exports.get = () => {
-//     return Todo.find();
-// }
-//
-// module.exports.delete = id => {
-//     return Todo.findOneAndRemove({_id : id});
-// }

@@ -2,17 +2,20 @@ const serverHandle = require('./helpers/serverHandler.js')
 const http = require('http');
 const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
+const stringParser = require('./helpers/stringParser')
 const register = require('./controllers/register.controller')
 const login = require('./controllers/login.controller')
 const addRecipe = require('./controllers/addRecipe.controller')
+const search = require('./controllers/search.controller')
 
 //connect with mongoose
 mongo.mongoose
 
 http.createServer(function (req, res) {
 
-    let path = req.url;
-    console.log('Requestul este ' + path)
+    let query = stringParser.parseQuery(req,res);
+    let path = req.url.replace(/%20/g, " ");
+
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
@@ -48,6 +51,11 @@ http.createServer(function (req, res) {
         case '/addRecipe/submit':
             if (req.method == 'POST') {
                 addRecipe.addR(req, res)
+            }
+            break;
+        case `/search?name=${query.name}`:
+            if (req.method == 'GET') {
+                search.search(req, res, query)
             }
             break;
         default:
