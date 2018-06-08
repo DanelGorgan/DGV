@@ -11,15 +11,17 @@ const search = require('./controllers/search.controller')
 const filter = require('./controllers/filter.controller')
 const latest = require('./controllers/latest.controller')
 
+
 //connect with mongoose
 mongo.mongoose
 
 http.createServer(function (req, res) {
 
-    let query = stringParser.parseQuery(req,res);
+    let query = stringParser.parseQuery(req, res);
     let path = req.url.replace(/%20/g, " ");
 
     switch (path) {
+
         case '/recipes':
             router.recipesRoute(req, res);
             break;
