@@ -51,6 +51,12 @@ const recipeSchema = new mongoose.Schema({
 
 const Recipes = mongoose.model('recipes', recipeSchema);
 
+module.exports.checkFilter = (json, callback) => {
+    Recipes.find(json, function (err, recipe) {
+        callback(recipe)
+    });
+}
+
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
         callback(recipe)

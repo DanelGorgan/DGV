@@ -1,4 +1,5 @@
 const serverHandle = require('./helpers/serverHandler.js')
+const config = require('./config')
 const http = require('http');
 const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
@@ -7,6 +8,7 @@ const register = require('./controllers/register.controller')
 const login = require('./controllers/login.controller')
 const addRecipe = require('./controllers/addRecipe.controller')
 const search = require('./controllers/search.controller')
+const filter = require('./controllers/filter.controller')
 
 //connect with mongoose
 mongo.mongoose
@@ -53,6 +55,11 @@ http.createServer(function (req, res) {
                 addRecipe.addR(req, res)
             }
             break;
+        case '/filter':
+            if (req.method == 'POST') {
+                filter.filter(req, res)
+            }
+            break;
         case `/search?name=${query.name}`:
             if (req.method == 'GET') {
                 search.search(req, res, query)
@@ -61,7 +68,7 @@ http.createServer(function (req, res) {
         default:
             serverHandle.serverHandler(req, res);
     }
-}).listen(8125, () => {
-    console.log('Server running at http:localhost:8125/');
+}).listen(config.port, () => {
+    console.log(`Server running at http:localhost:${config.port}/`);
 });
 
