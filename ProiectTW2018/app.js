@@ -4,13 +4,10 @@ const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
 const register = require('./controllers/register.controller')
 const login = require('./controllers/login.controller')
-// const bodyParser = require('body-parser')
+const addRecipe = require('./controllers/addRecipe.controller')
 
 //connect with mongoose
 mongo.mongoose
-
-// // create application/json parser
-// var jsonParser = bodyParser.json()
 
 http.createServer(function (req, res) {
 
@@ -27,9 +24,7 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/Register':
-            //de separat recipesRoute de register => facem alta cale
             router.recipesRoute(req, res);
-            // de facut o alta ruta aici /Register/submit de ex
             break;
         case '/Register/submit':
             if (req.method == 'POST') {
@@ -46,6 +41,14 @@ http.createServer(function (req, res) {
             break;
         case '/myAccount':
             router.recipesRoute(req, res);
+            break;
+        case '/addRecipe':
+            router.recipesRoute(req, res);
+            break;
+        case '/addRecipe/submit':
+            if (req.method == 'POST') {
+                addRecipe.addR(req, res)
+            }
             break;
         default:
             serverHandle.serverHandler(req, res);
