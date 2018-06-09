@@ -29,7 +29,7 @@ function validateForm(){
         alert("Passwords doesn't match!");
     }
 
-    var url = 'http://localhost:8125/Register';
+    var url = 'http://localhost:8125/Register/submit';
     var data = {
         username: un,
         email: em,
@@ -38,7 +38,7 @@ function validateForm(){
     console.log(data.email + ' ' + data.password + ' ' + data.username);
 
     xhr.open('POST', url);
-    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.setRequestHeader("Content-type", "text/plain");
 
     xhr.onreadystatechange = function(){
         if (xhr.readyState == XMLHttpRequest.DONE){
