@@ -46,7 +46,11 @@ const recipeSchema = new mongoose.Schema({
     ingredients: {
         type: Array,
         required: true,
-    }
+    },
+    user: {
+        required: true,
+        type: String
+    },
 });
 
 const Recipes = mongoose.model('recipes', recipeSchema);
@@ -81,7 +85,8 @@ module.exports.search = (name, callback) => {
 
 module.exports.create = (name, description, style,
                          difficulty, link, post, regim, dotari,
-                         gastronomy, duration, ingredients) => {
+                         gastronomy, duration, ingredients, user) => {
+    console.log(user)
     let newRecipe = new Recipes({
         name: name,
         description: description,
@@ -93,7 +98,8 @@ module.exports.create = (name, description, style,
         dotari: [],
         gastronomy: gastronomy,
         duration: duration,
-        ingredients: []
+        ingredients: [],
+        user: user
     });
     for (let i = 0; i < dotari.length; i++) {
         newRecipe.dotari.push(dotari[i])

@@ -9,6 +9,7 @@ const login = require('./controllers/login.controller')
 const addRecipe = require('./controllers/addRecipe.controller')
 const search = require('./controllers/search.controller')
 const filter = require('./controllers/filter.controller')
+const latest = require('./controllers/latest.controller')
 
 //connect with mongoose
 mongo.mongoose
@@ -53,6 +54,11 @@ http.createServer(function (req, res) {
         case '/addRecipe/submit':
             if (req.method == 'POST') {
                 addRecipe.addR(req, res)
+            }
+            break;
+        case '/latest':
+            if (req.method == 'POST') {
+                latest.getNew(req, res)
             }
             break;
         case '/filter':
