@@ -61,6 +61,14 @@ module.exports.checkFilter = (json, callback) => {
     });
 }
 
+module.exports.getLatest = (callback) => {
+    console.log('re here')
+    Recipes.find({}, function (err, recipe) {
+        console.log('avem ' + recipe.length)
+        callback(recipe)
+    }).sort({$natural:-1}).limit(5)
+}
+
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
         callback(recipe)

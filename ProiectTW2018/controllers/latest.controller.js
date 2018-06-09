@@ -1,18 +1,20 @@
 const RecipeModel = require('../models/recipe');
 
-module.exports.search = (req, res, query) => {
-    RecipeModel
-        .search(query.name, (recipe) => {
-            let response =[]
-            for (let i = 0; i < recipe.length; i++) {
-                response.push(recipe[i].name)
+module.exports.getNew = (req, res) => {
+    console.log('here')
+    RecipeModel.getLatest((recipes) => {
+        if (recipes.length > 0) {
+            let response = []
+            for (let i = 0; i < recipes.length; i++) {
+                response.push(recipes[i].name)
             }
-            if (recipe.length > 0) {
-                res.end(JSON.stringify(response))
-            } else {
-                res.end('Failure')
-            }
-        })
+            res.writeHead(200, {"Content-Type": "text/plain"});
+            res.end(JSON.stringify(response))
+        } else {
+            res.writeHead(200, {"Content-Type": "text/plain"});
+            res.end('Failure')
+        }
+    })
 }
 
 
