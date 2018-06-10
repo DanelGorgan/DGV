@@ -1,12 +1,10 @@
 const fs = require('fs');
-const server = require('./helpers/serverHandler')
 const ejs = require('ejs');
 const config = require('./config')
 const http = require('http');
 const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
 const stringParser = require('./helpers/stringParser')
-const htmlChecker = require('./helpers/htmlChecker')
 const register = require('./controllers/register.controller')
 const login = require('./controllers/login.controller')
 const addRecipe = require('./controllers/addRecipe.controller')
@@ -40,7 +38,6 @@ http.createServer(function (req, res) {
             if (req.method == 'POST') {
                 register.register(req, res)
             } else {
-                //router.recipesRoute(req, res);
                 renderHtmlDir(req, res)
             }
             break;
@@ -89,10 +86,6 @@ http.createServer(function (req, res) {
 function render(req, res) {
 
     let action = req.url
-    if(action === '/Register' || action === '/Login'){
-        console.log('intram aiaiaiaiaai')
-        server.serverHandler(req,res)
-    }
     if (action == '/') {
         var filePath = './view/index.ejs'
         var htmlContent = fs.readFileSync(filePath, 'utf8');
@@ -123,13 +116,11 @@ function render(req, res) {
             res.end(js, 'binary');
             break;
         case 'r.js':
-            console.log('iaiaiaiaiaiaiaiaiai')
             var js = fs.readFileSync(__dirname + '/view/' + action);
             res.writeHead(200, {'Content-Type': 'text/javascript'});
             res.end(js, 'binary');
             break;
         case '.ico':
-            console.log('-----ico')
             var ico = fs.readFileSync(__dirname + '/view/' + action);
             res.end(ico, 'binary');
             break;
@@ -188,13 +179,11 @@ function renderHtmlDir(req, res) {
             res.end(js, 'binary');
             break;
         case 'r.js':
-            console.log('iaiaiaiaiaiaiaiaiai')
             var js = fs.readFileSync(__dirname + '/view/' + action);
             res.writeHead(200, {'Content-Type': 'text/javascript'});
             res.end(js, 'binary');
             break;
         case '.ico':
-            console.log('am ajuns is pe aici din pacate')
             var ico = fs.readFileSync(__dirname + '/view/' + action);
             res.writeHead(200, {'Content-Type': 'image/jpg'});
             res.end(ico, 'binary');
