@@ -23,7 +23,6 @@ http.createServer(function (req, res) {
     let path = req.url.replace(/%20/g, " ");
 
     switch (path) {
-
         case '/recipes':
             renderHtmlDir(req, res)
             break;
@@ -35,16 +34,12 @@ http.createServer(function (req, res) {
             break;
         case '/Register':
             renderHtmlDir(req, res)
-            break;
-        case '/Register/submit':
             if (req.method == 'POST') {
                 register.register(req, res)
             }
             break;
         case '/Login':
             renderHtmlDir(req, res)
-            break;
-        case '/Login/submit':
             if (req.method == 'POST') {
                 login.login(req, res)
             }
@@ -54,8 +49,6 @@ http.createServer(function (req, res) {
             break;
         case '/addRecipe':
             renderHtmlDir(req, res)
-            break;
-        case '/addRecipe/submit':
             if (req.method == 'POST') {
                 addRecipe.addR(req, res)
             }
@@ -87,7 +80,6 @@ http.createServer(function (req, res) {
 
 function render(req, res) {
     let action = req.url
-    console.log(action)
     if(action == '/') {
         var filePath = './view/index.ejs'
         var htmlContent = fs.readFileSync(filePath, 'utf8');
@@ -117,17 +109,23 @@ function render(req, res) {
 
 function renderHtmlDir(req, res) {
     let action = req.url
+    let json = {
+        name: "Personalizata",
+        ingredients:["apa","paie","si bataie"],
+        description:"descriere"
+    }
+
 
     if(action == '/') {
         var filePath = './view/index.ejs'
         var htmlContent = fs.readFileSync(filePath, 'utf8');
-        var htmlRenderized = ejs.render(htmlContent);
+        var htmlRenderized = ejs.render(htmlContent,json);
         res.end(htmlRenderized, 'binary')
     } else {
         var filePath = './view/html' + action + '.ejs'
         console.log(filePath)
         var htmlContent = fs.readFileSync(filePath, 'utf8');
-        var htmlRenderized = ejs.render(htmlContent);
+        var htmlRenderized = ejs.render(htmlContent,json);
         res.end(htmlRenderized, 'binary')
     }
 
