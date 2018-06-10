@@ -5,7 +5,7 @@ module.exports.recipesRoute = (request, response) => {
 
     var filePath = './view/html' + request.url + '.html';
     var extname = String(path.extname(filePath)).toLowerCase();
-    console.log(filePath)
+    console.log('recipeROutes ' + filePath)
 
     var mimeTypes = {
         '.html': 'text/html',

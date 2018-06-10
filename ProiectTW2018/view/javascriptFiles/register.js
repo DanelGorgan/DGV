@@ -20,6 +20,7 @@ function showPassword2(){
 }
 
 function validateForm(){
+    console.log('asdasdsadasbdjsabdjhsabdbasdj')
     var un = document.getElementById('usr').value;
     var em = document.getElementById('email').value;
     var pw1 = document.getElementById('pword1').value;
@@ -29,7 +30,7 @@ function validateForm(){
         alert("Passwords doesn't match!");
     }
 
-    var url = 'http://localhost:8125/Register/submit';
+    var url = 'http://localhost:8125/Register';
     var data = {
         username: un,
         email: em,
@@ -42,9 +43,9 @@ function validateForm(){
 
     xhr.onreadystatechange = function(){
         if (xhr.readyState == XMLHttpRequest.DONE){
-            //console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log('xhr.readyState=XMLHttpRequest.done');
             if (xhr.status==200){   
-                //console.log('xhr response text is ' + xhr.responseText);
+                console.log('xhr response text is ' + xhr.responseText);
                 if (xhr.responseText === "Success"){
                     alert("You have succesfully registered!");
                     window.location.href = "http://localhost:8125/Login";

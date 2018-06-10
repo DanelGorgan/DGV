@@ -39,7 +39,12 @@ UserSchema.pre('save', function (next) {
 let User = mongoose.model('User', UserSchema)
 
 module.exports.check = (username, email,callback) => {
+    console.log('suntem aici in check')
     User.find({email: email, username: username}, function (err, user) {
+        if(err) {
+            console.log('eroare mancatias')
+        }
+        console.log('avem userul ' + user)
         callback(user)
     });
 }

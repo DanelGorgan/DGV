@@ -6,6 +6,7 @@ module.exports.login = (req, res) => {
         body += chunk;
     });
     req.on('end', () => {
+        console.log("avem " + body)
         body = JSON.parse(body)
         UserModel
             .login(body.email, body.password)

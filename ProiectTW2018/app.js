@@ -6,6 +6,7 @@ const http = require('http');
 const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
 const stringParser = require('./helpers/stringParser')
+const htmlChecker = require('./helpers/htmlChecker')
 const register = require('./controllers/register.controller')
 const login = require('./controllers/login.controller')
 const addRecipe = require('./controllers/addRecipe.controller')
@@ -21,8 +22,11 @@ http.createServer(function (req, res) {
 
     let query = stringParser.parseQuery(req, res);
     let path = req.url.replace(/%20/g, " ");
-
+    htmlChecker.checkPath(path)
     switch (path) {
+        case '/':
+            render(req, res)
+            break;
         case '/recipes':
             renderHtmlDir(req, res)
             break;
@@ -36,7 +40,8 @@ http.createServer(function (req, res) {
             if (req.method == 'POST') {
                 register.register(req, res)
             } else {
-                router.recipesRoute(req, res);
+                //router.recipesRoute(req, res);
+                renderHtmlDir(req, res)
             }
             break;
         case '/Login':
@@ -75,21 +80,26 @@ http.createServer(function (req, res) {
             }
             break;
         default:
-            render(req, res);
-            res.end("Aceasta ruta nu exista!");
+           render(req,res)
     }
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
 });
 
 function render(req, res) {
+
     let action = req.url
+    if(action === '/Register' || action === '/Login'){
+        console.log('intram aiaiaiaiaai')
+        server.serverHandler(req,res)
+    }
     if (action == '/') {
         var filePath = './view/index.ejs'
         var htmlContent = fs.readFileSync(filePath, 'utf8');
         var htmlRenderized = ejs.render(htmlContent);
         res.end(htmlRenderized, 'binary')
     }
+
     let extension = req.url.substr(req.url.length - 4);
     switch (extension) {
         case '.png':
@@ -107,6 +117,24 @@ function render(req, res) {
             res.writeHead(200, {"Content-Type": "text/css"});
             res.end(css, 'binary');
             break;
+        case 'n.js':
+            var js = fs.readFileSync(__dirname + '/view/' + action);
+            res.writeHead(200, {'Content-Type': 'text/javascript'});
+            res.end(js, 'binary');
+            break;
+        case 'r.js':
+            console.log('iaiaiaiaiaiaiaiaiai')
+            var js = fs.readFileSync(__dirname + '/view/' + action);
+            res.writeHead(200, {'Content-Type': 'text/javascript'});
+            res.end(js, 'binary');
+            break;
+        case '.ico':
+            console.log('-----ico')
+            var ico = fs.readFileSync(__dirname + '/view/' + action);
+            res.end(ico, 'binary');
+            break;
+        default:
+            res.end()
 
     }
 }
@@ -118,7 +146,6 @@ function renderHtmlDir(req, res) {
         ingredients: ["apa", "paie", "si bataie"],
         description: "descriere"
     }
-
 
     if (action == '/') {
         var filePath = './view/index.ejs'
@@ -155,7 +182,25 @@ function renderHtmlDir(req, res) {
             res.writeHead(200, {"Content-Type": "text/css"});
             res.end(css, 'binary');
             break;
-
+        case 'n.js':
+            var js = fs.readFileSync(__dirname + '/view/' + action);
+            res.writeHead(200, {'Content-Type': 'text/javascript'});
+            res.end(js, 'binary');
+            break;
+        case 'r.js':
+            console.log('iaiaiaiaiaiaiaiaiai')
+            var js = fs.readFileSync(__dirname + '/view/' + action);
+            res.writeHead(200, {'Content-Type': 'text/javascript'});
+            res.end(js, 'binary');
+            break;
+        case '.ico':
+            console.log('am ajuns is pe aici din pacate')
+            var ico = fs.readFileSync(__dirname + '/view/' + action);
+            res.writeHead(200, {'Content-Type': 'image/jpg'});
+            res.end(ico, 'binary');
+            break;
+        default:
+            res.end()
     }
 }
 
