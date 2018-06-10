@@ -42,8 +42,8 @@
                             <div class="ingrediente">
                                 <p><strong>De ce ai nevoie ca să gătești <%= name %>:</strong></p> 
                                 <ul class="lista">
-                                    <% for (var ingredient in ingredients) {%>
-                                        <li> <%= ingredient %> </li>
+                                    <% for (var i = 0; i< ingredients.length; i++) {%>
+                                        <li> <%= ingredients[i] %> </li>
                                     <% } %>
                                 </ul>
                             </div>
