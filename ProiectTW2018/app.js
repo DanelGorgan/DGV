@@ -36,9 +36,7 @@ http.createServer(function (req, res) {
             if (req.method == 'POST') {
                 register.register(req, res)
             } else {
-                router.recipesRoute(req, res, () => {
-                    res.end()
-                })
+                router.recipesRoute(req, res);
             }
             break;
         case '/Login':
@@ -77,9 +75,8 @@ http.createServer(function (req, res) {
             }
             break;
         default:
-            server.serverHandler(req,res);
-        //     render(req, res);
-        //    res.end("Aceasta ruta nu exista!");
+            render(req, res);
+            res.end("Aceasta ruta nu exista!");
     }
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
