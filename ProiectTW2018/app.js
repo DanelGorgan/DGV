@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('path');
+const server = require('./helpers/serverHandler')
 const ejs = require('ejs');
 const config = require('./config')
 const http = require('http');
@@ -33,16 +33,21 @@ http.createServer(function (req, res) {
             renderHtmlDir(req, res)
             break;
         case '/Register':
-            router.recipesRoute(req, res)
             if (req.method == 'POST') {
                 register.register(req, res)
+            } else {
+                router.recipesRoute(req, res, () => {
+                    res.end()
+                })
             }
             break;
         case '/Login':
-            router.recipesRoute(req, res)
             if (req.method == 'POST') {
                 login.login(req, res)
+            } else {
+                router.recipesRoute(req, res)
             }
+
             break;
         case '/MyAccount':
             renderHtmlDir(req, res)
@@ -54,7 +59,7 @@ http.createServer(function (req, res) {
             }
             break;
         case '/upload.ejs':
-                upload.uploading(req, res)
+            upload.uploading(req, res)
             break;
         case '/latest':
             if (req.method == 'POST') {
@@ -72,8 +77,9 @@ http.createServer(function (req, res) {
             }
             break;
         default:
-            render(req, res);
-            res.end("Aceasta ruta nu exista!");
+            server.serverHandler(req,res);
+        //     render(req, res);
+        //    res.end("Aceasta ruta nu exista!");
     }
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
@@ -81,7 +87,7 @@ http.createServer(function (req, res) {
 
 function render(req, res) {
     let action = req.url
-    if(action == '/') {
+    if (action == '/') {
         var filePath = './view/index.ejs'
         var htmlContent = fs.readFileSync(filePath, 'utf8');
         var htmlRenderized = ejs.render(htmlContent);
@@ -112,21 +118,21 @@ function renderHtmlDir(req, res) {
     let action = req.url
     let json = {
         name: "Personalizata",
-        ingredients:["apa","paie","si bataie"],
-        description:"descriere"
+        ingredients: ["apa", "paie", "si bataie"],
+        description: "descriere"
     }
 
 
-    if(action == '/') {
+    if (action == '/') {
         var filePath = './view/index.ejs'
         var htmlContent = fs.readFileSync(filePath, 'utf8');
-        var htmlRenderized = ejs.render(htmlContent,json);
+        var htmlRenderized = ejs.render(htmlContent, json);
         res.end(htmlRenderized, 'binary')
     } else {
         var filePath = './view/html' + action + '.ejs'
         console.log(filePath)
         var htmlContent = fs.readFileSync(filePath, 'utf8');
-        var htmlRenderized = ejs.render(htmlContent,json);
+        var htmlRenderized = ejs.render(htmlContent, json);
         res.end(htmlRenderized, 'binary')
     }
 
