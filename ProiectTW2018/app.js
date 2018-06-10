@@ -33,13 +33,13 @@ http.createServer(function (req, res) {
             renderHtmlDir(req, res)
             break;
         case '/Register':
-            renderHtmlDir(req, res)
+            router.recipesRoute(req, res)
             if (req.method == 'POST') {
                 register.register(req, res)
             }
             break;
         case '/Login':
-            renderHtmlDir(req, res)
+            router.recipesRoute(req, res)
             if (req.method == 'POST') {
                 login.login(req, res)
             }
@@ -73,6 +73,7 @@ http.createServer(function (req, res) {
             break;
         default:
             render(req, res);
+            res.end("Aceasta ruta nu exista!");
     }
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
