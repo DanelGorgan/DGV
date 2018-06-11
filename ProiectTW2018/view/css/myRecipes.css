@@ -1,78 +1,421 @@
-/***body***/
-body{
+body {
     background: url(../img/food.png);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:15px;
+    /*background-color: coral;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
     line-height: 1.5;
-    padding:0;
+    padding: 0;
     margin: 0;
-    background-color: #f4f4f4;
 }
-/***container***/
-.bigcontainer{
+
+/* Global */
+.container {
+    width: 80%;
+    margin: auto;
     overflow: hidden;
-    margin: 10% 10% 10% 10%; 
+}
+
+.showcaserecipe {
+    float: left;
+    margin-right: 1em;
+    width: 100%;
+}
+
+.showcase h2 {
+    text-align: center;
+    font-style: italic;
+    font: italic bold 25px/43px Georgia, serif;
+}
+
+.showcase {
+    float: left;
+    margin-left: 2em;
+    width: 75%;
+
+}
+
+.pfilter {
+
+    font-weight: bolder;
+}
+
+.grid a {
+    background-color: #d53827;
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    float: left;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+}
+
+.grid a:hover {
+    background-color: #333;
+}
+
+.grid a:visited {
+    background-color: #ccc;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+
+}
+
+.grid img {
+    float: left;
+    display: block;
+    height: 200px;
+    width: 400px;
+}
+
+.grid p {
+    padding-top: 12px;
+    display: block;
+    text-align: justify;
+}
+
+.box-img img {
+    padding: 10px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 3px #c5c2a9;
+    display: block;
+
+}
+
+.bigcontainer {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
     background-color: white;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
-    padding: 5%;
-  }
+}
 
-.favorite-box{
-    padding:15px;
-    border: 0.5px solid rgb(219, 219, 219);
+.smallcontainer {
+    float: left;
+}
+
+.containerfilter {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    max-width: 200px;
+    max-height: 250px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 2px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.slider {
+    width: 90%;
+}
+
+div.scroll {
+    width: 200px;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+/* Header */
+header {
+    background-color: white;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    min-height: 70px;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+}
+
+footer {
+    background-color: white;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5PX;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    min-height: 70px;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+footer p {
+    text-align: center;
+    line-height: 0.7;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+#branding img {
+    vertical-align: middle;
+}
+
+header #branding {
+    float: left;
+
+}
+
+.search-bar-wrapper {
+    display: inline-flex;
+    font-size: 16px;
+    float: left;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.search-box-input {
+    width: 85%;
+    font-size: inherit;
+    border: 0.2em solid #ddd;
+    border-radius: 0.5em 0 0 0.5em;
+    padding: 0.2em 0.5em;
+    border-right: 0;
+    margin-top: 8px;
+    margin-left: 20px;
+    outline: 0;
+
+}
+
+.search-box-button {
+    font-size: inherit;
+    border: 0.2em solid #ddd;
+    border-radius: 0 0.5em 0.5em 0;
+    border-left: 0;
+    margin-top: 8px;
+    margin-right: 16px;
+    margin-left: 0;
+    background-color: #ddd;
+    font-weight: bold;
+    padding: 0 0.7em;
+    outline: 0;
+    cursor: pointer;
+}
+
+.search-box-button img {
+    width: 20px;
+    padding: 1px 0 0 0;
+}
+
+/* Navbar container */
+.navbar {
+    overflow: hidden;
+    display: inline-flex;
+    float: right;
+    margin-top: 30px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    padding-bottom: 5px;
+    float: left;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+    float: right;
+    overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 14px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Add a yellow background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    cursor: pointer;
+    background-color: #fac564;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
-    margin:auto;
-    background: #F0F8FF;
+    text-align: left;
 }
 
-.box{
-    border: 1px solid #ccc;
-    margin-bottom:20px;
-    padding:20px;
-    background: white;
+.dropdown-content a:hover {
+    background-color: #fac564;
 }
 
-.box:nth-of-type(1){
-    margin-top:20px;
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
-
-h1{
-    font-size: 15px;
-    display:inline;
-    margin: 0px;
+.a1:visited {
+    color: white;
 }
+.a1{
+    text-decoration: none;
+    font-family: inherit;
 
-button[type="button"]{
-    background: #0033FF;
-    border-radius: 0.5em;
-    outline:0;
-    color:white;
-    padding:10px;
-    margin-left:10px;
 }
-
-button:hover{
-    background-color: rgb(0, 0, 233);
+input[type=submit],.button1 {
+    background-color: #fac564;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    margin-left: 5%;
 }
 
-p{
-    display:inline-block;
+.button1:hover {
+    background-color: #d53827;
+}
+/*button
+================*/
+.button {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    max-width: 200px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-right: 40px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.box button{
-    margin-top: 6.5px;
-    float:right;
-    border-radius: 0.5em;
-    border: 0.5px solid rgb(219, 219, 219);
-    background:white;
-    outline:0;
-    padding: 10px;
-    color:black;
-    
-}
-
-.box button:hover{
+.button-accent:hover, .button-accent.focus {
     background: #ddd;
-    cursor: pointer;
+    color: black;
+}
+
+/* medias */
+@media screen and (max-width: 1250px) and (min-width: 650px) {
+    .smallcontainer {
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .bigcontainer {
+        overflow: hidden;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-color: white;
+        border-radius: 0.3em 0.3em 0.3em 0.3em;
+    }
+
+    .smallcontainer {
+        margin-left: 12%;
+    }
+
+    .showcase {
+        margin-left: 10%
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .grid img {
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .grid p:nth-child(odd) {
+        margin: 5%;
+    }
+
+    .grid a {
+        float: right;
+    }
+
+    footer {
+        margin-left: 20px;
+        margin-right: 20px;
+
+    }
+
+    header {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .container {
+        height: 70%;
+    }
+
+    .search-bar-wrapper {
+        width: 70%;
+    }
+
+    .search-box-input {
+        width: 70%;
+    }
+
 }
