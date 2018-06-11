@@ -10,6 +10,7 @@ const addRecipe = require('./controllers/addRecipe.controller')
 const search = require('./controllers/search.controller')
 const filter = require('./controllers/filter.controller')
 const latest = require('./controllers/latest.controller')
+const upload = require('./controllers/upload.controller')
 
 //connect with mongoose
 mongo.mongoose
@@ -54,8 +55,13 @@ http.createServer(function (req, res) {
             }
             break;
         case '/latest':
-            if (req.method == 'POST') {
                 latest.getNew(req, res)
+            break;
+        case '/upload':
+            if(req.method == 'POST') {
+                upload.uploading(req,res)
+            } else {
+                router.recipesRoute(req, res);
             }
             break;
         case '/filter':

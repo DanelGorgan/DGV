@@ -51,6 +51,7 @@ const recipeSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    picture: {}
 });
 
 const Recipes = mongoose.model('recipes', recipeSchema);
@@ -107,7 +108,8 @@ module.exports.create = (name, description, style,
         gastronomy: gastronomy,
         duration: duration,
         ingredients: [],
-        user: user
+        user: user,
+        picture:{}
     });
     for (let i = 0; i < dotari.length; i++) {
         newRecipe.dotari.push(dotari[i])

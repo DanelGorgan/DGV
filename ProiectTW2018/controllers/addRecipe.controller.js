@@ -1,4 +1,5 @@
 const RecipeModel = require('../models/recipe');
+const upload = require('./upload.controller')
 
 module.exports.addR = (req, res) => {
     let body = '';
@@ -6,8 +7,10 @@ module.exports.addR = (req, res) => {
         body += chunk;
     });
     req.on('end', () => {
-        body = JSON.parse(body)
-        RecipeModel.check(body.name, body.description, (recipe) => {
+        if (body) {
+            body = JSON.parse(body)
+            console.log(req.url)
+            RecipeModel.check(body.name, body.description, (recipe) => {
                 if (recipe.length === 0) {
                     RecipeModel.create(body.name, body.description, body.style,
                         body.difficulty, body.link, body.post, body.regim, body.dotari,
@@ -19,6 +22,7 @@ module.exports.addR = (req, res) => {
                     res.end('Failure')
                 }
             })
+        }
     });
 }
 
