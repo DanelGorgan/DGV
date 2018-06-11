@@ -13,25 +13,27 @@ function validateForm() {
     var image = document.getElementById('myFile').value;
     var choices = [];
     var regim = document.getElementsByClassName('ing');
-    for (var i=0;i<regim.length;i++){
-        if ( regim[i].checked ) {
+    for (var i = 0; i < regim.length; i++) {
+        if (regim[i].checked) {
             choices.push(regim[i].value);
         }
     }
     var choices1 = [];
     var dotari = document.getElementsByClassName('dotari');
-    for (var j=0;j<dotari.length;j++){
-        if ( dotari[j].checked ) {
+    for (var j = 0; j < dotari.length; j++) {
+        if (dotari[j].checked) {
             choices1.push(dotari[j].value);
         }
     }
+
+    console.log('else')
     var url = 'http://localhost:8125/addRecipe';
     var data = {
         name: name,
         description: descriere,
         style: sdv,
         post: post,
-        difficulty:dif,
+        difficulty: dif,
         gastronomy: gastr,
         link: link,
         duration: timp,
@@ -44,25 +46,25 @@ function validateForm() {
 
     console.log(data.dotari + ' ' + data.regim + ' ' + data.name + ' ' + data.description + ' ' + data.style + ' ' + data.difficulty);
 
-    xhr.open('POST',url);
+    xhr.open('POST', url);
     xhr.setRequestHeader("Content-type", "text/plain");
 
-    // xhr.onreadystatechange = function(){
-    //     if (xhr.readyState == XMLHttpRequest.DONE){
-    //         console.log('xhr.readyState=XMLHttpRequest.done');
-    //         console.log(xhr.status);
-    //         if (xhr.status==200){
-    //             console.log('xhr response text is ' + xhr.responseText);
-    //             if (xhr.responseText === "Success"){
-    //                 alert("You have succesfully logged in!");
-    //                 window.location.href = "http://localhost:8125/";
-    //             }else{
-    //                 alert("Wrong user or password! Try again.");
-    //             }
-    //         }
-    //     }
-    // }
-
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status == 200) {
+                if (xhr.responseText === "Success") {
+                    alert("Reteta adaugata!");
+                    window.location.href = "http://localhost:8125/";
+                } else {
+                    alert("Completati toate campurile!");
+                }
+            }
+        }
+    }
     xhr.send(JSON.stringify(data));
 
+
 }
+
