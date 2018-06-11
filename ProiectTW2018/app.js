@@ -16,69 +16,62 @@ const upload = require('./controllers/upload.controller')
 mongo.mongoose
 
 http.createServer(function (req, res) {
+        
+        let query = stringParser.parseQuery(req, res);
+        let path = req.url.replace(/%20/g, " ");
 
-    let query = stringParser.parseQuery(req, res);
-    let path = req.url.replace(/%20/g, " ");
-
-    switch (path) {
-        case '/recipes':
-            router.recipesRoute(req, res);
-            break;
-        case '/recipe':
-            router.recipesRoute(req, res);
-            break;
-        case '/myRecipes':
-            router.recipesRoute(req, res);
-            break;
-        case '/Register':
-            if (req.method == 'POST') {
-                register.register(req, res)
-            } else {
+        switch (path) {
+            case '/recipes':
                 router.recipesRoute(req, res);
-            }
-            break;
-        case '/Login':
-            if (req.method == 'POST') {
-                login.login(req, res)
-            } else {
+                break;
+            case '/recipe':
                 router.recipesRoute(req, res);
-            }
-            break;
-        case '/myAccount':
-            router.recipesRoute(req, res);
-            break;
-        case '/addRecipe':
-            if (req.method == 'POST') {
-                addRecipe.addR(req, res)
-            } else {
+                break;
+            case '/myRecipes':
                 router.recipesRoute(req, res);
-            }
-            break;
-        case '/latest':
-            if (req.method == 'GET') {
-                latest.getNew(req, res)
-            }
-            break;
-        case '/upload':
-            if(req.method == 'POST') {
-                upload.uploading(req,res)
-            } else {
+                break;
+            case '/Register':
+                if (req.method == 'POST') {
+                    register.register(req, res)
+                } else {
+                    router.recipesRoute(req, res);
+                }
+                break;
+            case '/Login':
+                if (req.method == 'POST') {
+                    login.login(req, res)
+                } else {
+                    router.recipesRoute(req, res);
+                }
+                break;
+            case '/myAccount':
                 router.recipesRoute(req, res);
-            }
-            break;
-        case '/filter':
-            if (req.method == 'POST') {
-                filter.filter(req, res)
-            }
-            break;
-        case `/search?name=${query.name}`:
-            if (req.method == 'GET') {
-                search.search(req, res, query)
-            }
-            break;
-        default:
-            serverHandle.serverHandler(req, res);
-    }
+                break;
+            case '/latest':
+                if (req.method == 'GET') {
+                    latest.getNew(req, res)
+                }
+                break;
+            case '/upload':
+                if(req.method == 'POST') {
+                    upload.uploading(req,res)
+                } else {
+                    router.recipesRoute(req, res);
+                }
+                break;
+            case '/filter':
+                if (req.method == 'POST') {
+                    filter.filter(req, res)
+                }
+                break;
+            case `/search?name=${query.name}`:
+                if (req.method == 'GET') {
+                    search.search(req, res, query)
+                }
+                break;
+            default:
+                serverHandle.serverHandler(req, res);
+        }
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
 });

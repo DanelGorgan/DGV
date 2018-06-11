@@ -40,11 +40,11 @@
         <form action="/addRecipe" onSubmit="return validateForm();" method="POST">
             <div>
                 <label>Nume </label><br>
-                <input type="text" id="name" placeholder="Nume reteta..">
+                <input type="text" id="name" placeholder="Nume reteta.." required>
             </div>
             <div>
                 <label>Descriere </label><br>
-                <textarea id="descriere" placeholder="Descrierea retetei.."></textarea>
+                <textarea id="descriere" placeholder="Descrierea retetei.." required></textarea>
             </div>
             <div>
                 <label>Stil de viata </label><br>
@@ -76,7 +76,7 @@
             </div>
             <div>
                 <label>Link </label><br>
-                <input type="text" id="link" placeholder="Link tutorial.. ">
+                <input required type="text" id="link" placeholder="Link tutorial.. ">
             </div>
             <div>
                 <label>Post </label><br>
@@ -103,7 +103,7 @@
                 <label name="ing1" for="ingredient7">Hipoproteic</label>
                 <input type="checkbox" id="ingredient8" value="Hiposodat" class="ing">
                 <label name="ing1" for="ingredient8">Hiposodat</label>
-                <input type="checkbox" id="ingredient9" value="Other" class="ing">
+                <input type="checkbox" id="ingredient9" value="Other" class="ing" checked>
                 <label name="ing1" for="ingredient9">Other</label>
             </div>
             <div>
@@ -116,15 +116,15 @@
                 <label for="dotare3">Cuptor cu microunde</label>
                 <input type="checkbox" id="dotare4" class="dotari" value="Robot de bucatarie">
                 <label for="dotare4">Robot de bucatarie</label>
-                <input type="checkbox" id="dotare5" class="dotari" value="Other">
+                <input type="checkbox" id="dotare5" class="dotari" value="Other" checked>
                 <label for="dotare5">Other</label>
             </div>
             <div>
                 <label>Durata prepararii (minute) </label><br>
-                <input type="number" id="timp">
+                <input type="number" id="timp" required>
             </div>
             <div>
-                <label>Ingrediente </label><br>
+                <label>Ingrediente (separate prin virgula) </label><br>
                 <input type="text" id="ingrediente" placeholder="Ingrediente necesare..">
             </div>
             <div>

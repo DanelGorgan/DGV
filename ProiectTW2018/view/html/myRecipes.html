@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, height=device-height">
-        <title>
-               My recipes
-        </title>
-        <link rel="stylesheet" href="../css/myRecipes.css">
-    </head>
-
-    <body>
-        <section class="bigcontainer">
-            <div class="favorite-box">
-
-                <h1>Saved Recipes</h1>
-
-                <button type="button">Create List</button>
-
-                <hr>
-                    
-                <div class="box">
-                    <p> Lista 1</p>
-                    <button>Sterge</button>
-                </div>
-
-                <div class="box">
-                    <p>Lista 2</p>
-                    <button>Sterge</button>
-                </div>
-
-                <div class="box">
-                    <p> Lista 3</p>
-                    <button>Sterge</button>
-                </div>
-
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <title>
+        My recipes
+    </title>
+    <link rel="stylesheet" href="../css/myRecipes.css">
+</head>
+<header>
+    <div class="container" id="cont">
+        <div id="branding">
+            <h1><a href="http://localhost:8125/" method="post"><img src="./img/chef.png" alt=""></a></h1>
+        </div>
+        <div class="search-bar-wrapper">
+            <input class="search-box-input" type="text" placeholder="Search...">
+            <button class="search-box-button"><img src="./img/search.png" alt=""></button>
+        </div>
+        <nav class="navbar">
+            <div class="dropdown">
+                <form action="http://localhost:8125/recipes" method="post">
+                    <button class="dropbtn">Recipes</button>
+                </form>
             </div>
-        </section>
-    </body>
+            <div class="dropdown">
+                <form action="http://localhost:8125/MyAccount" method="post">
+                    <button class="dropbtn">My Account</button>
+                </form>
+                <div class="dropdown-content">
+                    <a href="http://localhost:8125/myRecipes" method="post">My Recipes</a>
+                    <a href="http://localhost:8125/Login" method="post">Login</a>
+                    <a href="http://localhost:8125/Register" method="post">Register</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<body>
+<section class="bigcontainer">
+    <button class="button1"><a class="a1"  href="http://localhost:8125/addRecipe" method="post">Add recipe</a></button>
+</section>
+<footer>
+    <p>Copyright &copy; 2018 Cuisine Web Helper</p>
+    <a href="mailto:contacts@cuh.com"><p>Contact us</p></a>
+
+</footer>
+<script type="text/javascript" src="../javascriptFiles/myRecipes.js"></script>
+</body>
 </html>

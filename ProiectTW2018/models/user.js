@@ -62,20 +62,19 @@ module.exports.login = (email, password) => {
     return User
         .findOne({email: email})
         .then(user => {
-            console.log('Userul este ' + user)
+            console.log('[user.js] Userul este ' + user)
             console.log(password)
+            console.log(user.password)
             if (user) {
                 return bcrypt.compare(password, user.password)
                     .then(itMatches => {
-                        console.log('itMatches este ' + itMatches)
+                        console.log('[user.js] itMatches este ' + itMatches)
                         if (itMatches) {
                             return Promise.resolve();
                         } else {
                             return Promise.reject();
                         }
                     });
-            } else {
-                 return Promise.reject();
-            }
+            }   
         });
 }
