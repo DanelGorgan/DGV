@@ -1,6 +1,7 @@
 const RecipeModel = require('../models/recipe');
 
 module.exports.getNew = (req, res) => {
+    console.log('here')
     RecipeModel.getLatest((recipes) => {
         if (recipes.length > 0) {
             let response = []

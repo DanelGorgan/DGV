@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const mime = require('../constants/constants.js')
 
 module.exports.recipesRoute = (request, response) => {
 
     var filePath = './view/html' + request.url + '.html';
     var extname = String(path.extname(filePath)).toLowerCase();
-    console.log('recipeROutes ' + filePath)
 
     var mimeTypes = {
         '.html': 'text/html',

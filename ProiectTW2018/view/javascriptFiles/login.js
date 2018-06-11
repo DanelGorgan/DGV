@@ -1,37 +1,36 @@
 var xhr = new XMLHttpRequest();
 
 function validateForm() {
-    console.log('suntem aici')
     var em = document.getElementById('usr').value;
     var pw = document.getElementById('pword').value;
     
-    var url = 'http://localhost:8125/Login';
+    var url = 'http://localhost:8125/Login/submit';
     var data = {
         email: em,
         password: pw
     };
     console.log(data.email + ' ' + data.password);
 
-    // xhr.open('POST',url);
-    // xhr.setRequestHeader("Content-type", "text/plain");
-    //
-    // xhr.onreadystatechange = function(){
-    //     if (xhr.readyState == XMLHttpRequest.DONE){
-    //         console.log('xhr.readyState=XMLHttpRequest.done');
-    //         console.log(xhr.status);
-    //         if (xhr.status==200){
-    //             console.log('xhr response text is ' + xhr.responseText);
-    //             if (xhr.responseText === "Success"){
-    //                 alert("You have succesfully logged in!");
-    //                 window.location.href = "http://localhost:8125/";
-    //             }else{
-    //                 alert("Wrong user or password! Try again.");
-    //             }
-    //         }
-    //     }
-    // }
-    //
-    // xhr.send(JSON.stringify(data));
+    xhr.open('POST',url);
+    xhr.setRequestHeader("Content-type", "application/json");
+
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == XMLHttpRequest.DONE){
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status==200){   
+                console.log('xhr response text is ' + xhr.responseText);
+                if (xhr.responseText === "Success"){
+                    alert("You have succesfully logged in!");
+                    window.location.href = "http://localhost:8125/";
+                }else{
+                    alert("Wrong user or password! Try again.");
+                }
+            }
+        }
+    }
+
+    xhr.send(JSON.stringify(data));
 
 }
 

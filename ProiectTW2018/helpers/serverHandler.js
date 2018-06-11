@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports.serverHandler = (request, response) => {
-    console.log('am intrat aici pentru ' + request.url)
+
     var filePath = '.' + request.url;
     if (filePath == './') {
         filePath = './view/index.html';

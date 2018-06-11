@@ -38,13 +38,9 @@ UserSchema.pre('save', function (next) {
 
 let User = mongoose.model('User', UserSchema)
 
-module.exports.check = (username, callback) => {
-    User.find({username: username}, function (err, user) {
-        if (err) {
-            res.end('Failure')
-        }
+module.exports.check = (username, email,callback) => {
+    User.find({email: email, username: username}, function (err, user) {
         callback(user)
-
     });
 }
 module.exports.create = (username, email, password) => {
@@ -79,7 +75,7 @@ module.exports.login = (email, password) => {
                         }
                     });
             } else {
-                return Promise.reject();
+                 return Promise.reject();
             }
         });
 }

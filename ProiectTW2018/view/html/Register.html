@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+    <link rel="stylesheet" href="../css/register.css">
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <title>Register</title>
+</head>    
+    <body>
+        <div class="register-page"> 
+            <form class="register-form" onSubmit="return validateForm();" method="POST">
+                <h1>Hello!</h1>
+                <div class="color">
+                    <input type="text" placeholder="Username" id="usr">
+                </div>
+                <div class="color">
+                    <input type="email" placeholder="Email" id="email">
+                </div>
+                <div class="color">
+                    <input type="password" id="pword1" placeholder="Password">
+                </div>
+                <input id="register-checkbox" type="checkbox" onclick="showPassword1()"> <p id="showPassword">Show password</p>
+                <div class="color">
+                    <input type="password" id="pword2" placeholder="Confirm Password">
+                </div>
+                <input id="register-checkbox1" type="checkbox" onclick="showPassword2()" <p id="showPassword1">Show password</p>
+                <input type="Submit" value="REGISTER">
+                <p class="message"> Already have an accout?  <a href="./Login.html"> Sign in </a> </p>
+            </form>
+        </div>  
+        <script type="text/javascript" src="../javascriptFiles/register.js"></script>  
+    </body>
+
+</html>
