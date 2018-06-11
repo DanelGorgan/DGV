@@ -49,7 +49,8 @@ const recipeSchema = new mongoose.Schema({
     user: {
         required: true,
         type: String
-    }
+    },
+    picture: {}
 });
 
 const Recipes = mongoose.model('recipes', recipeSchema);
@@ -93,17 +94,6 @@ module.exports.search = (name, callback) => {
 module.exports.create = (name, description, style,
                          difficulty, link, post, regim, dotari,
                          gastronomy, duration, ingredients, user) => {
-    console.log(name)
-    console.log(description)
-    console.log(style)
-    console.log(difficulty)
-    console.log(post)
-    console.log(regim)
-    console.log(link)
-    console.log(dotari)
-    console.log(gastronomy)
-    console.log(duration)
-    console.log(ingredients)
     let newRecipe = new Recipes({
         name: name,
         description: description,
@@ -116,7 +106,8 @@ module.exports.create = (name, description, style,
         gastronomy: gastronomy,
         duration: duration,
         ingredients: [],
-        user: user
+        user: user,
+        picture:{}
     });
     for (let i = 0; i < dotari.length; i++) {
         newRecipe.dotari.push(dotari[i])
@@ -129,10 +120,11 @@ module.exports.create = (name, description, style,
     for (let i = 0; i < regim.length; i++) {
         newRecipe.regim.push(regim[i])
     }
-    console.log('salvat')
-    return newRecipe
-        .save()
-        .catch(err => {
-            console.log('Eroarea este ' + err)
-        })
+    console.log('Am salvat poza')
+
+    // return newRecipe
+    //     .save()
+    //     .catch(err => {
+    //         console.log('Eroarea este ' + err)
+    //     })
 }

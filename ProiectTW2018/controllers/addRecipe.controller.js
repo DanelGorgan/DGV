@@ -1,16 +1,16 @@
 const RecipeModel = require('../models/recipe');
+const upload = require('./upload.controller')
 
 module.exports.addR = (req, res) => {
+    console.log('[addR] Suntem in functie')
     let body = '';
     req.on('data', chunk => {
         body += chunk;
     });
     req.on('end', () => {
-        console.log('Bdoy este----- ' + body)
         if (body) {
             body = JSON.parse(body)
-            console.log('Am primit de pe front: ' + body)
-            console.log('Am primit de pe front: ' + body.regim)
+            console.log(body)
             RecipeModel.check(body.name, body.description, (recipe) => {
                 if (recipe.length === 0) {
                     RecipeModel.create(body.name, body.description, body.style,

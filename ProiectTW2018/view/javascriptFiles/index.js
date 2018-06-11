@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+
+=======
 var xhr = new XMLHttpRequest();
+>>>>>>> 0fc06b876434fdebafc63c9d533b80da98e010dd
 
 function latestRecipes() {
     console.log('Am intrat in latestRecipes');
