@@ -30,19 +30,17 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/Register':
-            router.recipesRoute(req, res);
-            break;
-        case '/Register/submit':
             if (req.method == 'POST') {
                 register.register(req, res)
+            } else {
+                router.recipesRoute(req, res);
             }
             break;
         case '/Login':
-            router.recipesRoute(req, res);
-            break;
-        case '/Login/submit':
             if (req.method == 'POST') {
                 login.login(req, res)
+            } else {
+                router.recipesRoute(req, res);
             }
             break;
         case '/myAccount':

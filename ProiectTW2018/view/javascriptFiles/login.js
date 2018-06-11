@@ -4,7 +4,7 @@ function validateForm() {
     var em = document.getElementById('usr').value;
     var pw = document.getElementById('pword').value;
     
-    var url = 'http://localhost:8125/Login/submit';
+    var url = 'http://localhost:8125/Login';
     var data = {
         email: em,
         password: pw
@@ -12,7 +12,7 @@ function validateForm() {
     console.log(data.email + ' ' + data.password);
 
     xhr.open('POST',url);
-    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.setRequestHeader("Content-type", "text/plain");
 
     xhr.onreadystatechange = function(){
         if (xhr.readyState == XMLHttpRequest.DONE){

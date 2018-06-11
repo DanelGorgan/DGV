@@ -29,7 +29,7 @@ function validateForm(){
         alert("Passwords doesn't match!");
     }
 
-    var url = 'http://localhost:8125/Register/submit';
+    var url = 'http://localhost:8125/Register';
     var data = {
         username: un,
         email: em,
