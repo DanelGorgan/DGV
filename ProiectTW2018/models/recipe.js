@@ -24,8 +24,7 @@ const recipeSchema = new mongoose.Schema({
     },
     post: {
         required: true,
-        type: Boolean,
-        default: false
+        type: String
     },
     regim: {
         required: true,
@@ -67,7 +66,7 @@ module.exports.getLatest = (callback) => {
     Recipes.find({}, function (err, recipe) {
         console.log('avem ' + recipe.length)
         callback(recipe)
-    }).sort({$natural:-1}).limit(5)
+    }).sort({$natural: -1}).limit(5)
 }
 
 module.exports.check = (name, description, callback) => {
@@ -95,7 +94,17 @@ module.exports.search = (name, callback) => {
 module.exports.create = (name, description, style,
                          difficulty, link, post, regim, dotari,
                          gastronomy, duration, ingredients, user) => {
-    console.log(user)
+    console.log(name)
+    console.log(description)
+    console.log(style)
+    console.log(difficulty)
+    console.log(post)
+    console.log(regim)
+    console.log(link)
+    console.log(dotari)
+    console.log(gastronomy)
+    console.log(duration)
+    console.log(ingredients)
     let newRecipe = new Recipes({
         name: name,
         description: description,
@@ -114,11 +123,18 @@ module.exports.create = (name, description, style,
     for (let i = 0; i < dotari.length; i++) {
         newRecipe.dotari.push(dotari[i])
     }
-    for (let i = 0; i < ingredients.length; i++) {
-        newRecipe.ingredients.push(ingredients[i])
+    const fields = ingredients.split(',');
+    for (let i = 0; i < fields.length; i++) {
+        newRecipe.ingredients.push(fields[i])
+        console.log(i +' ' + fields[i])
     }
     for (let i = 0; i < regim.length; i++) {
         newRecipe.regim.push(regim[i])
     }
-    return newRecipe.save();
+    console.log('salvat')
+    return newRecipe
+        .save()
+        .catch(err => {
+            console.log('Eroarea este ' + err)
+        })
 }

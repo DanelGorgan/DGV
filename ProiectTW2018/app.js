@@ -55,7 +55,9 @@ http.createServer(function (req, res) {
             }
             break;
         case '/latest':
+            if (req.method == 'GET') {
                 latest.getNew(req, res)
+            }
             break;
         case '/upload':
             if(req.method == 'POST') {

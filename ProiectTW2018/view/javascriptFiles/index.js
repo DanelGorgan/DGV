@@ -1,15 +1,21 @@
-// document.body.innerHTML="";
-// //document.getElementById("cont").innerHTML ="./html/myRecipes.html";
-//
-// var slider = document.getElementById("myRange");
-// var output = document.getElementById("demo");
-// // output.innerHTML = slider.value;
-// //
-// // slider.oninput = function() {
-// // output.innerHTML = this.value;
-// }
-//
-//
-//
-//
+var xhr = new XMLHttpRequest();
 
+function latestRecipes(){
+    console.log('Am intrat in latestRecipes');
+    var url = 'http://localhost:8125/latest';
+    xhr.open('GET',url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+    xhr.send();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == XMLHttpRequest.DONE){
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status==200){
+                console.log('xhr response text is ' + xhr.responseText);
+            }
+        }
+    }
+
+
+}
+latestRecipes();
