@@ -10,23 +10,7 @@ const addRecipe = require('./controllers/addRecipe.controller')
 const search = require('./controllers/search.controller')
 const filter = require('./controllers/filter.controller')
 const latest = require('./controllers/latest.controller')
-const fs = require('fs')
-
-// const NodeSession = require('node-session')
-
-// var nodeSession = new NodeSession({
-//     'secret': 'Q3UBzdH9GEfiRCTKbi5MTPyChpzXLsTD',
-//     'driver': 'file',
-//     'lifetime': 24 * 60 * 60 * 1000, //one day
-//     'expireOnClose': false,
-//     'files': process.cwd() + '/sessions',
-//     'lottery': [2, 100],
-//     'cookie': 'node_session',
-//     'path': '/',
-//     'domain': null,
-//     'secure': false,
-//     'encrypt': false,
-// })
+const upload = require('./controllers/upload.controller')
 
 //connect with mongoose
 mongo.mongoose
@@ -63,16 +47,16 @@ http.createServer(function (req, res) {
             case '/myAccount':
                 router.recipesRoute(req, res);
                 break;
-            case '/addRecipe':
-                if (req.method == 'POST') {
-                    addRecipe.addR(req, res)
-                } else {
-                    router.recipesRoute(req, res);
+            case '/latest':
+                if (req.method == 'GET') {
+                    latest.getNew(req, res)
                 }
                 break;
-            case '/latest':
-                if (req.method == 'POST') {
-                    latest.getNew(req, res)
+            case '/upload':
+                if(req.method == 'POST') {
+                    upload.uploading(req,res)
+                } else {
+                    router.recipesRoute(req, res);
                 }
                 break;
             case '/filter':
