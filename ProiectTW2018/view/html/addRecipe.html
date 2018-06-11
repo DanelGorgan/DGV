@@ -1,136 +1,150 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>CuH | Home Page</title>
-      <link rel="stylesheet" href="../css/addRecipe.css">
-   </head>
-   <body>
-      <header>
-         <div class="container">
-            <div id="branding">
-               <h1> <a href="../index.html"><img src="../img/chef.png" alt=""></a> </h1>
-            </div>
-            <div class="search-bar-wrapper">
-               <input class="search-box-input" type="text" placeholder="Search...">
-               <button class="search-box-button"><img src="../img/search.png" alt=""></button>
-            </div>
-            <nav class="navbar">
-               <div class="dropdown">
-                  <form action="../html/recipes.html" method="get">
-                     <button class="dropbtn">Recipes</button>
-                  </form>
-               </div>
-               <div class="dropdown">
-                  <form action="../html/MyAccount.html" method="get">
-                     <button class="dropbtn">My Account</button>
-                  </form>
-                  <div class="dropdown-content">
-                     <a href="../html/myRecipes.html">My Recipes</a>
-                     <a href="../html/Login.html">Login</a>
-                     <a href="../html/Register.html">Register</a>
-                  </div>
-               </div>
-            </nav>
-         </div>
-      </header>
-      <div class="bigcontainer">
-        <div class="bc1">
-            <form action="">
-              <div>
-               <label >Nume </label><br>
-               <input type="text" id="name" name="Name" placeholder="Nume reteta..">
-             </div>
-             <div>  
-               <label >Descriere </label><br>
-               <textarea id="descriere" name="descriere" placeholder="Descrierea retetei.." ></textarea> 
-             </div> 
-             <div>
-               <label >Stil de viata </label><br>
-               <select id="sdv" name="Sdv">
-                  <option value="Vegan">Vegan</option>
-                  <option value="Vegetarian">Vegetarian</option>
-                  <option value="Other">Other</option>
-               </select>
-             </div>
-             <div>
-               <label >Dificultate </label><br>
-               <select id="dificultate" name="Dificultate">
-                  <option value="Usor">Usor</option>
-                  <option value="Mediu">Mediu</option>
-                  <option value="Greu">Greu</option>
-               </select>
-             </div>
-             
-             <div>
-               <label >Gastronomie </label><br>
-               <select id="gastr" name="Gastr">
-                  <option value="Frantuzeasca">Frantuzeasca</option>
-                  <option value="Romaneasca">Romaneasca</option>
-                  <option value="Italiana">Italiana</option>
-                  <option value="Chinezeasca">Chinezeasca</option>
-                  <option value="Indiana">Indiana</option>
-                  <option value="Other">Other</option>
-               </select>
-             </div>
-             <div>
-               <label >Link </label><br>
-               <input type="text" id="link" name="Link" placeholder="Link tutorial.. ">
-             </div>
-             <div>
-               <label >Post </label><br>
-               <select id="post" name="Post">
-                  <option value="Nu">Nu</option>
-                  <option value="Da">Da</option>
-               </select>
-             </div>
-             <div>
-               <label >Regim-uri alimentare </label><br>
-               <select id="reg_al" name="Reg_al" multiple size="9">
-                  <option value="None">None</option>
-                  <option value="Diabet">Diabet</option>
-                  <option value="Ulcer">Ulcer</option>
-                  <option value="Giovanetti">Giovanetti</option>
-                  <option value="Kempner">Kempner</option>
-                  <option value="Hidric">Hidric</option>
-                  <option value="Hidrozaharat">Hidrozaharat</option>
-                  <option value="Hipoproteic">Hipoproteic</option>
-                  <option value="Hiposodat">Hiposodat</option>
-               </select>
-             </div>
-             <div>
-               <label >Dotari bucatarie necesare </label><br>
-               <select id="DBN" name="DBN" multiple size="5">
-                  <option value="Aragaz">Aragaz</option>
-                  <option value="Cuptor">Cuptor</option>
-                  <option value="Cuptor cu microunde">Cuptor cu microunde</option>
-                  <option value="Robot de bucatarie">Robot de bucatarie</option>
-                  <option value="Other">Other</option>
-                </select>
-             </div>
-             <div>
-               <label >Durata prepararii (minute) </label><br>
-               <input type="number" id="timp" name="Durata prepararii">
-             </div>
-             <div> 
-               <label >Ingrediente </label><br>
-               <input type="text" id="ingrediente" name="Ingrediente" placeholder="Ingrediente necesare..">
-             </div>  
-              <div>
-               <label >Imagine </label><br>
-              <input type="file" id="myFile">
-             </div>  
-               
-               <input type="submit" value="Submit">
-            </form>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CuH | Home Page</title>
+    <link rel="stylesheet" href="../css/addRecipe.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><a href="http://localhost:8125/" method="post"><img src="../img/chef.png" alt=""></a></h1>
         </div>
-      </div>
-      <footer >
-         <p>Copyright &copy; 2018 Cuisine Web Helper</p>
-         <a href="mailto:contacts@cuh.com">
-            <p>Contact us</p>
-         </a>
-      </footer>
-   </body>
+        <div class="search-bar-wrapper">
+            <input class="search-box-input" type="text" placeholder="Search...">
+            <button class="search-box-button"><img src="../img/search.png" alt=""></button>
+        </div>
+        <nav class="navbar">
+            <div class="dropdown">
+                <form action="http://localhost:8125/recipes" method="post">
+                    <button class="dropbtn">Recipes</button>
+                </form>
+            </div>
+            <div class="dropdown">
+                <form action="http://localhost:8125/MyAccount" method="post">
+                    <button class="dropbtn">My Account</button>
+                </form>
+                <div class="dropdown-content">
+                    <a href="http://localhost:8125/myRecipes" method="post">My Recipes</a>
+                    <a href="http://localhost:8125/Login" method="post">Login</a>
+                    <a href="http://localhost:8125/Register" method="post">Register</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="bigcontainer">
+    <div class="bc1">
+        <form action="">
+            <div>
+                <label>Nume </label><br>
+                <input type="text" id="name" name="Name" placeholder="Nume reteta..">
+            </div>
+            <div>
+                <label>Descriere </label><br>
+                <textarea id="descriere" name="descriere" placeholder="Descrierea retetei.."></textarea>
+            </div>
+            <div>
+                <label>Stil de viata </label><br>
+                <select id="sdv" name="Sdv">
+                    <option value="Vegan">Vegan</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label>Dificultate </label><br>
+                <select id="dificultate" name="Dificultate">
+                    <option value="Usor">Usor</option>
+                    <option value="Mediu">Mediu</option>
+                    <option value="Greu">Greu</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Gastronomie </label><br>
+                <select id="gastr" name="Gastr">
+                    <option value="Frantuzeasca">Frantuzeasca</option>
+                    <option value="Romaneasca">Romaneasca</option>
+                    <option value="Italiana">Italiana</option>
+                    <option value="Chinezeasca">Chinezeasca</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label>Link </label><br>
+                <input type="text" id="link" name="Link" placeholder="Link tutorial.. ">
+            </div>
+            <div>
+                <label>Post </label><br>
+                <select id="post" name="Post">
+                    <option value="Nu">Nu</option>
+                    <option value="Da">Da</option>
+                </select>
+            </div>
+            <div>
+                <label>Regim-uri alimentare </label><br>
+                <form>
+                    <input type="checkbox" id="ingredient1">
+                    <label for="ingredient1">Diabet</label>
+                    <input type="checkbox" id="ingredient2">
+                    <label for="ingredient2">Ulcer</label>
+                    <input type="checkbox" id="ingredient3">
+                    <label for="ingredient3">Giovanetti</label>
+                    <input type="checkbox" id="ingredient4">
+                    <label for="ingredient4">Kempner</label>
+                    <input type="checkbox" id="ingredient5">
+                    <label for="ingredient5">Hidric</label>
+                    <input type="checkbox" id="ingredient6">
+                    <label for="ingredient6">Hidrozaharat</label>
+                    <input type="checkbox" id="ingredient7">
+                    <label for="ingredient7">Hipoproteic</label>
+                    <input type="checkbox" id="ingredient8">
+                    <label for="ingredient8">Hiposodat</label>
+                    <input type="checkbox" id="ingredient9">
+                    <label for="ingredient9">Other</label>
+                </form>
+            </div>
+            <div>
+                <label>Dotari bucatarie necesare </label><br>
+                <form>
+                    <input type="checkbox" id="dotare1">
+                    <label for="dotare1">Aragaz</label>
+                    <input type="checkbox" id="dotare2">
+                    <label for="dotare2">Cuptor</label>
+                    <input type="checkbox" id="dotare3">
+                    <label for="dotare3">Cuptor cu microunde</label>
+                    <input type="checkbox" id="dotare4">
+                    <label for="dotare4">Robot de bucatarie</label>
+                    <input type="checkbox" id="dotare5">
+                    <label for="dotare5">Other</label>
+                </form>
+            </div>
+            <div>
+                <label>Durata prepararii (minute) </label><br>
+                <input type="number" id="timp" name="Durata prepararii">
+            </div>
+            <div>
+                <label>Ingrediente </label><br>
+                <input type="text" id="ingrediente" name="Ingrediente" placeholder="Ingrediente necesare..">
+            </div>
+            <div>
+                <label>Imagine </label><br>
+                <input type="file" id="myFile">
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<footer>
+    <p>Copyright &copy; 2018 Cuisine Web Helper</p>
+    <a href="mailto:contacts@cuh.com">
+        <p>Contact us</p>
+    </a>
+</footer>
+</body>
 </html>

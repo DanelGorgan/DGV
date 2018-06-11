@@ -16,7 +16,7 @@ mongo.mongoose
 
 http.createServer(function (req, res) {
 
-    let query = stringParser.parseQuery(req,res);
+    let query = stringParser.parseQuery(req, res);
     let path = req.url.replace(/%20/g, " ");
 
     switch (path) {
@@ -47,11 +47,10 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/addRecipe':
-            router.recipesRoute(req, res);
-            break;
-        case '/addRecipe/submit':
             if (req.method == 'POST') {
                 addRecipe.addR(req, res)
+            } else {
+                router.recipesRoute(req, res);
             }
             break;
         case '/latest':
