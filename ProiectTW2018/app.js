@@ -54,7 +54,7 @@ http.createServer(function (req, res) {
             }
             break;
         case '/latest':
-            if (req.method == 'POST') {
+            if (req.method == 'GET') {
                 latest.getNew(req, res)
             }
             break;
