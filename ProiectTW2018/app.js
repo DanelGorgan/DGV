@@ -24,8 +24,8 @@ http.createServer(function (req, res) {
         case '/recipes':
             router.recipesRoute(req, res);
             break;
-        case `/recipe`:
-            router.recipesRoute(req, res);
+        case `/recipe/?name=${query.name}`:
+            router.recipeRoute(req, res);
             break;
         case '/getRecipe':
             if (req.method == 'POST') {
