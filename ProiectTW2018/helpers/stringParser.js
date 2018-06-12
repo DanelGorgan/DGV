@@ -1,11 +1,11 @@
-const url = require('url')
-
-module.exports.parseQuery = (req, res) => {
-    let url_parts = url.parse(req.url, true);
-    let query = url_parts.query;
-   // query = JSON.stringify(query.name)
-    return query;
-}
+// const url = require('url')
+//
+// module.exports.parseQuery = (req, res) => {
+//     let url_parts = url.parse(req.url, true);
+//     let query = url_parts.query;
+//    // query = JSON.stringify(query.name)
+//     return query;
+// }
 
 module.exports.parseName = (name) => {
     name = name.trim()
@@ -17,4 +17,19 @@ module.exports.parseName = (name) => {
     }
     newName = newName.trim()
     return newName
+}
+
+
+module.exports.query = (req) => {
+    let q = req.url.split('?'), result = {};
+    if (q.length >= 2) {
+        q[1].split('&').forEach((item) => {
+            try {
+                result[item.split('=')[0]] = item.split('=')[1];
+            } catch (e) {
+                result[item.split('=')[0]] = '';
+            }
+        })
+    }
+    return result;
 }

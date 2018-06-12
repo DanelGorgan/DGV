@@ -3,7 +3,6 @@ const config = require('./config')
 const http = require('http');
 const mongo = require('./models/connection.js')
 const router = require('./routes/Routes')
-const stringParser = require('./helpers/stringParser')
 const register = require('./controllers/register.controller')
 const login = require('./controllers/login.controller')
 const addRecipe = require('./controllers/addRecipe.controller')
@@ -12,19 +11,24 @@ const filter = require('./controllers/filter.controller')
 const latest = require('./controllers/latest.controller')
 const upload = require('./controllers/upload.controller')
 const recipe = require('./controllers/recipe.controller')
+const query = require('./helpers/stringParser')
 
 //connect with mongoose
 mongo.mongoose
 
 http.createServer(function (req, res) {
-
-    let query = stringParser.parseQuery(req, res);
     let path = req.url.replace(/%20/g, " ");
+    var params=query.query(req)
+    req.params=params
+    console.log(req.params.name)
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
             break;
-        case `/recipe/?name=${query.name}`:
+        case `/recipe/?name=${req.params.name}`:
+            router.recipeRoute(req, res);
+            break;
+        case '/recipe':
             router.recipeRoute(req, res);
             break;
         case '/getRecipe':
@@ -86,4 +90,3 @@ http.createServer(function (req, res) {
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
 });
-
