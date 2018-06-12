@@ -10,7 +10,6 @@ function validateForm() {
     var link = document.getElementById('link').value;
     var timp = document.getElementById('timp').value;
     var ing = document.getElementById('ingrediente').value;
-    var image = document.getElementById('myFile').value;
     var choices = [];
     var regim = document.getElementsByClassName('ing');
     for (var i = 0; i < regim.length; i++) {
@@ -38,7 +37,6 @@ function validateForm() {
         link: link,
         duration: timp,
         ingredients: ing,
-        image: image,
         regim: choices,
         dotari: choices1,
         user: 'asdasa'
@@ -56,7 +54,7 @@ function validateForm() {
             if (xhr.status == 200) {
                 if (xhr.responseText === "Success") {
                     alert("Reteta adaugata!");
-                    window.location.href = "http://localhost:8125/";
+                    window.location.href = "http://localhost:8125/upload";
                 } else {
                     alert("Completati toate campurile!");
                 }
