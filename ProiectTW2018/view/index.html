@@ -66,9 +66,9 @@
         <div class="containerfilter">
             <p class="pfilter">Stil de viata </p>
             <form>
-                <input type="checkbox" id="aragaz">
+                <input type="checkbox" id="aragaz" class="sdv">
                 <label for="aragaz">Vegan</label>
-                <input type="checkbox" id="plita">
+                <input type="checkbox" id="plita" class="sdv">
                 <label for="plita">Vegetarian</label>
             </form>
         </div>
@@ -84,15 +84,15 @@
         <div class="containerfilter">
             <p class="pfilter">Gastronomie</p>
             <form>
-                <input type="checkbox" id="gastronomie1">
+                <input type="checkbox" id="gastronomie1" class="gastro">
                 <label for="gastronomie1">Frantuzeasca</label>
-                <input type="checkbox" id="gastronomie2">
+                <input type="checkbox" id="gastronomie2" class="gastro">
                 <label for="gastronomie2">Romaneasca</label>
-                <input type="checkbox" id="gastronomie3">
+                <input type="checkbox" id="gastronomie3" class="gastro">
                 <label for="gastronomie3">Italiana</label>
-                <input type="checkbox" id="gastronomie4">
+                <input type="checkbox" id="gastronomie4" class="gastro">
                 <label for="gastronomie4">Chinezeasca</label>
-                <input type="checkbox" id="gastronomie5">
+                <input type="checkbox" id="gastronomie5" class="gastro">
                 <label for="gastronomie5">Indiana</label>
             </form>
         </div>
@@ -101,31 +101,32 @@
         <div class="containerfilter">
             <p class="pfilter">Dificultate</p>
             <form>
-                <input type="checkbox" id="dificultate1">
+                <input type="checkbox" id="dificultate1" class="diffi">
                 <label for="dificultate1">Usoara</label>
-                <input type="checkbox" id="dificultate2">
+                <input type="checkbox" id="dificultate2" class="diffi">
                 <label for="dificultate2">Medie</label>
-                <input type="checkbox" id="dificultate3">
+                <input type="checkbox" id="dificultate3" class="diffi">
                 <label for="dificultate3">Grea</label>
             </form>
         </div>
         <div class="containerfilter">
             <p class="pfilter">Dotari bucatarie</p>
             <form>
-                <input type="checkbox" id="dotare1">
+                <input type="checkbox" id="dotare1" class="dotari" value="Aragaz">
                 <label for="dotare1">Aragaz</label>
-                <input type="checkbox" id="dotare2">
+                <input type="checkbox" id="dotare2" class="dotari" value="Cuptor">
                 <label for="dotare2">Cuptor</label>
-                <input type="checkbox" id="dotare3">
+                <input type="checkbox" id="dotare3" class="dotari" value="Cuptor cu microunde">
                 <label for="dotare3">Cuptor cu microunde</label>
-                <input type="checkbox" id="dotare4">
+                <input type="checkbox" id="dotare4" class="dotari" value="Robot de bucatarie">
                 <label for="dotare4">Robot de bucatarie</label>
+                <input type="checkbox" id="dotare5" class="dotari" value="Other">
+                <label for="dotare5">Other</label>
             </form>
         </div>
         <div class="containerfilter">
-            <p class="pfilter">Timp</p>
-            <input type="range" min="10" max="120" value="10" class="slider" id="myRange">
-            <p>Minute: <span id="demo"></span></p>
+            <label class="pfilter">Durata prepararii (minute) </label><br>
+            <input type="number" id="timp">
         </div>
 
         <a href="" class="button button-accent" onclick="filter()">Find Recipes</a>

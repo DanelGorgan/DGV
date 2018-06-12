@@ -10,18 +10,18 @@ function validateForm() {
     var link = document.getElementById('link').value;
     var timp = document.getElementById('timp').value;
     var ing = document.getElementById('ingrediente').value;
-    var choices = [];
+    var regimal = [];
     var regim = document.getElementsByClassName('ing');
     for (var i = 0; i < regim.length; i++) {
         if (regim[i].checked) {
-            choices.push(regim[i].value);
+            regimal.push(regim[i].value);
         }
     }
-    var choices1 = [];
+    var dotarin = [];
     var dotari = document.getElementsByClassName('dotari');
     for (var j = 0; j < dotari.length; j++) {
         if (dotari[j].checked) {
-            choices1.push(dotari[j].value);
+            dotarin.push(dotari[j].value);
         }
     }
 
@@ -37,8 +37,8 @@ function validateForm() {
         link: link,
         duration: timp,
         ingredients: ing,
-        regim: choices,
-        dotari: choices1,
+        regim: regimal,
+        dotari: dotarin,
         user: 'asdasa'
     };
 
