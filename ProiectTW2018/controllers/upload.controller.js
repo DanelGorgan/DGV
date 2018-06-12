@@ -32,12 +32,30 @@ module.exports.uploading = (req, res) => {
 
     upload(req, res, (err) => {
         console.log('[upload.controller] Updatam reteta cu poza')
-        console.log(req.file.filename)
-         return Recipes.findOneAndUpdate({
-             query: {},
-             sort: {$natural: -1},
-             update: {$set: {picture: req.file.filename}}
-         })
+        console.log('[upload controller]' + req.file.filename)
+        Recipes.find({}).find({}, (err,recipes) => {
+            console.log(recipes[0].name)
+            Recipes.findOneAndUpdate({name:recipes[0].name}, {$set:{picture:req.file.filename}}, {new: true}, function(err, doc){
+                if(err){
+                    console.log("Something wrong when updating data!");
+                }
+
+                console.log('Documentul modificat este ' + doc);
+            });
+        }).sort({$natural:-1});
+
+
+        // Recipes.findOneAndUpdate({
+        //      query: {},
+        //      sort: {$natural: -1},
+        //      update: {$set: {picture: req.file.filename}}
+        //  }, function(error, doc) {
+        //      if(error){
+        //          console.log(err)
+        //      } else {
+        //          console.log(doc)
+        //      }
+        // })
     })
 }
 
