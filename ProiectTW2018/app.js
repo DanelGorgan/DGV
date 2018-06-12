@@ -47,6 +47,13 @@ http.createServer(function (req, res) {
             case '/myAccount':
                 router.recipesRoute(req, res);
                 break;
+            case '/addRecipe':
+                if (req.method == 'POST') {
+                    addRecipe.addR(req, res)
+                } else {
+                    router.recipesRoute(req, res);
+                }
+                break;
             case '/latest':
                 if (req.method == 'GET') {
                     latest.getNew(req, res)

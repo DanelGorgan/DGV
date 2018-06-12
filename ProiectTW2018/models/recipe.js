@@ -122,9 +122,9 @@ module.exports.create = (name, description, style,
     }
     console.log('Am salvat poza')
 
-    // return newRecipe
-    //     .save()
-    //     .catch(err => {
-    //         console.log('Eroarea este ' + err)
-    //     })
+    return newRecipe
+        .save()
+        .catch(err => {
+            console.log('Eroarea este ' + err)
+        })
 }

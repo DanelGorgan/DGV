@@ -10,7 +10,7 @@ module.exports.addR = (req, res) => {
     req.on('end', () => {
         if (body) {
             body = JSON.parse(body)
-            console.log(body)
+            console.log('[addR] '+body)
             RecipeModel.check(body.name, body.description, (recipe) => {
                 if (recipe.length === 0) {
                     RecipeModel.create(body.name, body.description, body.style,
@@ -26,5 +26,4 @@ module.exports.addR = (req, res) => {
         }
     });
 }
-
 
