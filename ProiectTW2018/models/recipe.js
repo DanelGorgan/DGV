@@ -9,7 +9,6 @@ module.exports.checkFilter = (json, callback) => {
 
 module.exports.getLatest = (callback) => {
     Recipes.find({}, function (err, recipe) {
-        console.log('avem ' + recipe.length)
         callback(recipe)
     }).sort({$natural: -1}).limit(5)
 }
