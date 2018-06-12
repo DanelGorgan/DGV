@@ -10,12 +10,8 @@ module.exports.filter = (req, res) => {
         body = JSON.parse(body)
         RecipeModel
             .checkFilter(body, (recipe) => {
-                let response = []
-                for (let i = 0; i < recipe.length; i++) {
-                    response.push(recipe[i].name)
-                }
                 if (recipe.length > 0) {
-                    res.end(JSON.stringify(response))
+                    res.end(JSON.stringify(recipe))
                 } else {
                     res.end('Failure')
                 }
