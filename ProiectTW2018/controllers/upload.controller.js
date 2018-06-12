@@ -1,10 +1,8 @@
 const multer = require('multer')
 const path = require('path')
-const serverHandle = require('../helpers/serverHandler.js')
-const fs = require('fs');
+const Recipes = require('../models/recipeModel')
 
-module.exports.uploading = (req, res, callback) => {
-    console.log('suntem aici')
+module.exports.uploading = (req, res) => {
 
     const storage = multer.diskStorage({
         destination: './view/img/',
@@ -14,7 +12,6 @@ module.exports.uploading = (req, res, callback) => {
     })
 
     function checkFileType(file, cb) {
-        console.log('suntem iaici')
         const filetypes = /jpeg|jpg|png|gif/;
         const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
         const mimetype = filetypes.test(file.mimetype);
@@ -34,8 +31,13 @@ module.exports.uploading = (req, res, callback) => {
     }).single('myImage')
 
     upload(req, res, (err) => {
-        // console.log(req.file)
-        return req.file
+        console.log('[upload.controller] Updatam reteta cu poza')
+        console.log(req.file.filename)
+         return Recipes.findOneAndUpdate({
+             query: {},
+             sort: {$natural: -1},
+             update: {$set: {picture: req.file.filename}}
+         })
     })
 }
 

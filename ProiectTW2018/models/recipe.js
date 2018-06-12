@@ -1,59 +1,5 @@
-const mongoose = require('mongoose');
 const stringParser = require('../helpers/stringParser')
-
-const recipeSchema = new mongoose.Schema({
-    name: {
-        required: true,
-        type: String
-    },
-    description: {
-        required: true,
-        type: String
-    },
-    style: {
-        required: true,
-        type: String
-    },
-    difficulty: {
-        required: true,
-        type: String
-    },
-    link: {
-        required: true,
-        type: String
-    },
-    post: {
-        required: true,
-        type: String
-    },
-    regim: {
-        required: true,
-        type: Array
-    },
-    dotari: {
-        required: true,
-        type: Array
-    },
-    gastronomy: {
-        required: true,
-        type: String
-    },
-    duration: {
-        required: true,
-        type: Number
-    },
-    ingredients: {
-        type: Array,
-        required: true,
-    },
-    user: {
-        required: true,
-        type: String
-    },
-    picture: {}
-});
-
-const Recipes = mongoose.model('recipes', recipeSchema);
+const Recipes = require('./recipeModel')
 
 module.exports.checkFilter = (json, callback) => {
     Recipes.find(json, function (err, recipe) {
@@ -62,7 +8,6 @@ module.exports.checkFilter = (json, callback) => {
 }
 
 module.exports.getLatest = (callback) => {
-    console.log('re here')
     Recipes.find({}, function (err, recipe) {
         console.log('avem ' + recipe.length)
         callback(recipe)
@@ -71,7 +16,7 @@ module.exports.getLatest = (callback) => {
 
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
-        callback(recipe)
+            callback(recipe)
     });
 }
 
@@ -93,7 +38,7 @@ module.exports.search = (name, callback) => {
 
 module.exports.create = (name, description, style,
                          difficulty, link, post, regim, dotari,
-                         gastronomy, duration, ingredients, user) => {
+                         gastronomy, duration, ingredients, user, picture) => {
     let newRecipe = new Recipes({
         name: name,
         description: description,
@@ -107,7 +52,7 @@ module.exports.create = (name, description, style,
         duration: duration,
         ingredients: [],
         user: user,
-        picture:{}
+        picture: picture
     });
     for (let i = 0; i < dotari.length; i++) {
         newRecipe.dotari.push(dotari[i])
@@ -115,16 +60,18 @@ module.exports.create = (name, description, style,
     const fields = ingredients.split(',');
     for (let i = 0; i < fields.length; i++) {
         newRecipe.ingredients.push(fields[i])
-        console.log(i +' ' + fields[i])
+        console.log(i + ' ' + fields[i])
     }
     for (let i = 0; i < regim.length; i++) {
         newRecipe.regim.push(regim[i])
     }
-    console.log('Am salvat poza')
 
     return newRecipe
         .save()
         .catch(err => {
-            console.log('Eroarea este ' + err)
+            console.log('[recipe.js]Eroarea este ' + err);
         })
 }
+
+module.exports.Recipes = Recipes;
+
