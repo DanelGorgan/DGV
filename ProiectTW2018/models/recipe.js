@@ -14,6 +14,13 @@ module.exports.getLatest = (callback) => {
     }).sort({$natural: -1}).limit(5)
 }
 
+module.exports.get = (name, callback) => {
+    Recipes.find({name: name}, function (err, recipe) {
+        callback(recipe)
+    });
+}
+
+
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
             callback(recipe)
