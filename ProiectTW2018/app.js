@@ -75,9 +75,9 @@ http.createServer(function (req, res) {
                 filter.filter(req, res)
             }
             break;
-        case `/search?name=${query.name}`:
-            if (req.method == 'GET') {
-                search.search(req, res, query)
+        case '/search':
+            if (req.method == 'POST') {
+                search.search(req, res)
             }
             break;
         default:

@@ -28,8 +28,9 @@ module.exports.check = (name, description, callback) => {
 }
 
 module.exports.search = (name, callback) => {
-
+    
     let newName = stringParser.parseName(name)
+    console.log('[recipe] Cautam '+ newName)
     Recipes.find({
             name: {
                 '$regex': decodeURIComponent(newName).replace(/[()]/g, ''),

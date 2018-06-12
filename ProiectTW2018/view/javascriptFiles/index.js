@@ -12,7 +12,7 @@ function latestRecipes() {
             console.log('xhr.readyState=XMLHttpRequest.done');
             console.log(xhr.status);
             if (xhr.status == 200) {
-                console.log('afisam inner html si afisam ' + this.responseText)
+                //console.log('afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
                 for (var i = 0; i < body.length; i++) {
                     elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p>" + body[i].description +
