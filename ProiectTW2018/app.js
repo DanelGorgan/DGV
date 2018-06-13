@@ -20,7 +20,10 @@ http.createServer(function (req, res) {
     let path = req.url.replace(/%20/g, " ");
     var params = query.query(req)
     req.params = params
-    console.log(path)
+
+    var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
+    console.log("Authorization Header is: ", auth);
+
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
