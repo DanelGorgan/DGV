@@ -76,16 +76,38 @@ function recipe(name) {
             if (xhr.status == 200) {
                 //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
-                elem += "<div class=\"container\"><h1>" + body[0].name + "</h1><img src=\"../img/" +body[0].picture+ "\" alt=\""+body[0].name+"\" class=\"box-container\" width=1000 height=600><div class=\"ingredient\"> <p><strong>De ce ai nevoie ca să gătești " + body[0].name + ":</strong></p>"
-                elem+="<ul class=\"lista\">"
+                elem += "<div class=\"container\">"+
+                    "<h1>"+body[0].name+"</h1>"+
+                    "<img src=\"../img/"+body[0].picture+"\" alt=\""+body[0].name+"\" class=\"box-container\">"+
+                    "<div class=\"ingrediente\">"+
+                    "<p class=\"banane\"><strong>De ce ai nevoie ca să gătești "+body[0].name+":</strong></p>"
+                   elem+= "<ul class=\"lista\">"
                 for (var i=0; i<body[0].ingredients.length;i++)
                 {
                     console.log('afisam i=' + i)
                     elem+="<li>" + body[0].ingredients[i] + "</li>";
-                }  
-                elem+="</ul></div>";  
-                elem+= "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\" " + body[0].link +"\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
-                console.log(elem)
+                };
+                  elem+="</ul></div>";
+                  elem+="<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >"+
+                      "</div>" +
+                      "<div class=\"container1\">"+
+                    "<p><strong>Durata Preparare: "+body[0].duration +" minute</strong></p>"+
+                "</div>"+
+                "<div class=\"container1\">"+
+                    "<p><strong>Dificultate Preparare: "+body[0].difficulty +"</p>"+
+                    "</div>"+
+                    "<p><strong>Cum gătești "+body[0].name+":</strong></p>" +
+                    "<p>"+body[0].description+
+                    "</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "<h1>"+body[0].name+", rețetă video</h1>" +
+                    "<iframe class=\"center\" src=\" "+body[0].link+"\" allowfullscreen></iframe>" +
+                    "<p class=\"tag\">"+body[0].style+"</p>" +
+                    "<p class=\"tag\">post: "+body[0].post+"</p>" +
+                    "<p class=\"tag\">"+body[0].gastronomy+"</p>" +
+                    "<p class=\"tag\">gastronomie: "+body[0].regim+"</p>" +
+                    "<p class=\"tag\">"+body[0].difficulty+"</p>";
                 document.getElementById("bcontainer").innerHTML = elem;
             }
         }
