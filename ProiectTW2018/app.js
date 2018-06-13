@@ -17,10 +17,11 @@ const query = require('./helpers/stringParser')
 mongo.mongoose
 
 http.createServer(function (req, res) {
+
     let path = req.url.replace(/%20/g, " ");
-    var params=query.query(req)
-    req.params=params
-    console.log(req.params.name)
+    var params = query.query(req)
+    req.params = params
+    console.log(path)
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
@@ -29,7 +30,7 @@ http.createServer(function (req, res) {
             router.recipeRoute(req, res);
             break;
         case '/recipe':
-            router.recipeRoute(req, res);
+            router.recipesRoute(req, res);
             break;
         case '/getRecipe':
             if (req.method == 'POST') {
@@ -90,3 +91,4 @@ http.createServer(function (req, res) {
 }).listen(config.port, () => {
     console.log(`Server running at http:localhost:${config.port}/`);
 });
+

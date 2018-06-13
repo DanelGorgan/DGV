@@ -1,8 +1,38 @@
 const stringParser = require('../helpers/stringParser')
 const Recipes = require('./recipeModel')
+const _ = require('lodash')
 
 module.exports.checkFilter = (json, callback) => {
+
+    // let data = []
+    // // for (let i = 0; i < _.size(json); i++) {
+    // //     data.push(jdateson[i])
+    // // }
+    // // console.log(data)
+    // if (json.post.length > 0) {
+    //     data.push(json.post)
+    // }
+    // if (json.difficulty.length > 0) {
+    //     data.push(json.difficulty)
+    // }
+    // if (json.regim.length > 0) {
+    //     data.push(json.regim)
+    // }
+    // if (json.style.length > 0) {
+    //     data.push(json.style)
+    // }
+    // if (json.gastronomy.length > 0) {
+    //     data.push(json.gastronomy)
+    // }
+    // if (json.duration.length > 0) {
+    //     data.push(json.duration)
+    // }
+    // if (json.dotari.length > 0) {
+    //     data.push(json.dotari)
+    // }
+    // console.log(data)
     Recipes.find(json, function (err, recipe) {
+        console.log(recipe)
         callback(recipe)
     });
 }
@@ -22,14 +52,14 @@ module.exports.get = (name, callback) => {
 
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
-            callback(recipe)
+        callback(recipe)
     });
 }
 
 module.exports.search = (name, callback) => {
-    
+
     let newName = stringParser.parseName(name)
-    console.log('[recipe] Cautam '+ newName)
+    console.log('[recipe] Cautam ' + newName)
     Recipes.find({
             name: {
                 '$regex': decodeURIComponent(newName).replace(/[()]/g, ''),
