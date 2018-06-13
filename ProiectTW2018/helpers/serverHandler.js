@@ -33,16 +33,12 @@ module.exports.serverHandler = (request, response) => {
     //console.log('[serverHandler] contentType= mimeTypes[extname] = ' + contentType)
     fs.readFile(filePath, function (error, content) {
         if (error) {
-            if (error.code == 'ENOENT') {
-                fs.readFile('./404.html', function (error, content) {
-                    response.writeHead(200, {'Content-Type': contentType});
-                    response.end(content, 'utf-8');
-                });
+            if (error.code === 'ENOENT') {
+                response.end('NU exista aceasta pagina')
             }
             else {
                 response.writeHead(500);
                 response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-                response.end();
             }
         }
         else {
