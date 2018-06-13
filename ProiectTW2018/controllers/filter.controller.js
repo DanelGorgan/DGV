@@ -16,6 +16,7 @@ module.exports.filter = (req, res) => {
         data = data.substring(0,data.length-3)
         data = '{' + data + '}'
         data = JSON.parse(data)
+        console.log(data)
         RecipeModel
             .checkFilter(data, (recipe) => {
                 if (recipe.length > 0) {

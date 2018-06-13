@@ -49,6 +49,7 @@ function latestRecipes() {
 }
 
 function recipe(name) {
+
     console.log(name);
     var url = 'http://localhost:8125/getRecipe';
     xhr.open('POST', url);
@@ -64,37 +65,39 @@ function recipe(name) {
             if (xhr.status == 200) {
                 //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
-                elem += "<div class=\"container\">" +
-                    "<h1>" + body[0].name + "</h1>" +
-                    "<img src=\"../img/" + body[0].picture + "\" alt=\"" + body[0].name + "\" class=\"box-container\">" +
-                    "<div class=\"ingrediente\">" +
-                    "<p class=\"banane\"><strong>De ce ai nevoie ca să gătești " + body[0].name + ":</strong></p>"
-                elem += "<ul class=\"lista\">"
-                for (var i = 0; i < body[0].ingredients.length; i++) {
+                const link = getIframe(body[0].link);
+                console.log(link)
+                elem += "<div class=\"container\">"+
+                    "<h1>"+body[0].name+"</h1>"+
+                    "<img src=\"../img/"+body[0].picture+"\" alt=\""+body[0].name+"\" class=\"box-container\">"+
+                    "<div class=\"ingrediente\">"+
+                    "<p class=\"banane\"><strong>De ce ai nevoie ca să gătești "+body[0].name+":</strong></p>"
+                   elem+= "<ul class=\"lista\">"
+                for (var i=0; i<body[0].ingredients.length;i++)
+                {
                     console.log('afisam i=' + i)
                     elem += "<li>" + body[0].ingredients[i] + "</li>";
                 };
-                elem += "</ul></div>";
-                elem += "<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >" +
-                    "</div>" +
-                    "<div class=\"container1\">" +
-                    "<p><strong>Durata Preparare: " + body[0].duration + " minute</strong></p>" +
-                    "</div>" +
-                    "<div class=\"container1\">" +
-                    "<p><strong>Dificultate Preparare: " + body[0].difficulty + "</p>" +
-                    "</div>" +
-                    "<p><strong>Cum gătești " + body[0].name + ":</strong></p>" +
-                    "<p>" + body[0].description +
+                  elem+="</ul></div>";
+                  elem+="<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >"+
+                      "</div>" +
+                      "<div class=\"container1\">"+
+                    "<p><strong>Durata Preparare:</strong> "+body[0].duration +" minute</p>"+
+                "</div>"+
+                "<div class=\"container1\">"+
+                    "<p><strong>Dificultate Preparare:</strong> "+body[0].difficulty +"</p>"+
+                    "</div>"+
+                    "<p><strong>Cum gătești "+body[0].name+":</strong></p>" +
+                    "<p>"+body[0].description+
                     "</p>" +
                     "</div>" +
                     "</div>" +
-                    "<h1>" + body[0].name + ", rețetă video</h1>" +
-                    "<iframe class=\"center\" src=\" " + body[0].link + "\" allowfullscreen></iframe>" +
-                    "<p class=\"tag\">" + body[0].style + "</p>" +
-                    "<p class=\"tag\">post: " + body[0].post + "</p>" +
-                    "<p class=\"tag\">" + body[0].gastronomy + "</p>" +
-                    "<p class=\"tag\">gastronomie: " + body[0].regim + "</p>" +
-                    "<p class=\"tag\">" + body[0].difficulty + "</p>";
+                    "<h1>"+body[0].name+", rețetă video</h1>" + link +
+                    "<p class=\"tag\">"+body[0].style+"</p>" +
+                    "<p class=\"tag\">post: "+body[0].post+"</p>" +
+                    "<p class=\"tag\">"+body[0].gastronomy+"</p>" +
+                    "<p class=\"tag\">gastronomie: "+body[0].regim+"</p>" +
+                    "<p class=\"tag\">"+body[0].difficulty+"</p>";
                 document.getElementById("bcontainer").innerHTML = elem;
             }
         }
@@ -193,6 +196,8 @@ function filter() {
     xhr.open('POST', url);
     var elem = '';
     xhr.setRequestHeader("Content-type", "text/plain");
+    console.log('trimitem la server')
+    console.log(data)
     xhr.send(data);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -214,6 +219,7 @@ function filter() {
     }
 }
 
+<<<<<<< HEAD
 window.onload = function(){
     if (localStorage.getItem('mere') == 'ceva'){
         console.log('yeeeeeeeeeeeeeeeeeee')
@@ -221,3 +227,24 @@ window.onload = function(){
         console.log('neeeeeeeeeeeeeeeeeee')
     }
 }
+=======
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
+
+
+
+function getIframe(url){
+    var videoId = getId(url);
+    var iframeMarkup = '<p align="center"><iframe width="560" height="315" src="//www.youtube.com/embed/'
+        + videoId + '" frameborder="0" allowfullscreen></iframe></p>';
+    return iframeMarkup;
+}
+>>>>>>> 7525e70a9791f6386f435f8646c235f16d275c9f
