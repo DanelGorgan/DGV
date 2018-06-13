@@ -10,7 +10,7 @@ module.exports.getDetails = (req, res) => {
             body = JSON.parse(body)
             RecipeModel.get(body.name ,(recipe) => {
                 if (recipe.length > 0) {
-                    //console.log('[recipe.controller] Trimitem '+ recipe)
+                    res.writeHead(200, {"Content-Type": "text/plain"});
                     res.end(JSON.stringify(recipe))
                 } else {
                     res.writeHead(200, {"Content-Type": "text/plain"});
