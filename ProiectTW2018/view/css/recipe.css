@@ -8,19 +8,6 @@ body{
   margin: 0;
 }
 
-h1{
-  text-align: center;   
-}
-
-.lista{
-list-style-type: none;
-margin: 0;
-padding: 0;
-}
-
-p#subtitle{
-  display: block;
-}
 
 
 /* Global */
@@ -30,90 +17,8 @@ p#subtitle{
   margin: auto;
   overflow: hidden;
 }
-.container1{
-  width: 98.5%;
-  margin: auto;
-  margin-left: 5%;
-  overflow: hidden;
-}
 
 
-
-
-
-.showcaserecipe{
-  float: left;
-  margin-right: 1em;
-  width: 100%;
-}
-
-.showcase h2{
-  text-align: center;
-  font-style: italic;
-  font:italic bold 25px/43px Georgia, serif;
-}
-
-.showcase{
-  float: left;
-  margin-left: 2em;
-  width: 75%;
-
-}
-
-.pfilter{
-  text-align: center;
-  font-style: italic;
-  font:italic bold 15px/35px Georgia, serif;
-}
-
-.grid a{
-  background-color: #d53827;
-  color: white;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  text-transform: uppercase;
-  float: left;
-  border-radius: 0.3em 0.3em 0.3em 0.3em;
-}
-.grid a:hover {
-  background-color: #333;
-}
-.grid a:visited {
-  background-color: #ccc;
-}
-
-
-/*-----------*/
-.showcaserecipe h2{
-  text-align: center;
-  font-style: italic;
-  font:italic bold 25px/43px Georgia, serif;
-}
-.grid p{
-  padding-top: 12px;
-  display: block;
-  text-align: justify;
- }
-.box-img img{ 
-  padding:10px;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 0 3px #c5c2a9;
-  display:block;
-
-}
-
-
-/* ------
-recipes.html
--------*/
-.box-img1 img{ 
-  padding:10px;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 0 3px #c5c2a9;
-  display:block;
-}
 
 /*------*/
 
@@ -127,37 +32,7 @@ recipes.html
   border-radius: 0.3em 0.3em 0.3em 0.3em;
 
 }
-.smallcontainer{
-  float: left;
-}
 
-.containerfilter {
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background: #FFFFFF;
-  max-width: 200px;
-  max-height: 250px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 2px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-.containerfilter1 {
-  text-align: center;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background: #FFFFFF;
-  max-width: 200px;
-  max-height: 250px;
-  padding-bottom: 10px;
-  padding-top: 40px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
 
 
 div.scroll {
@@ -175,7 +50,15 @@ div.scroll {
   position: relative;
   float: left;
 }
+h1{
+  text-align: center;
+}
 
+.lista{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 .box-container{
   position: relative;
   float: left;
@@ -183,6 +66,26 @@ div.scroll {
   padding: 10px;
   margin-left: 1%;
 
+}
+
+.tag {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+.center{
+  display: block;
+  text-align: center;
+  margin: 0 auto 20px;
+  width: 50%;
+  height: 400px;
 }
 
 
@@ -216,24 +119,19 @@ footer a{
 footer a:hover{
   color:#ddd;
 }
-
 footer p{
   text-align: center;
   line-height: 0.7;
 }
-
-
 header a {
   color:#ffffff;
   text-decoration: none;
   font-size: 16px;
 }
-
 header ul{
   margin: 0;
   padding: 0;
 }
-
 header li{
   float:left;
   display: inline;
@@ -362,98 +260,7 @@ header #branding{
   display: block;
 }
 
-/*CheckBox */
 
-input[type= checkbox] + label{
-  display: block;
-  margin: 0.2em;
-  cursor: pointer;
-  padding: 0.2em;
-}
-input[type= checkbox]{
-  display: none;
-}
-input[type= checkbox] + label:before{
-  content: "\2714";
-  border: 0.1em solid #000;
-  border-radius: 0.2em;
-  display:inline-block;
-  width:1em;
-  height: 1em;
-  padding-left: 0.2em;
-  padding-bottom: 0.2em;
-  margin-right: 1em;
-  vertical-align: bottom;
-  color: transparent;
-  transition: 0.2s;
-}
-
-
-input[type=checkbox]:checked + label:before{
-  background-color: mediumseagreen;
-  border-color: mediumseagreen;
-  color:#fff;
-}
-
-
-input[type=checkbox] + label:active:before{
-  transform: scale(0);
-}
-
-
-
-/*button 
-================*/
-.button {
-  display: inline-block;
-  font-size: 1.5rem;
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background: #FFFFFF;
-  max-width: 200px;
-  padding-bottom: 10px;
-  padding-left: 40px;
-  padding-top: 10px;
-  padding-right: 40px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-
-/*--------*/
-
-.button-accent:hover, .button-accent.focus{
-  background: #ddd;
-  color: black;
-}
-
-.tag {
-  background-color: black;
-  border: none;
-  color: white;
-  padding: 7px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-}
-
-.center{
-  display: block;
-  text-align: center;
-  margin: 0 auto 20px; 
-  width: 50%;
-  height: 400px;
-}
-
-.imagine{
-  width: 22%;
-  height: auto;
-}
 
 
 
@@ -467,8 +274,10 @@ input[type=checkbox] + label:active:before{
     background-color: white;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
   }
-  .box-container{
-    width: 90%;
+
+  .box-container img{
+    max-height: 10%;
+    max-width: 10%;
   }
   .ingrediente{
     width: 80%;
