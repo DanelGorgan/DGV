@@ -7,7 +7,6 @@ module.exports.filter = (req, res) => {
     });
     req.on('end', function () {
         body = body.split(',')
-        console.log(body)
         let data = ''
         for (let i = 0; i < body.length; i++) {
             if (body[i] !== '' && i!=0) {
