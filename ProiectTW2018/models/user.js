@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+const config = require('../config')
 
 let UserSchema = new mongoose.Schema({
     username: {
@@ -94,7 +96,12 @@ module.exports.login = (email, password) => {
                     .then(itMatches => {
                         console.log('[user.js] itMatches este ' + itMatches)
                         if (itMatches) {
-                            return Promise.resolve();
+                            let payload = {
+                                _id:user.id
+                            }
+                            let token = jwt.sign(payload, config.secret, {expiresIn: 6000000})
+
+                            return Promise.resolve(token);
                         } else {
                             return Promise.reject();
                         }
