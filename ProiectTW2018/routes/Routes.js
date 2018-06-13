@@ -47,7 +47,7 @@ module.exports.recipesRoute = (request, response) => {
 
 module.exports.recipeRoute = (request, response) => {
 
-    const filePath = './view/html/recipe.html';
+    const filePath = './view/html/MyAccount.html';
     const extname = String(path.extname(filePath)).toLowerCase();
     const mimeTypes = {
         '.html': 'text/html',
@@ -81,7 +81,7 @@ module.exports.recipeRoute = (request, response) => {
             }
         }
         else {
-            response.writeHead(200, {'Content-Type': contentType});
+            response.writeHead(200, {'Content-Type': contentType, 'Location': 'C:\\Users\\gabig\\Documents\\GitHub\\ProiectTW2018\\view\\html\\MyAccount.html'});
             response.end(content, 'utf-8');
         }
     });

@@ -7,15 +7,35 @@ function changeHeader() {
     if (data1) {
         elem += "<div id=\"branding\"><h1><a href=\"http://localhost:8125/\" method=\"post\"><img src=\"./img/chef.png\" alt=\"\"></a></h1></div>";
         elem += "<div class=\"search-bar-wrapper\"><input class=\"search-box-input\" id=\"search\" type=\"text\" placeholder=\"Search...\"><button class=\"search-box-button\"><img src=\"./img/search.png\" alt=\"\" onclick=\"search()\"></button></div>"
-        elem += "<nav class=\"navbar\"><div class=\"dropdown\"><form action=\"http://localhost:8125/recipes\" method=\"post\"><button class=\"dropbtn\">Recipes</button></form></div><div class=\"dropdown\"><form action=\"http://localhost:8125/myAccount\" method=\"post\"><button class=\"dropbtn\">My Account</button></form><div class=\"dropdown-content\"><a href=\"http://localhost:8125/myRecipes\" method=\"post\">My Recipes</a><a href=\"http://localhost:8125\" onclick=\"logout()\">Logout</a></div></div></nav></div>"
+        elem += "<nav class=\"navbar\"><div class=\"dropdown\"><form action=\"http://localhost:8125/recipes\" method=\"post\"><button class=\"dropbtn\">Recipes</button></form></div><div class=\"dropdown\"><button class=\"dropbtn\" onclick=\"auth()\">My Account</button><div class=\"dropdown-content\"><a href=\"http://localhost:8125/myRecipes\" method=\"post\">My Recipes</a><a href=\"http://localhost:8125\" onclick=\"logout()\">Logout</a></div></div></nav></div>"
     }
     else {
         elem += "<div id=\"branding\"><h1><a href=\"http://localhost:8125/\" method=\"post\"><img src=\"./img/chef.png\" alt=\"\"></a></h1></div>";
         elem += "<div class=\"search-bar-wrapper\"><input class=\"search-box-input\" id=\"search\" type=\"text\" placeholder=\"Search...\"><button class=\"search-box-button\"><img src=\"./img/search.png\" alt=\"\" onclick=\"search()\"></button></div>"
-        elem += "<nav class=\"navbar\"><div class=\"dropdown\"><form action=\"http://localhost:8125/recipes\" method=\"post\"><button class=\"dropbtn\">Recipes</button></form></div><div class=\"dropdown\"><form action=\"http://localhost:8125/myAccount\" method=\"post\"><button class=\"dropbtn\">My Account</button></form><div class=\"dropdown-content\"><a href=\"http://localhost:8125/Login\" method=\"post\">Login</a><a href=\"http://localhost:8125/Register\" method=\"post\">Register</a></div></div></nav></div>"
+        elem += "<nav class=\"navbar\"><div class=\"dropdown\"><form action=\"http://localhost:8125/recipes\" method=\"post\"><button class=\"dropbtn\">Recipes</button></form></div><div class=\"dropdown\"><button class=\"dropbtn\">My Account</button><div class=\"dropdown-content\"><a href=\"http://localhost:8125/Login\" method=\"post\">Login</a><a href=\"http://localhost:8125/Register\" method=\"post\">Register</a></div></div></nav></div>"
 
     }
     document.getElementById("cont").innerHTML = elem;
+}
+
+function auth() {
+    console.log('Suntem in auth')
+    var token = localStorage.getItem(localStorage.key(1));
+    var url = 'http://localhost:8125/myAccount1';
+
+    xhr.open('GET', url);
+    xhr.setRequestHeader("Authorization", token);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState)
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log(xhr.status);
+            if (xhr.status == 200) {
+                window.location.href = 'http://localhost:8125/myAccount';
+            }
+        }
+    }
+
 }
 
 function latestRecipes() {
@@ -32,7 +52,7 @@ function latestRecipes() {
                 //console.log('afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
                 for (var i = 0; i < body.length; i++) {
-                    elem += "<div><figure class=\"box-img\"><img src=\"./img/"+body[i].picture+"\" alt=\"\"></figure></div><div> <p>" + body[i].description +
+                    elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p>" + body[i].description +
                         "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                 }
                 document.getElementById("nr").innerHTML = elem;
@@ -58,20 +78,21 @@ function recipe(name) {
                 //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
                 elem += "<div class=\"container\"><h1>" + body[0].name + "</h1><img src=\"../img/ciulama.jpeg\" alt=\"ciulama\" class=\"box-container\"><div class=\"ingredient\"> <p><strong>De ce ai nevoie ca să gătești " + body[0].name + ":</strong></p>"
-                elem+="<ul class=\"lista\">"
+                elem += "<ul class=\"lista\">"
                 // for (var i=0; i<body[0].ingredients.length;i++)
                 // {
                 //     console.log('afisam i=' + i)
                 //     elem+="<li>" + body[0].ingredients[i] + "</li>";
                 // }  
-                elem+="</ul></div>";  
-                elem+= "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\" " + body[0].link +"\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
+                elem += "</ul></div>";
+                elem += "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\" " + body[0].link + "\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
                 console.log(elem)
                 document.getElementById("bcontainer").innerHTML = elem;
             }
         }
     }
 }
+
 function logout() {
     console.log('am intrat pe logout')
     console.log(localStorage.key(0))
@@ -104,7 +125,7 @@ function search() {
                     //console.log('[search] ' + xhr.responseText)
                     var body = JSON.parse(this.responseText);
                     for (var i = 0; i < body.length; i++) {
-                        elem += "<div><figure class=\"box-img\"><img src=\"./img/"+body[i].picture+"\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
+                        elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
                             "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     document.getElementById("nr").innerHTML = elem;
@@ -215,8 +236,8 @@ function filter() {
                 if (xhr.responseText != "Failure") {
                     var body = JSON.parse(this.responseText);
                     for (var i = 0; i < body.length; i++) {
-                        elem += "<div><figure class=\"box-img\"><img src=\"./img/"+body[i].picture+"\" alt=\"\"></figure></div><div> <p>" + body[i].description +
-                        "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
+                        elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p>" + body[i].description +
+                            "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     console.log(elem);
                     document.getElementById("nr").innerHTML = elem;
@@ -228,4 +249,5 @@ function filter() {
         }
     }
 }
+
 //document.getElementById("pls").onclick = filter();
