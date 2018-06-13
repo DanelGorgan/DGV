@@ -12,6 +12,7 @@ function validateForm() {
     var ing = document.getElementById('ingrediente').value;
     var regimal = [];
     var regim = document.getElementsByClassName('ing');
+
     for (var i = 0; i < regim.length; i++) {
         if (regim[i].checked) {
             regimal.push(regim[i].value);
@@ -25,7 +26,8 @@ function validateForm() {
         }
     }
 
-    console.log('else')
+    //console.log('USERUL ESTE ' + localStorage.key(0))
+    var username = localStorage.key(0);
     var url = 'http://localhost:8125/addRecipe';
     var data = {
         name: name,
@@ -39,7 +41,7 @@ function validateForm() {
         ingredients: ing,
         regim: regimal,
         dotari: dotarin,
-        user: 'asdasa'
+        user: username
     };
 
     console.log(data.dotari + ' ' + data.regim + ' ' + data.name + ' ' + data.description + ' ' + data.style + ' ' + data.difficulty);
@@ -62,7 +64,5 @@ function validateForm() {
         }
     }
     xhr.send(JSON.stringify(data));
-
-
 }
 

@@ -11,6 +11,7 @@ const filter = require('./controllers/filter.controller')
 const latest = require('./controllers/latest.controller')
 const upload = require('./controllers/upload.controller')
 const recipe = require('./controllers/recipe.controller')
+const myRecipe = require('./controllers/myrecipe.controller')
 const query = require('./helpers/stringParser')
 
 //connect with mongoose
@@ -20,7 +21,10 @@ http.createServer(function (req, res) {
     let path = req.url.replace(/%20/g, " ");
     var params = query.query(req)
     req.params = params
-    console.log(path)
+
+    var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
+    console.log("Authorization Header is: ", auth);
+
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
@@ -34,6 +38,11 @@ http.createServer(function (req, res) {
         case '/getRecipe':
             if (req.method == 'POST') {
                 recipe.getDetails(req, res)
+            }
+            break;
+        case '/getMyRecipes':
+            if (req.method == 'POST') {
+                myRecipe.getDetails(req, res)
             }
             break;
         case '/myRecipes':
