@@ -65,7 +65,7 @@ function recipe(name) {
                 //     elem+="<li>" + body[0].ingredients[i] + "</li>";
                 // }  
                 elem+="</ul></div>";  
-                elem+= "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\"https://www.youtube.com/embed/Hdd4iMQb5XA\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
+                elem+= "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\" " + body[0].link +"\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
                 console.log(elem)
                 document.getElementById("bcontainer").innerHTML = elem;
             }
