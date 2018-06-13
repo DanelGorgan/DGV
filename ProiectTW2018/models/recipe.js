@@ -16,7 +16,9 @@ module.exports.getLatest = (callback) => {
 }
 
 module.exports.get = (name, callback) => {
+    //console.log('[recipe.js] functia get cauta numele ' + name)
     Recipes.find({name: name}, function (err, recipe) {
+        //console.log('[recipe.js] functia get a gasit ' + recipe)
         callback(recipe)
     });
 }

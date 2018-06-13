@@ -33,7 +33,7 @@ function latestRecipes() {
                 var body = JSON.parse(this.responseText);
                 for (var i = 0; i < body.length; i++) {
                     elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p>" + body[i].description +
-                        "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe()\">View recipe</a> </div>";
+                        "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                 }
                 document.getElementById("nr").innerHTML = elem;
             }
@@ -41,7 +41,38 @@ function latestRecipes() {
     }
 }
 
-function logout(){
+function recipe(name) {
+    console.log(name);
+    var url = 'http://localhost:8125/getRecipe';
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+    var data = {
+        name: name
+    }
+    xhr.send(JSON.stringify(data));
+    var elem = '';
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            //console.log(xhr.status);
+            if (xhr.status == 200) {
+                //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
+                var body = JSON.parse(this.responseText);
+                elem += "<div class=\"container\"><h1>" + body[0].name + "</h1><img src=\"../img/ciulama.jpeg\" alt=\"ciulama\" class=\"box-container\"><div class=\"ingredient\"> <p><strong>De ce ai nevoie ca să gătești " + body[0].name + ":</strong></p>"
+                elem+="<ul class=\"lista\">"
+                for (var i=0; i<body[0].ingredients.length;i++)
+                {
+                    console.log('afisam i=' + i)
+                    elem+="<li>" + body[0].ingredients[i] + "</li>";
+                }  
+                elem+="</ul></div>";  
+                elem+= "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\"https://www.youtube.com/embed/Hdd4iMQb5XA\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
+                document.getElementById("bcontainer").innerHTML = elem;
+            }
+        }
+    }
+}
+
+function logout() {
     console.log('am intrat pe logout')
     localStorage.removeItem(localStorage.key(0));
 }
@@ -65,8 +96,8 @@ function search() {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 if (xhr.status == 200) {
-                    console.log('[search.] xhr.status = 200')
-                    console.log('[search] ' + xhr.responseText)
+                    //console.log('[search.] xhr.status = 200')
+                    //console.log('[search] ' + xhr.responseText)
                     var body = JSON.parse(this.responseText);
                     for (var i = 0; i < body.length; i++) {
                         elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
@@ -74,7 +105,7 @@ function search() {
                     }
                     document.getElementById("nr").innerHTML = elem;
                 } else {
-                    console.log(console.log('[search] xhr.status= ' + xhr.status))
+                    //console.log(console.log('[search] xhr.status= ' + xhr.status))
                 }
             }
         }
@@ -269,3 +300,4 @@ function filter() {
         }
     }
 }
+>>>>>>> f6cf9803130c54d1043ac643c137d7772d9bbdec
