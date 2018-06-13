@@ -228,6 +228,8 @@ function filter() {
     xhr.open('POST', url);
     var elem = '';
     xhr.setRequestHeader("Content-type", "text/plain");
+    console.log('trimitem la server')
+    console.log(data)
     xhr.send(data);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == XMLHttpRequest.DONE) {
