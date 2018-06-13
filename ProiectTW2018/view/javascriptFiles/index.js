@@ -61,6 +61,7 @@ function latestRecipes() {
 }
 
 function recipe(name) {
+
     console.log(name);
     var url = 'http://localhost:8125/getRecipe';
     xhr.open('POST', url);
@@ -76,6 +77,8 @@ function recipe(name) {
             if (xhr.status == 200) {
                 //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
+                const link = getIframe(body[0].link);
+                console.log(link)
                 elem += "<div class=\"container\">"+
                     "<h1>"+body[0].name+"</h1>"+
                     "<img src=\"../img/"+body[0].picture+"\" alt=\""+body[0].name+"\" class=\"box-container\">"+
@@ -101,8 +104,7 @@ function recipe(name) {
                     "</p>" +
                     "</div>" +
                     "</div>" +
-                    "<h1>"+body[0].name+", rețetă video</h1>" +
-                    "<iframe class=\"center\" src=\" "+body[0].link+"\" allowfullscreen></iframe>" +
+                    "<h1>"+body[0].name+", rețetă video</h1>" + link +
                     "<p class=\"tag\">"+body[0].style+"</p>" +
                     "<p class=\"tag\">post: "+body[0].post+"</p>" +
                     "<p class=\"tag\">"+body[0].gastronomy+"</p>" +
@@ -271,4 +273,24 @@ function filter() {
             }
         }
     }
+}
+
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
+
+
+
+function getIframe(url){
+    var videoId = getId(url);
+    var iframeMarkup = '<p align="center"><iframe width="560" height="315" src="//www.youtube.com/embed/'
+        + videoId + '" frameborder="0" allowfullscreen></iframe></p>';
+    return iframeMarkup;
 }

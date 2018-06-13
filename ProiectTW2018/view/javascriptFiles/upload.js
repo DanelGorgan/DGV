@@ -7,5 +7,5 @@ function back() {
 }
 
 function upload() {
-    alert("poza incarcata");
+    alert("Poza incarcata");
 }
