@@ -1,5 +1,10 @@
 var xhr = new XMLHttpRequest();
 
+function addInSession() {
+    localStorage.setItem('search', 'index');   
+}
+addInSession();
+
 function auth() {
     console.log('Suntem in auth')
     var token = localStorage.getItem(localStorage.key(1));
@@ -206,5 +211,13 @@ function filter() {
                 }
             }
         }
+    }
+}
+
+window.onload = function(){
+    if (localStorage.getItem('mere') == 'ceva'){
+        console.log('yeeeeeeeeeeeeeeeeeee')
+    }else{
+        console.log('neeeeeeeeeeeeeeeeeee')
     }
 }

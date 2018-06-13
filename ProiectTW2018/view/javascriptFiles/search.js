@@ -24,10 +24,12 @@ function search() {
                         elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
                             "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
-                    console.log(localStorage.getItem(localStorage.key(2)))
-                    if (localStorage.getItem(localStorage.key(2)) == 'myRecipe') {
-                        console.log('Suntem pe myRecipe cu sesiunea')
-                        document.getElementById("main").innerHTML = elem;
+                    //console.log(localStorage.getItem(localStorage.key(2)))
+                    if (localStorage.getItem('search') == 'myRecipe') {
+                        console.log('Schimbam pagina...')
+                        window.location.href = "http://localhost:8125/";
+                        localStorage.setItem('mere','ceva');
+                        //document.getElementById("main").innerHTML = elem;
                     } else {
                         console.log('Suntem pe index cu sesiunea')
                         document.getElementById("nr").innerHTML = elem;
