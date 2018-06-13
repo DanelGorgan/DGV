@@ -21,20 +21,20 @@ function changeHeader() {
 function auth() {
     console.log('Suntem in auth')
     var token = localStorage.getItem(localStorage.key(1));
-    var url = 'http://localhost:8125/myAccount1';
+    var url = 'http://localhost:8125/myAccount';
 
     xhr.open('GET', url);
     xhr.setRequestHeader("Authorization", token);
     xhr.send();
-    xhr.onreadystatechange = function () {
-        console.log(xhr.readyState)
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(xhr.status);
-            if (xhr.status == 200) {
-                window.location.href = 'http://localhost:8125/myAccount';
-            }
-        }
-    }
+    // xhr.onreadystatechange = function () {
+    //     console.log(xhr.readyState)
+    //     if (xhr.readyState == XMLHttpRequest.DONE) {
+    //         console.log(xhr.status);
+    //         if (xhr.status == 200) {
+    //            // window.location.href = 'http://localhost:8125/myAccount';
+    //         }
+    //     }
+    // }
 
 }
 
