@@ -63,16 +63,16 @@ http.createServer(function (req, res) {
                 router.recipesRoute(req, res);
             }
             break;
-        case '/myAccount':
+        case '/myAccount1':
             if(auth){
                 console.log('VICTORIE')
                 router.recipeRoute(req, res);
             }
             break
-        // case '/myAccount':
-        //     // passport.authenticate('jwt', {session:false}, (req,res) => {
-        //         router.recipesRoute(req, res);
-        //     break;
+        case '/myAccount':
+            // passport.authenticate('jwt', {session:false}, (req,res) => {
+                router.recipesRoute(req, res);
+            break;
         case '/addRecipe':
             if (req.method == 'POST') {
                 addRecipe.addR(req, res)
