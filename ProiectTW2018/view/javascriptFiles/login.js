@@ -13,7 +13,6 @@ function validateForm() {
 
     xhr.open('POST',url);
     xhr.setRequestHeader("Content-type", "text/plain");
-
     xhr.onreadystatechange = function(){
         if (xhr.readyState == XMLHttpRequest.DONE){
             console.log('xhr.readyState=XMLHttpRequest.done');
@@ -23,6 +22,7 @@ function validateForm() {
                 if (xhr.responseText === "Success"){
                     alert("You have succesfully logged in!");
                     window.location.href = "http://localhost:8125/";
+                    localStorage.setItem(data.email,JSON.stringify(true));
                 }else{
                     alert("Wrong user or password! Try again.");
                 }
@@ -31,7 +31,6 @@ function validateForm() {
     }
 
     xhr.send(JSON.stringify(data));
-
 }
 
 function showPassword(){
