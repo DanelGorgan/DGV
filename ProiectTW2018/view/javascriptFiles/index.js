@@ -32,7 +32,7 @@ function latestRecipes() {
                 //console.log('afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
                 for (var i = 0; i < body.length; i++) {
-                    elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p>" + body[i].description +
+                    elem += "<div><figure class=\"box-img\"><img src=\"./img/"+body[i].picture+"\" alt=\"\"></figure></div><div> <p>" + body[i].description +
                         "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                 }
                 document.getElementById("nr").innerHTML = elem;
@@ -100,7 +100,7 @@ function search() {
                     //console.log('[search] ' + xhr.responseText)
                     var body = JSON.parse(this.responseText);
                     for (var i = 0; i < body.length; i++) {
-                        elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
+                        elem += "<div><figure class=\"box-img\"><img src=\"./img/"+body[i].picture+"\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
                             "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     document.getElementById("nr").innerHTML = elem;
@@ -211,7 +211,7 @@ function filter() {
                 if (xhr.responseText != "Failure") {
                     var body = JSON.parse(this.responseText);
                     for (var i = 0; i < body.length; i++) {
-                        elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p>" + body[i].description +
+                        elem += "<div><figure class=\"box-img\"><img src=\"./img/"+body[i].picture+"\" alt=\"\"></figure></div><div> <p>" + body[i].description +
                         "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     console.log(elem);
