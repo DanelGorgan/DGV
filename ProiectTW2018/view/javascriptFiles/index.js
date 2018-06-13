@@ -41,7 +41,7 @@ function latestRecipes() {
     }
 }
 
-function logout(){
+function logout() {
     console.log('am intrat pe logout')
     localStorage.removeItem(localStorage.key(0));
 }
@@ -81,7 +81,11 @@ function search() {
     }
 }
 
+latestRecipes();
+changeHeader();
+
 function filter() {
+    console.log('[filter] Am intrat in filter')
     var data = '';
     var timp = document.getElementById('timp').value;
     if (timp.length === 0)
@@ -93,7 +97,6 @@ function filter() {
     for (var j = 0; j < diffi.length; j++) {
         if (diffi[j].checked) {
             dif.push("\"" + diffi[j].value + "\"");
-
         }
     }
 
@@ -240,6 +243,7 @@ function filter() {
         choices1 = "\"dotari\" : [" + choices1 + "] ";
 
     data += "{" + timp + "," + dif + "," + gastr + "," + post + "," + regimal + "," + style + "," + choices1 + "}";
+
     console.log(data);
     var url = 'http://localhost:8125/filter';
     xhr.open('POST', url);
@@ -251,11 +255,11 @@ function filter() {
             if (xhr.status == 200) {
                 if (xhr.responseText != "Failure") {
                     var body = JSON.parse(this.responseText);
-                    console.log('[search] am primit body = ' + body);
                     for (var i = 0; i < body.length; i++) {
                         elem += "<div><figure class=\"box-img\"><img src=\"./img/img1.jpg\" alt=\"\"></figure></div><div> <p>" + body[i].description +
-                            "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\">View recipe</a> </div>";
+                            "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe()\">View recipe</a> </div>";
                     }
+                    console.log(elem);
                     document.getElementById("nr").innerHTML = elem;
                 }
                 else {
@@ -265,6 +269,4 @@ function filter() {
         }
     }
 }
-
-latestRecipes();
-changeHeader();
+//document.getElementById("pls").onclick = filter();
