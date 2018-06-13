@@ -11,6 +11,7 @@ const filter = require('./controllers/filter.controller')
 const latest = require('./controllers/latest.controller')
 const upload = require('./controllers/upload.controller')
 const recipe = require('./controllers/recipe.controller')
+const myRecipe = require('./controllers/myrecipe.controller')
 const query = require('./helpers/stringParser')
 
 //connect with mongoose
@@ -37,6 +38,11 @@ http.createServer(function (req, res) {
         case '/getRecipe':
             if (req.method == 'POST') {
                 recipe.getDetails(req, res)
+            }
+            break;
+        case '/getMyRecipes':
+            if (req.method == 'POST') {
+                myRecipe.getDetails(req, res)
             }
             break;
         case '/myRecipes':

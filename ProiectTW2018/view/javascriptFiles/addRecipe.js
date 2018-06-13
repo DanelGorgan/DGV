@@ -64,7 +64,5 @@ function validateForm() {
         }
     }
     xhr.send(JSON.stringify(data));
-
-
 }
 

@@ -84,7 +84,6 @@ body {
     border-radius: 16px;
     box-shadow: 0 0 3px #c5c2a9;
     display: block;
-
 }
 
 .bigcontainer {
@@ -320,7 +319,7 @@ input[type=submit],.button1 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 5%;
+    margin-left: 45%;
 }
 
 .button1:hover {
