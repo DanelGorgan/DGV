@@ -11,9 +11,16 @@ module.exports.login = (req, res) => {
                 body = JSON.parse(body)
                 UserModel
                     .login(body.email, body.password)
-                    .then(() => {
+                    .then((jwt) => {
+                        console.log(jwt)
                         res.writeHead(200, { 'Content-Type': 'text/plain' });
-                        res.end('Success');
+                        res.head
+                        let data = {
+                            message:'Success',
+
+                        }
+                        res.write('Success\n')
+                        res.end(`JWT ${jwt}`);
                     })
                     .catch(err => {
                         res.writeHead(200, { 'Content-Type': 'text/plain' });
