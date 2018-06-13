@@ -47,10 +47,7 @@ module.exports.recipesRoute = (request, response) => {
 
 module.exports.recipeRoute = (request, response) => {
 
-    const vec = request.url.split('/')
-    const filePath = './view/html/' + vec[1]+ '.html';
-    console.log('[recipeRoutes]fisierul este ' + filePath)
-    console.log('[recipeRoutes]vec ' + vec)
+    const filePath = './view/html/recipe.html';
     const extname = String(path.extname(filePath)).toLowerCase();
     const mimeTypes = {
         '.html': 'text/html',

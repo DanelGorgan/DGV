@@ -1,8 +1,10 @@
 const stringParser = require('../helpers/stringParser')
 const Recipes = require('./recipeModel')
+const _ = require('lodash')
 
 module.exports.checkFilter = (json, callback) => {
     Recipes.find(json, function (err, recipe) {
+        console.log(recipe)
         callback(recipe)
     });
 }
@@ -22,14 +24,14 @@ module.exports.get = (name, callback) => {
 
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
-            callback(recipe)
+        callback(recipe)
     });
 }
 
 module.exports.search = (name, callback) => {
-    
+
     let newName = stringParser.parseName(name)
-    console.log('[recipe] Cautam '+ newName)
+    console.log('[recipe] Cautam ' + newName)
     Recipes.find({
             name: {
                 '$regex': decodeURIComponent(newName).replace(/[()]/g, ''),
