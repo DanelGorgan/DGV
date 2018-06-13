@@ -16,10 +16,9 @@ module.exports.uploading = (req, res) => {
         const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
         const mimetype = filetypes.test(file.mimetype);
         if (mimetype && extname) {
-            console.log('--------------------')
             return cb(null, true);
         } else {
-            cb('Error: Images Only!');
+            cb('Eroare: Doar imagini!');
         }
     }
 
@@ -31,18 +30,23 @@ module.exports.uploading = (req, res) => {
     }).single('myImage')
 
     upload(req, res, (err) => {
-        console.log('[upload.controller] Updatam reteta cu poza')
-        console.log('[upload controller]' + req.file.filename)
-        Recipes.find({}).find({}, (err,recipes) => {
-            console.log(recipes[0].name)
-            Recipes.findOneAndUpdate({name:recipes[0].name}, {$set:{picture:req.file.filename}}, {new: true}, function(err, doc){
-                if(err){
-                    console.log("Something wrong when updating data!");
-                }
+        if (err) {
+            res.end('[Error]Fisierul nu s-a putut incarca...Extensie gresita. \n Reuploadati din nou!')
+        } else {
+            console.log('[upload.controller] Updatam reteta cu poza')
+            console.log('[upload controller]' + req.file.filename)
+            Recipes.find({}).find({}, (err,recipes) => {
+                console.log(recipes[0].name)
+                Recipes.findOneAndUpdate({name:recipes[0].name}, {$set:{picture:req.file.filename}}, {new: true}, function(err, doc){
+                    if(err){
+                        console.log("Something wrong when updating data!");
+                    }
 
-                console.log('Documentul modificat este ' + doc);
-            });
-        }).sort({$natural:-1});
+                    console.log('Documentul modificat este ' + doc);
+                });
+            }).sort({$natural:-1});
+
+        }
 
 
         // Recipes.findOneAndUpdate({
