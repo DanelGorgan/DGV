@@ -1,9 +1,9 @@
 xhr = new XMLHttpRequest();
 
-function setHeaders() {
-
-    window.location.href = "http://localhost:8125/addRecipe";
+function addInSession() {
+    localStorage.setItem('search', 'myRecipe');   
 }
+addInSession();
 
 function findMyRecipes() {
     var url = 'http://localhost:8125/getMyRecipes';
