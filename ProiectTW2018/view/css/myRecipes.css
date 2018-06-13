@@ -8,6 +8,71 @@ body {
     margin: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+.ingrediente{
+    margin:30px;
+    width: 30%;
+    display: inline;
+    margin-bottom: 40px;
+    position: relative;
+    float: left;
+}
+h1{
+    text-align: center;
+}
+
+.lista{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.box-container{
+    position: relative;
+    float: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 10px;
+    margin-left: 1%;
+    max-height: 400px;
+    max-width: 800px;
+}
+.banane {
+    display: block;
+}
+.bar1{
+    height: 50px;
+}
+.tag {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.center{
+    display: block;
+    text-align: center;
+    margin: 0 auto 20px;
+    width: 50%;
+    height: 400px;
+}
+
+
+
 /* Global */
 .container {
     width: 80%;
