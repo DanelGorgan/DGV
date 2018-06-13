@@ -1,3 +1,4 @@
+
 .container1 {
     position: relative;
     width: 100%;
@@ -7,7 +8,6 @@
   opacity: 1;
   display: block;
   width: 100%;
-  height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
 }
@@ -46,7 +46,6 @@ div.gallery img {
  
   border-radius: 0.3em 0.3em 0.3em 0.3em;
   width: 100%;
-  height: auto;
   position: relative;
 }
 

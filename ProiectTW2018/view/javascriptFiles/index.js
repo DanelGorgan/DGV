@@ -91,10 +91,10 @@ function recipe(name) {
                   elem+="<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >"+
                       "</div>" +
                       "<div class=\"container1\">"+
-                    "<p><strong>Durata Preparare: "+body[0].duration +" minute</strong></p>"+
+                    "<p><strong>Durata Preparare:</strong> "+body[0].duration +" minute</p>"+
                 "</div>"+
                 "<div class=\"container1\">"+
-                    "<p><strong>Dificultate Preparare: "+body[0].difficulty +"</p>"+
+                    "<p><strong>Dificultate Preparare:</strong> "+body[0].difficulty +"</p>"+
                     "</div>"+
                     "<p><strong>Cum gătești "+body[0].name+":</strong></p>" +
                     "<p>"+body[0].description+
