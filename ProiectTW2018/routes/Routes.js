@@ -47,7 +47,7 @@ module.exports.recipesRoute = (request, response) => {
 
 module.exports.recipeRoute = (request, response) => {
 
-    const filePath = './view/html/recipe.html';
+    const filePath = '/view/html/MyAccount.html';
     const extname = String(path.extname(filePath)).toLowerCase();
     const mimeTypes = {
         '.html': 'text/html',
@@ -68,6 +68,7 @@ module.exports.recipeRoute = (request, response) => {
     const contentType = mimeTypes[extname] || 'application/octet-stream';
     fs.readFile(filePath, function (error, content) {
         if (error) {
+            console.log('ajungasdasdsadsaem aici')
             if (error.code == 'ENOENT') {
                 fs.readFile('./404.html', function (error, content) {
                     response.writeHead(200, {'Content-Type': contentType});
@@ -75,14 +76,17 @@ module.exports.recipeRoute = (request, response) => {
                 });
             }
             else {
+                onsole.log(' aici')
                 response.writeHead(500);
                 response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
                 response.end();
             }
         }
         else {
-            response.writeHead(200, {'Content-Type': contentType});
-            response.end(content, 'utf-8');
+            console.log('ajungem aici')
+            console.log(__dirname + filePath)
+            response.writeHead(302, {'Location': __dirname + filePath});
+            response.end();
         }
     });
 }
