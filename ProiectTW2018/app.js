@@ -25,7 +25,7 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/recipe':
-            router.recipesRoute(req, res);
+            router.recipeRoute(req, res);
             break;
         case `/recipe/?name=${query.name}`:
             router.recipeRoute(req, res);

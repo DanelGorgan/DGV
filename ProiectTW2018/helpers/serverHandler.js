@@ -11,6 +11,7 @@ module.exports.serverHandler = (request, response) => {
     }
     // console.log(filePath)
     var extname = String(path.extname(filePath)).toLowerCase();
+    //console.log('[serverHandler] extname = ' + extname)
     var mimeTypes = {
         '.html': 'text/html',
         '.js': 'text/javascript',
@@ -29,6 +30,7 @@ module.exports.serverHandler = (request, response) => {
     };
 
     var contentType = mimeTypes[extname] || 'application/octet-stream';
+    //console.log('[serverHandler] contentType= mimeTypes[extname] = ' + contentType)
     fs.readFile(filePath, function (error, content) {
         if (error) {
             if (error.code == 'ENOENT') {
