@@ -9,11 +9,11 @@ module.exports.addR = (req, res) => {
     req.on('end', () => {
         if (body) {
             body = JSON.parse(body)
-            console.log('[addR] '+body)
+            //console.log('[addR] '+body.user)
             RecipeModel.check(body.name, body.description, (recipe) => {
                 if (recipe.length === 0) {
                     let picture = 'picture'
-                    let user = 'user'
+                    let user = body.user;
                     RecipeModel.create(body.name, body.description, body.style,
                         body.difficulty, body.link, body.post, body.regim, body.dotari,
                         body.gastronomy, body.duration, body.ingredients, user, picture)
