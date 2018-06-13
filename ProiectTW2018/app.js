@@ -20,12 +20,13 @@ http.createServer(function (req, res) {
     let path = req.url.replace(/%20/g, " ");
     var params = query.query(req)
     req.params = params
+    console.log(path)
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
             break;
         case `/recipe/?name=${req.params.name}`:
-            router.recipesRoute(req, res);
+            router.recipeRoute(req, res);
             break;
         case '/recipe':
             router.recipesRoute(req, res);
@@ -34,6 +35,7 @@ http.createServer(function (req, res) {
             if (req.method == 'POST') {
                 recipe.getDetails(req, res)
             }
+            break;
         case '/myRecipes':
             router.recipesRoute(req, res);
             break;
