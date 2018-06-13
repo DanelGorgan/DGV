@@ -19,7 +19,7 @@ module.exports.login = (req, res) => {
                         message: 'Success',
 
                     }
-                    res.write('Success\n')
+                    res.write('Success ')
                     res.end(`JWT ${jwt}`);
                 })
                 .catch(err => {

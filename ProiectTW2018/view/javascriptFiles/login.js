@@ -17,9 +17,11 @@ function validateForm() {
         if (xhr.readyState == XMLHttpRequest.DONE){
             console.log('xhr.readyState=XMLHttpRequest.done');
             console.log(xhr.status);
-            if (xhr.status==200){   
+            if (xhr.status==200){
                 console.log('xhr response text is ' + xhr.responseText);
-                if (xhr.responseText === "Success"){
+                let r=''
+                r = xhr.responseText.split(" ")
+                if (r[0] === "Success"){
                     alert("You have succesfully logged in!");
                     window.location.href = "http://localhost:8125/";
                     localStorage.setItem(data.email,JSON.stringify(true));
