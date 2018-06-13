@@ -7,13 +7,14 @@ module.exports.getDetails = (req, res) => {
     });
     req.on('end', function () {
         if (body) {
-            //console.log('[recipe.controller] body = ' + body)
+            console.log('[recipe.controller] body = ' + body)
             body = JSON.parse(body)
-            //console.log('[recipe.controller] body.name = ' + body.name)
+            console.log('[recipe.controller] body.name = ' + body.name)
             RecipeModel.get(body.name ,(recipe) => {
                 if (recipe.length > 0) {
                     console.log('[recipe.controller] Trimitem '+ recipe+'####')
                     console.log('#########################################################################')
+                    res.writeHead(200, {"Content-Type": "text/plain"});
                     res.end(JSON.stringify(recipe))
                 } else {
                     //console.log('NU AM GASIT RETETA!!!!!!!!!!!!!!!!!')

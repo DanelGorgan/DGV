@@ -31,6 +31,7 @@ http.createServer(function (req, res) {
             if (req.method == 'POST') {
                 recipe.getDetails(req, res)
             }
+            break;
         case '/myRecipes':
             router.recipesRoute(req, res);
             break;

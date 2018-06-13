@@ -57,15 +57,18 @@ function recipe(name) {
             if (xhr.status == 200) {
                 //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
+                body = xhr.responseText;
+                console.log(body)
                 elem += "<div class=\"container\"><h1>" + body[0].name + "</h1><img src=\"../img/ciulama.jpeg\" alt=\"ciulama\" class=\"box-container\"><div class=\"ingredient\"> <p><strong>De ce ai nevoie ca să gătești " + body[0].name + ":</strong></p>"
                 elem+="<ul class=\"lista\">"
-                for (var i=0; i<body[0].ingredients.length;i++)
-                {
-                    console.log('afisam i=' + i)
-                    elem+="<li>" + body[0].ingredients[i] + "</li>";
-                }  
+                // for (var i=0; i<body[0].ingredients.length;i++)
+                // {
+                //     console.log('afisam i=' + i)
+                //     elem+="<li>" + body[0].ingredients[i] + "</li>";
+                // }  
                 elem+="</ul></div>";  
                 elem+= "<div class=\"container1\"><div><p><strong>Cum gătești " + body[0].name + ":</strong></p><p>" + body[0].description + "</p></div></div><h1> " + body[0].name + ", rețetă video</h1><iframe class=\"center\" src=\"https://www.youtube.com/embed/Hdd4iMQb5XA\" allowfullscreen></iframe> <p class=\"tag\">#carne</p><p class=\"tag\">#lactate</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p><p class=\"tag\">#tag</p> <p class=\"tag\">#tag</p>";
+                //console.log(elem)
                 document.getElementById("bcontainer").innerHTML = elem;
             }
         }
@@ -113,9 +116,6 @@ function search() {
 }
 
 latestRecipes();
-<<<<<<< HEAD
-changeHeader();
-=======
 changeHeader();
 
 function filter() {
@@ -134,19 +134,6 @@ function filter() {
         }
     }
 
-    // data += "\"dificulty\" : [";
-    // console.log(diffi);
-    // for (var i = 0; i < diffi.length; i++) {
-    //     if (diffi[i].checked) {
-    //         if (i != diffi.length - 1) {
-    //             data += '\"'+ diffi[i].value + '\", ';
-    //         }else{
-    //             data += '\"'+ diffi[i].value + '"], '
-    //         }
-    //         dif.push(diffi[i].value);
-    //     }
-    // }
-    // console.log('data = ' + data);
     if (dif.length === 0)
         dif = '';
     else
@@ -154,18 +141,6 @@ function filter() {
 
     var gastr = [];
     var gastro = document.getElementsByClassName('gastro');
-    // data += "\"gastronomy\" : [";
-    // console.log(diffi);
-    // for (var i = 0; i < gastro.length; i++) {
-    //     if (gastro[i].checked) {
-    //         if (i != gastro.length - 1) {
-    //             data += '\"'+ gastro[i].value + '\", ';
-    //         }else{
-    //             data += '\"'+ gastro[i].value + '"], '
-    //         }
-    //         gastr.push(gastro[i].value);
-    //     }
-    // }
     for (var i = 0; i < gastro.length; i++) {
         if (gastro[i].checked) {
             gastr.push("\"" + gastro[i].value + "\"");
@@ -178,19 +153,6 @@ function filter() {
 
     var post = [];
     var pst = document.getElementsByClassName('post1');
-    // data += "\"post\" : [";
-    // console.log(diffi);
-    // if (pst.checked)  data += '\"'+ pst[i].value + '\"]';
-    // for (var i = 0; i < pst.length; i++) {
-    //     if (pst[i].checked) {
-    //         if (i != pst.length - 1) {
-    //             data += '\"'+ pst[i].value + '\", ';
-    //         }else{
-    //             data += '\"'+ pst[i].value + '"], '
-    //         }
-    //         post.push(pst[i].value);
-    //     }
-    // }
     for (var i = 0; i < pst.length; i++) {
         if (pst[i].checked) {
             post.push("\"" + pst[i].value + "\"");
@@ -203,18 +165,6 @@ function filter() {
 
     var regimal = [];
     var regim = document.getElementsByClassName('ing');
-    // data += "\"regim\" : [";
-    // console.log(diffi);
-    // for (var i = 0; i < regim.length; i++) {
-    //     if (regim[i].checked) {
-    //         if (i != regim.length - 1) {
-    //             data += '\"'+ regim[i].value + '\", ';
-    //         }else{
-    //             data += '\"'+ regim[i].value + '"], '
-    //         }
-    //         regimal.push(regim[i].value);
-    //     }
-    // }
     for (var i = 0; i < regim.length; i++) {
         if (regim[i].checked) {
             regimal.push("\"" + regim[i].value + "\"");
@@ -227,19 +177,6 @@ function filter() {
 
     var style = [];
     var sdv = document.getElementsByClassName('sdv');
-    // data += "\"style\" : [";
-    // console.log(diffi);
-    // for (var i = 0; i < sdv.length; i++) {
-    //     if (sdv[i].checked) {
-    //         if (i != sdv.length - 1) {
-    //             data += '\"'+ sdv[i].value + '\", ';
-    //         }else{
-    //             data += '\"'+ sdv[i].value + '"], '
-    //         }
-    //         style.push(sdv[i].value);
-    //     }
-    // }
-
     for (var i = 0; i < sdv.length; i++) {
         if (sdv[i].checked) {
             style.push("\"" + sdv[i].value + "\"");
@@ -253,19 +190,6 @@ function filter() {
 
     var choices1 = [];
     var dotari = document.getElementsByClassName('dotari');
-    // data += "\"dotari\" : [";
-    // console.log(diffi);
-    // for (var i = 0; i < dotari.length; i++) {
-    //     if (dotari[i].checked) {
-    //         if (i != dotari.length - 1) {
-    //             data += '\"'+ dotari[i].value + '\", ';
-    //         }else{
-    //             data += '\"'+ dotari[i].value + '"] } '
-    //         }
-    //         regimal.push(dotari[i].value);
-    //     }
-    // }
-
     for (var j = 0; j < dotari.length; j++) {
         if (dotari[j].checked) {
             choices1.push("\"" + dotari[j].value + "\"");
@@ -303,4 +227,3 @@ function filter() {
         }
     }
 }
->>>>>>> f6cf9803130c54d1043ac643c137d7772d9bbdec
