@@ -1,5 +1,11 @@
 xhr = new XMLHttpRequest();
 
+<<<<<<< HEAD
+function setHeaders() {
+
+    window.location.href = "http://localhost:8125/addRecipe";
+}
+=======
 function findMyRecipes() {
     var url = 'http://localhost:8125/getMyRecipes';
     var un = localStorage.key(0);
@@ -68,3 +74,4 @@ function recipe(name) {
         }
     }
 }
+>>>>>>> 6e49a84eb6497f6c1d6a7698979ba7b7a6af1a53

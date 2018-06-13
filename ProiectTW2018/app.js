@@ -13,6 +13,8 @@ const upload = require('./controllers/upload.controller')
 const recipe = require('./controllers/recipe.controller')
 const myRecipe = require('./controllers/myrecipe.controller')
 const query = require('./helpers/stringParser')
+// const passport = require('passport')
+// require('./passport-custom')(passport)
 
 //connect with mongoose
 mongo.mongoose
@@ -23,7 +25,6 @@ http.createServer(function (req, res) {
     req.params = params
 
     var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
-    console.log("Authorization Header is: ", auth);
 
     switch (path) {
         case '/recipes':
@@ -62,8 +63,15 @@ http.createServer(function (req, res) {
                 router.recipesRoute(req, res);
             }
             break;
+        case '/myAccount1':
+            if(auth){
+                console.log('VICTORIE')
+                router.recipeRoute(req, res);
+            }
+            break
         case '/myAccount':
-            router.recipesRoute(req, res);
+            // passport.authenticate('jwt', {session:false}, (req,res) => {
+                router.recipesRoute(req, res);
             break;
         case '/addRecipe':
             if (req.method == 'POST') {
