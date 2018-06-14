@@ -31,6 +31,7 @@ function findMyRecipes() {
                             "<img class=\"image\" src=\"../img/"+body[i].picture+"\" alt=\"\" width=\"400\\\" height=\"200\" >" +
                             "<div class=\"middle\">" +
                             "<a onclick=\"recipe('" + body[i].name + "')\"><div class=\"text\">"+body[i].name+"</div></a>" +
+                            "<a onclick=\"\"><div class=\"delete\">Delete</div></a>" +
                             "</div>" +
                             "</div>" +
                             "</div>" +
@@ -81,7 +82,6 @@ function recipe(name) {
                     console.log('afisam i=' + i)
                     elem += "<li>" + body[0].ingredients[i] + "</li>";
                 }
-                ;
                 elem += "</ul></div>";
                 elem += "<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >" +
                     "</div>" +

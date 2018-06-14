@@ -9,16 +9,6 @@ body {
 }
 /*Recipe*/
 
-
-
-
-
-
-
-
-
-
-
 .ingrediente{
   margin:30px;
   width: 30%;
@@ -146,6 +136,7 @@ h1{
 
 .box-img img {
   padding: 10px;
+  object-fit: contain;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 0 3px #c5c2a9;
@@ -513,6 +504,7 @@ input[type=checkbox] + label:active:before {
   }
   .box-container{
     width: 90%;
+
   }
   .ingrediente{
     width: 80%;

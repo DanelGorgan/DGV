@@ -36,6 +36,7 @@ h1{
     margin: 0;
     padding: 0;
 }
+
 .box-container{
     position: relative;
     float: left;
@@ -44,6 +45,9 @@ h1{
     margin-left: 1%;
     max-height: 400px;
     max-width: 800px;
+}
+.box-container img{
+    object-fit: contain;
 }
 .banane {
     display: block;
