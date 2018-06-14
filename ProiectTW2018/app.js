@@ -115,7 +115,15 @@ http.createServer(function (req, res) {
             }
             break;
         case '/modifyRecipe':
-                router.recipesRoute(req, res);
+            router.recipesRoute(req, res);
+            break;
+        case '/json':
+            if(req.method == 'POST') {
+                recipe.getDetails(req, res)
+            }
+            break;
+        case '/csv':
+            router.recipesRoute(req, res);
             break;
         default:
             serverHandle.serverHandler(req, res);
