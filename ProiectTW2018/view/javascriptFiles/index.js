@@ -69,7 +69,8 @@ function recipe(name) {
             if (xhr.status == 200) {
                 //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
-                elem += "<h2 text-align=center>New recipes</h2><br>";
+                const link = getIframe(body[0].link)
+                // elem += "<h2 text-align=center>New recipes</h2><br>";
                 elem += "<div class=\"container\">" +
                     "<h1>" + body[0].name + "</h1>" +
                     "<img src=\"../img/" + body[0].picture + "\" alt=\"" + body[0].name + "\" class=\"box-container\">" +
@@ -84,18 +85,18 @@ function recipe(name) {
                 elem += "<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >" +
                     "</div>" +
                     "<div class=\"container1\">" +
-                    "<p><strong>Durata Preparare: " + body[0].duration + " minute</strong></p>" +
+                    "<p><strong>Durata Preparare: </strong>" + body[0].duration + " minute</strong></p>" +
                     "</div>" +
                     "<div class=\"container1\">" +
-                    "<p><strong>Dificultate Preparare: " + body[0].difficulty + "</p>" +
+                    "<p><strong>Dificultate Preparare: </strong>" + body[0].difficulty + "</p>" +
                     "</div>" +
-                    "<p><strong>Cum gătești " + body[0].name + ":</strong></p>" +
+                    "<p><strong>Cum gătești </strong>" + body[0].name + ":</strong></p>" +
                     "<p>" + body[0].description +
                     "</p>" +
                     "</div>" +
                     "</div>" +
                     "<h1>" + body[0].name + ", rețetă video</h1>" +
-                    "<iframe class=\"center\" src=\" " + body[0].link + "\" allowfullscreen></iframe>" +
+                    link +
                     "<p class=\"tag\">" + body[0].style + "</p>" +
                     "<p class=\"tag\">post: " + body[0].post + "</p>" +
                     "<p class=\"tag\">" + body[0].gastronomy + "</p>" +
