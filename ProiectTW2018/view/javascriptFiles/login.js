@@ -23,7 +23,7 @@ function validateForm() {
                 r = xhr.responseText.split(" ")
                 if (r[0] === "Success"){
                     alert("You have succesfully logged in!");
-                    window.location.href = "http://localhost:8125/";
+                    window.location= "http://localhost:8125/";
                     localStorage.setItem(data.email,JSON.stringify(true));
                     localStorage.setItem('jwt',JSON.stringify(r[2]));
                 }else{
