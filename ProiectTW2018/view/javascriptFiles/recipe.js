@@ -1,5 +1,5 @@
-function ceva(){
-    console.log('working nigga')
+function addInSession() {
+    localStorage.setItem('search', 'recipe');  
+    console.log('askjbddddddddddddasdasdsadas') 
 }
-
-ceva()
+addInSession();

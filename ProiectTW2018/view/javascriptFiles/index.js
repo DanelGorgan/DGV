@@ -1,5 +1,10 @@
 var xhr = new XMLHttpRequest();
 
+function addInSession() {
+    localStorage.setItem('search', 'index');   
+}
+addInSession();
+
 function auth() {
     console.log('Suntem in auth')
     var token = localStorage.getItem(localStorage.key(1));
@@ -72,18 +77,18 @@ function recipe(name) {
                 {
                     console.log('afisam i=' + i)
                     elem += "<li>" + body[0].ingredients[i] + "</li>";
-                }
-                elem += "</ul></div>";
-                elem += "<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >" +
-                    "</div>" +
-                    "<div class=\"container1\">" +
-                    "<p><strong>Durata Preparare: " + body[0].duration + " minute</strong></p>" +
-                    "</div>" +
-                    "<div class=\"container1\">" +
-                    "<p><strong>Dificultate Preparare: " + body[0].difficulty + "</p>" +
-                    "</div>" +
-                    "<p><strong>Cum gătești " + body[0].name + ":</strong></p>" +
-                    "<p>" + body[0].description +
+                };
+                  elem+="</ul></div>";
+                  elem+="<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >"+
+                      "</div>" +
+                      "<div class=\"container1\">"+
+                    "<p><strong>Durata Preparare:</strong> "+body[0].duration +" minute</p>"+
+                "</div>"+
+                "<div class=\"container1\">"+
+                    "<p><strong>Dificultate Preparare:</strong> "+body[0].difficulty +"</p>"+
+                    "</div>"+
+                    "<p><strong>Cum gătești "+body[0].name+":</strong></p>" +
+                    "<p>"+body[0].description+
                     "</p>" +
                     "</div>" +
                     "</div>" +
@@ -214,6 +219,15 @@ function filter() {
     }
 }
 
+<<<<<<< HEAD
+window.onload = function(){
+    if (localStorage.getItem('mere') == 'ceva'){
+        console.log('yeeeeeeeeeeeeeeeeeee')
+    }else{
+        console.log('neeeeeeeeeeeeeeeeeee')
+    }
+}
+=======
 function getId(url) {
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
@@ -233,3 +247,4 @@ function getIframe(url){
         + videoId + '" frameborder="0" allowfullscreen></iframe></p>';
     return iframeMarkup;
 }
+>>>>>>> 7525e70a9791f6386f435f8646c235f16d275c9f
