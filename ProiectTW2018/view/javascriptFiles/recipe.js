@@ -75,3 +75,50 @@ function getIframe(url) {
     return iframeMarkup;
 }
 
+function json(nume) {
+    console.log('suntem in json')
+    var url = 'http://localhost:8125/json';
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+
+    data = {
+        name: nume
+    }
+
+    xhr.send(JSON.stringify(data));
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status == 200) {
+                document.getElementById("main").innerHTML = xhr.responseText;
+                // window.location.href = "http://localhost:8125/format"
+            }
+        }
+    }
+}
+
+function csv(nume) {
+    console.log('suntem in json')
+    var url = 'http://localhost:8125/csv';
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+
+    data = {
+        name: nume
+    }
+
+    xhr.send(JSON.stringify(data));
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status == 200) {
+                document.getElementById("main").innerHTML = xhr.responseText;
+                // window.location.href = "http://localhost:8125/format"
+            }
+        }
+    }
+}
