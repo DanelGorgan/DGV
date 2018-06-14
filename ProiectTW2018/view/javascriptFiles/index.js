@@ -221,10 +221,21 @@ function filter() {
     }
 }
 
-window.onload = function () {
-    if (localStorage.getItem('mere') == 'ceva') {
-        console.log('yeeeeeeeeeeeeeeeeeee')
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
     } else {
-        console.log('neeeeeeeeeeeeeeeeeee')
+        return 'error';
     }
+}
+
+
+function getIframe(url){
+    var videoId = getId(url);
+    var iframeMarkup = '<p align="center"><iframe width="560" height="315" src="//www.youtube.com/embed/'
+        + videoId + '" frameborder="0" allowfullscreen></iframe></p>';
+    return iframeMarkup;
 }
