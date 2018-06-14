@@ -55,6 +55,16 @@ module.exports.search = (name, callback) => {
     )
 }
 
+module.exports.delete = (name,callback) => {
+    Recipes.findOneAndRemove({name : name}, function (err, recipe) {
+        if(err) {
+            console.log('Nu am putut sterge')
+        } else {
+            callback(recipe)
+        }
+    })
+}
+
 module.exports.create = (name, description, style,
                          difficulty, link, post, regim, dotari,
                          gastronomy, duration, ingredients, user, picture) => {

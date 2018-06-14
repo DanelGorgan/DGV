@@ -12,6 +12,7 @@ const latest = require('./controllers/latest.controller')
 const upload = require('./controllers/upload.controller')
 const recipe = require('./controllers/recipe.controller')
 const myRecipe = require('./controllers/myrecipe.controller')
+const deletei = require('./controllers/delete.controller')
 const query = require('./helpers/stringParser')
 // const passport = require('passport')
 // require('./passport-custom')(passport)
@@ -100,6 +101,11 @@ http.createServer(function (req, res) {
         case '/search':
             if (req.method == 'POST') {
                 search.search(req, res)
+            }
+            break;
+            case '/delete':
+            if (req.method == 'DELETE') {
+                deletei.deleteItem(req, res)
             }
             break;
         default:
