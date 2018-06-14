@@ -26,10 +26,15 @@ function findAllRecipes() {
                             "<div class=\"container1\">" +
                             "<img class=\"image\" src=\"../img/" + body[i].picture + "\" alt=\"\" width=\"400\\\" height=\"200\" >" +
                             "<div class=\"middle\">" +
-                            "<a onclick=\"recipe('" + body[i].name + "')\"><div class=\"text\">" + body[i].name + "</div></a>" +
-                            "<a onclick=\"delete1('" + body[i].name + "')\"><div class=\"delete\">" + 'DELETE' +  "</div></a>" +
-                            "<a onclick=\"modify('" + body[i].name + "')\"><div class=\"text\">" + 'MODIFY' +  "</div></a>" +
-                            "</div>" +
+                            "<a onclick=\"recipe('" + body[i].name + "')\"><div class=\"text\">" + body[i].name + "</div></a>" ;
+
+                        if(localStorage.getItem(localStorage.key(3)) == 'admin'){
+                            elem+= "<a onclick=\"delete1('" + body[i].name + "')\"><div class=\"delete\">" + 'DELETE' +  "</div></a>" +
+                                "<a onclick=\"modify('" + body[i].name + "')\"><div class=\"text\">" + 'MODIFY' +  "</div></a>";
+
+                        }
+
+                           elem+= "</div>" +
                             "</div>" +
                             "</div>" +
                             "</div>";

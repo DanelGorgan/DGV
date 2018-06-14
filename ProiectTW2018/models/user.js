@@ -112,6 +112,16 @@ module.exports.checkAdmin = (email) => {
         });
 }
 
+
+module.exports.update = (json, callback) => {
+    console.log('[user.js] functia update cauta emailul ' + json.email)
+    User.update({email:json.email},{$set:json}, function (err, user) {
+        console.log('[user.js] functia update a gasit ' + user.email)
+        callback(user)
+    })
+}
+
+
 module.exports.login = (email, password) => {
     return User
         .findOne({ email: email })

@@ -119,7 +119,7 @@ function modify(name) {
                         "</div>" +
                         "<div>" +
                         "<label>Descriere </label><br>" +
-                        "<textarea id=\"descriere\" placeholder=\'" + body[0].description + "\' required></textarea>" +
+                        "<textarea id=\"descriere\" placeholder=\'" + body[0].description + "\' required>"+body[0].description+"</textarea>" +
                         "</div>" +
                         "<div>" +
                         "<label>Stil de viata </label><br>" +

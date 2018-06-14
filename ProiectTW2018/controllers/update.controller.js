@@ -1,4 +1,5 @@
 const RecipeModel = require('../models/recipe');
+const UserModel = require('../models/user');
 const _ = require('lodash')
 
 module.exports.update = (req, res) => {
@@ -41,7 +42,7 @@ module.exports.updateUser = (req, res) => {
             body = JSON.parse(body);
             console.log('Am primit')
             console.log(body)
-            RecipeModel
+            UserModel
                 .update(body, function (user) {
                     console.log('Am updatat')
                     console.log(user)
