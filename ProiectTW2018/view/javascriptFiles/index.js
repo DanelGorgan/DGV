@@ -46,7 +46,7 @@ function latestRecipes() {
                             "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                 } else {
-                    elem += "<h2> Ne pare rau, nu exista reteta cautata! <\h2>"
+                    //elem += "<h2> Nu exista retete noi! <\h2>"
                 }
                 document.getElementById("nr").innerHTML = elem;
             }
