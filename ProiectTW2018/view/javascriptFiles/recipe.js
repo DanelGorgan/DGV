@@ -49,7 +49,7 @@ function recipe(name) {
                     "<p class=\"tag\">post: " + body[0].post + "</p>" +
                     "<p class=\"tag\">" + body[0].gastronomy + "</p>" +
                     "<p class=\"tag\">gastronomie: " + body[0].regim + "</p>" +
-                    "<p class=\"tag\">" + body[0].difficulty + "</p>";
+                    "<p class=\"tag\">" + body[0].difficulty + "</p>" ;
                 document.getElementById("main").innerHTML = elem;
             }
         }

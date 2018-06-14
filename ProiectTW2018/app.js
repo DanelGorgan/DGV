@@ -15,6 +15,7 @@ const myRecipe = require('./controllers/myrecipe.controller')
 const deletei = require('./controllers/delete.controller')
 const update = require('./controllers/update.controller')
 const format = require('./controllers/format.controller')
+const user = require('./controllers/getUser.controller')
 const query = require('./helpers/stringParser')
 // const passport = require('passport')
 // require('./passport-custom')(passport)
@@ -42,6 +43,11 @@ http.createServer(function (req, res) {
         case '/getRecipe':
             if (req.method == 'POST') {
                 recipe.getDetails(req, res)
+            }
+            break;
+        case '/getUser':
+            if (req.method == 'POST') {
+                user.getDetails(req, res)
             }
             break;
         case '/getMyRecipes':
@@ -113,6 +119,11 @@ http.createServer(function (req, res) {
         case '/update':
             if (req.method == 'POST') {
                 update.update(req, res)
+            }
+            break;
+        case '/updateUser':
+            if (req.method == 'POST') {
+                update.updateUser(req, res)
             }
             break;
         case '/modifyRecipe':

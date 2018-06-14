@@ -75,6 +75,12 @@ module.exports.check = (username, email, callback) => {
         callback(user)
     });
 }
+
+module.exports.get = (email, callback) => {
+    User.find({ email: email }, function (err, user) {
+        callback(user)
+    });
+}
 module.exports.create = (username, email, password) => {
     let newUser = new User({
         username: username,

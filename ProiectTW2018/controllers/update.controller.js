@@ -29,5 +29,33 @@ module.exports.update = (req, res) => {
     });
 }
 
+module.exports.updateUser = (req, res) => {
+    console.log('[update.controller] Incepem cautarea...')
+    RecipeModel
+    let body = '';
+    req.on('data', chunk => {
+        body += chunk;
+    });
+    req.on('end', () => {
+        if (body) {
+            body = JSON.parse(body);
+            console.log('Am primit')
+            console.log(body)
+            RecipeModel
+                .update(body, function (user) {
+                    console.log('Am updatat')
+                    console.log(user)
+                    if (_.size(user) > 0) {
+                        res.writeHead(200, {'Content-Type': 'text/plain'});
+                        res.end('Success');
+                    } else {
+                        res.writeHead(200, {'Content-Type': 'text/plain'});
+                        res.end('Failure');
+                    }
+                })
+        }
+    });
+}
+
 
 
