@@ -13,6 +13,7 @@ const upload = require('./controllers/upload.controller')
 const recipe = require('./controllers/recipe.controller')
 const myRecipe = require('./controllers/myrecipe.controller')
 const deletei = require('./controllers/delete.controller')
+const update = require('./controllers/update.controller')
 const query = require('./helpers/stringParser')
 // const passport = require('passport')
 // require('./passport-custom')(passport)
@@ -65,14 +66,14 @@ http.createServer(function (req, res) {
             }
             break;
         case '/myAccount1':
-            if(auth){
+            if (auth) {
                 console.log('VICTORIE')
                 router.recipeRoute(req, res);
             }
             break
         case '/myAccount':
             // passport.authenticate('jwt', {session:false}, (req,res) => {
-                router.recipesRoute(req, res);
+            router.recipesRoute(req, res);
             break;
         case '/addRecipe':
             if (req.method == 'POST') {
@@ -103,9 +104,14 @@ http.createServer(function (req, res) {
                 search.search(req, res)
             }
             break;
-            case '/delete':
+        case '/delete':
             if (req.method == 'DELETE') {
                 deletei.deleteItem(req, res)
+            }
+            break;
+        case '/update':
+            if (req.method == 'POST') {
+                update.update(req, res)
             }
             break;
         default:

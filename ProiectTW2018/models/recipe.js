@@ -38,6 +38,14 @@ module.exports.getByUser = (user, callback) => {
     }
 }
 
+module.exports.update = (json, callback) => {
+    //console.log('[recipe.js] functia get cauta numele ' + name)
+        Recipes.update({_id:json._id},{$set:json}, function (err, recipe) {
+            //console.log('[recipe.js] functia get a gasit ' + recipe)
+            callback(recipe)
+        })
+}
+
 
 module.exports.check = (name, description, callback) => {
     Recipes.find({name: name, description: description}, function (err, recipe) {
