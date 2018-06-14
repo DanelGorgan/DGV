@@ -106,6 +106,7 @@ function modify(name) {
                     var body = JSON.parse(xhr.responseText);
                     // console.log(body);
                         elem += "<div>" +
+                            "<form action=\"/addRecipe\" onSubmit=\"return validateForm();\" method=\"POST\">" +
                             "<label>Nume </label><br>" +
                             "<input type=\"text\" id=\"name\" value=\"" + body[0].name + "\" required>" +
                             "</div>" +
@@ -196,7 +197,8 @@ function modify(name) {
                             "<div>" +
                             "<p><strong class=\"res\">Dupa ce dati submit veti fi redirectionat pe o pagina unde trebuie sa incarcati o imagine pentru reteta.</strong></p>" +
                             "</div>" +
-                            "<input type=\"Submit\" value=\"Submit\">";
+                            "<input type=\"Submit\" value=\"Submit\">" +
+                            "</form>"
                         document.getElementById("main").innerHTML = elem;
 
                 }
