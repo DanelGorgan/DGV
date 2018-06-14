@@ -118,14 +118,13 @@ h1{
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1em;
   grid-row-gap: 1em;
-
 }
 
 .grid img {
   float: left;
   display: block;
   height: 200px;
-  width: 400px;
+  width: 350px;
 }
 
 .grid p {
@@ -426,11 +425,6 @@ input[type=checkbox] + label:active:before {
 }
 
 /* medias */
-@media screen and (max-width: 1250px) and (min-width: 650px) {
-  .smallcontainer {
-    padding-left: 25%;
-  }
-}
 
 @media screen and (max-width: 1250px) {
   .bigcontainer {
@@ -443,22 +437,23 @@ input[type=checkbox] + label:active:before {
   }
 
   .smallcontainer {
-    margin-left: 12%;
+    margin-left: 0;
+    float:left;
   }
 
   .showcase {
-    margin-left: 10%
+    margin-left: 0;
+    float: left;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .grid img {
     height: 100%;
     width: 100%;
-
   }
 
   .grid p:nth-child(odd) {
@@ -493,8 +488,9 @@ input[type=checkbox] + label:active:before {
   }
 
 }
-@media screen and (max-width: 600px) {
-  .bigcontainer{
+
+@media screen and (max-width: 1100x) {
+  .bigcontainer {
     overflow: hidden;
     margin-top: 10px;
     margin-left: 20px;
@@ -502,101 +498,58 @@ input[type=checkbox] + label:active:before {
     background-color: white;
     border-radius: 0.3em 0.3em 0.3em 0.3em;
   }
-  .box-container{
-    width: 90%;
 
-  }
-  .ingrediente{
-    width: 80%;
-  }
-  footer{
-    margin-left: 20px;
-    margin-right: 20px;
-    text-align: center;
-
+  .smallcontainer {
+    margin-left: 0;
+    float:left;
   }
 
-  footer p{
-    display: block;
+  .showcase {
+    margin-left: 0;
+    float: left;
+    width:50%;
   }
 
-
-
-  .center{
-    width: 70%;
-    height: auto;
+  .grid {
+    display: grid;
+    width:50%;
   }
 
-  .navbar{
-    margin-top: 0;
+  .grid img {
+    height: 100%;
+    width: 100%;
   }
 
-
-  p{
-    display: inline;
+  .grid p:nth-child(odd) {
+    margin: 5%;
   }
 
-  header{
+  .grid a {
+    float: right;
+  }
+
+  footer {
     margin-left: 20px;
     margin-right: 20px;
   }
 
-  .container{
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .container {
     height: 70%;
   }
 
-  .search-bar-wrapper{
+  .search-bar-wrapper {
     width: 70%;
   }
 
-  .search-box-input{
+  .search-box-input {
     width: 70%;
   }
 
-
-
 }
-
-@media screen and (max-width: 1400px) and (min-width: 801px) {
-  .box-container{
-    width: 50%;
-    margin-left: 2px;
-  }
-  .ingrediente{
-    width: 40%;
-  }
-  .search-box-input{
-    width: 60%;
-  }
-
-  .search-bar-wrapper{
-    width: 60%;
-  }
-}
-
-
-@media screen and (max-width: 1100px) and (min-width: 100px) {
-  .box-container{
-    width: 80%;
-    margin-left: 6.3%;
-  }
-  .search-bar-wrapper{
-    width: 50%;
-  }
-  .center{
-    width: 60%;
-  }
-
-}
-
-@media screen and (max-width: 800px) and (min-width: 700px) {
-  .navbar{
-    margin-top: 0;
-  }
-
-  .center{
-    width: 50%;
-    height: auto;
-  }
 
 }
