@@ -44,6 +44,12 @@ let UserSchema = new mongoose.Schema({
         unique: false,
         required: false,
         trim: true
+    },
+    isAdmin: {
+        type: String,
+        unique: false,
+        required: false,
+        trim: true
     }
 });
 
