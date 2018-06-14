@@ -36,10 +36,6 @@ module.exports.getByUser = (user, callback) => {
             callback(recipe)
         });
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> da86c1c9660a03800014d3b22b09a53636359884
 }
 
 
