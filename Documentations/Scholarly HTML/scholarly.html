@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Scholarly HTML - Cuisine Web Helper</title>
+    <link rel="stylesheet" href="scholarly.css">
+</head>
+<body>
+<header>
+    <h1>Scholarly HTML - Cuisine Web Helper</h1>
+</header>
+<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+    <section id="introducere">
+        <h3>Introducere</h3>
+        <p> &#160;&#160;Scopul acestui raport tehnic in format Scholarly HTML este de a detalia progresul
+            proiectului intitulat Cuisine Web Helper.
+        </p>
+    </section>
+
+    <section id="descriere">
+        <h3>Descriere proiect Cuisine Web Helper</h3>
+        <p> &#160;&#160;Proiectul constă într-o aplicație Web care să vină în ajutorul persoanelor având un regim
+            alimentar special
+            -- e.g., restricții alimentare datorate unei boli (diabet, alergii la anumite substanțe), unui stil de viață
+            (vegetarianism) sau practică spirituală (post) ori vizând preferințe culinare (de pildă, gastronomie
+            franțuzească). Sistemul va recomanda în mod "inteligent" rețete pe care utilizatorul le poate prepara în
+            concordanță cu regimul alimentar, conform abilităților, timpului alocat, ingredientelor disponibile,
+            dotărilor din bucătărie (i.e. doar cuptor cu microunde).
+            Se vor oferi ghiduri interactive și resurse suplimentare de interes. Rețetele recomandate vor fi expuse și
+            în formatele CSV, JSON și RSS.
+        </p>
+    </section>
+
+    <section id="obiective">
+        <h3>Obiective</h3>
+        <p>&#160;&#160;Site-ul nostru urmareste sa ajute utiliatorul, oferindu-i o varietate de retete de gatit
+            organizate dupa diverse categorii.
+            Utilizatorul va putea cauta si descarca retele dorite, avant totodata posibilitatea de a filtra retetele in
+            mod inteligent, dupa criteriile
+            pe care si le propune, in timp ce un utilizator logat are dreptul sa adauge, sa modifice si sa stearga
+            propriile sale retete.
+        </p>
+    </section>
+
+    <section id="metode">
+        <h3>Tehnologii utilizate</h3>
+        <p>Interfața aplicației a fost scrisă folosind HTML5 pentru a crea componentele necesare acesteia și
+            CSS3 pentru a le stiliza.
+        </p>
+        <p>HTML5 este un limbaj pentru structurarea si prezentarea continutului pentru World Wide Web, o
+            tehnologie nucleu pentru Internet, iar CSS
+            este un limbaj (style language) care defineste "layout-ul" pentru documentele HTML. CSS acopera culori,
+            font-uri, margini, linii,
+            imagini de fundal, pozitii avansate si multe alte optiuni utile in design.</p>
+        <p>Partea de backend a aplicației web se face folosind Node.js. Am ales sa folosim Node js deoarece are abilitatea de
+        a procesa multe solicitari cu timp redus de ra</p>
+        <p>Informațiile din aplicație sunt stocate într-o bază de date de tip NoSQL. Pentru aceasta, am ales
+            sa folosim MongoDB, avantajele constand în faptul
+            că aceasta foloseste documente ce stocheaza informatia in format JSON. Acest lucru duce la cereri rapide
+            facute de documente. Cu datele pentru o entitate stocată
+            într-un singur document, mai degrabă decât răspândirea în mai multe tabele relaționale, baza de date trebuie
+            doar să citească și să scrie
+            într-un singur loc. De asemenea documentele sunt flexibile. Fiecare document poate stoca date cu atribute
+            diferite din alte documente.
+            Pentru a interactiona mai usor cu baza de date MongoDB, am folosit Mongoose, un API simplu de validare
+            si interogare. Folosirea Mongoose a ajutat la dezvoltarea mai rapida a aplicatiei.</p>
+    </section>
+    <section id="utilizare">
+        <h3>Mod de utilizare</h3>
+        <p>Interfata de login a unui utilizator necesita 2 campuri, un cont de utilizator unic(e-mail) si parola
+            aferenta
+            acestuia.</p>
+        <ul>
+            <li>
+                Username: Utilizatorul va introduce e-mailul folosit la inregistrare.
+            </li>
+            <li>
+                Password: Parola aferenta e-mailului/contului introdus.
+            </li>
+        </ul>
+        <p>In cazul in care utilizatorul doreste crearea unui nou cont, acesta va fi redirectionat spre o noua
+            pagina unde i se va oferi aceasta posibilitate.</p>
+        <p>Interfata de inregistrare cuprinde patru campuri obligatorii pentru crearea unui nou cont.</p>
+        <ul>
+            <li>
+                Username: Utilizatorul introduce un sir alfanumeric unic in baza noastra de date;
+            </li>
+            <li>
+                Password: Parola dorita pentru contul nou creat;
+            </li>
+            <li>
+                Confirm password: In acest camp se va reintroduce parola completata anterior pentru confirmare;
+            </li>
+            <li>
+                E-mail: In acest camp se va introduce adresa de e-mail aferenta contului.
+            </li>
+        </ul>
+        <p>Un utilizator ce nu este logat va avea urmatoarele optiuni:</p>
+        <ul>
+            <li>
+                Va putea descarca retete;
+            </li>
+            <li>
+                Va putea viziona retetele;
+            </li>
+            <li>
+                Va putea cauta o reteta dupa numele acesteia;
+            </li>
+            <li>
+                Va putea filtra cautarea retetelor conform criteriilor prezente in filtrul de cautare;
+            </li>
+        </ul>
+        <p>Dupa ce utilizatorul s-a logat, acesta va avea urmatoarele optiuni:</p>
+        <ul>
+            <li>
+                Va putea adauga propriile retete;
+            </li>
+            <li>
+                Va putea sterge/modifica propriile retete;
+            </li>
+            <li>
+                Se va putea deautentifica din site.
+            </li>
+        </ul>
+        <p>Utilizatorul cu rol de administrator va avea urmatoarele optiuni:</p>
+        <ul>
+            <li>
+                Va putea sterge orice reteta din baza de date.
+            </li>
+        </ul>
+    </section>
+
+    <section id="bibliografie">
+        <h3>Bibliografie</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Denumire</th>
+                <th>URL</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>HTML, CSS</td>
+                <td>https://profs.info.uaic.ro/~andrei.panu/</td>
+            </tr>
+            <tr>
+                <td>Scholarly</td>
+                <td>http://scholarly.vernacular.io/</td>
+            </tr>
+            <tr>
+                <td>Node.JS</td>
+                <td>https://www.w3schools.com/nodejs/</td>
+            </tr>
+            <tr>
+                <td>AJAX JS</td>
+                <td>https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started</td>
+            </tr>
+        </table>
+    </section>
+
+</article>
+<footer>
+    <p>
+        TW 2018 -
+        <a href="https://github.com/DanelGorgan/DGV">Github Repository</a>
+
+        - UAIC - Facultatea de Informatica Iasi
+    </p>
+</footer>
+</body>
+</html>
