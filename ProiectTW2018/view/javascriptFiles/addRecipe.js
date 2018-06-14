@@ -76,6 +76,7 @@ function getRecipe() {
     }
 
     console.log('data.user = ' + data.user + ' and un = ' + un);
+
     xhr.open('POST', url);
     xhr.setRequestHeader("Content-type", "text/plain");
     xhr.onreadystatechange = function () {

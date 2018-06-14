@@ -11,6 +11,8 @@ module.exports.update = (req, res) => {
     req.on('end', () => {
         if (body) {
             body = JSON.parse(body);
+            console.log('Am primit')
+            console.log(body)
             RecipeModel
                 .update(body, function (recipe) {
                     console.log('Am updatat')

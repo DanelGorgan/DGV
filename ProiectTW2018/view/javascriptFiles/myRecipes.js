@@ -112,7 +112,7 @@ function modify(name) {
                             "</div>" +
                             "<div>" +
                             "<label>Descriere </label><br>" +
-                            "<textarea id=\"descriere\" name=\'" + body[0].description + "\' required></textarea>" +
+                            "<textarea id=\"descriere\" placeholder=\'" + body[0].description + "\' required></textarea>" +
                             "</div>" +
                             "<div>" +
                             "<label>Stil de viata </label><br>" +
@@ -197,7 +197,7 @@ function modify(name) {
                             "<div>" +
                             "<p><strong class=\"res\">Dupa ce dati submit veti fi redirectionat pe o pagina unde trebuie sa incarcati o imagine pentru reteta.</strong></p>" +
                             "</div>" +
-                            "<input type=\"Submit\" value=\"Submit\">" +
+                            "<input type=\"Submit\" value=\"Submit\" onclick=\"validate('" +body[0]._id +"')\">" +
                             "</form>"
                         document.getElementById("main").innerHTML = elem;
 
