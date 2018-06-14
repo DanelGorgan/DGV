@@ -26,7 +26,8 @@ function validateForm() {
                     window.location= "http://localhost:8125/";
                     localStorage.setItem(data.email,JSON.stringify(true));
                     localStorage.setItem('login',JSON.stringify(true));
-                    localStorage.setItem('jwt',JSON.stringify(r[2]));
+                    localStorage.setItem('admin',r[1]);
+                    localStorage.setItem('jwt',JSON.stringify(r[3]));
                 }else{
                     alert("Wrong user or password! Try again.");
                 }
