@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fisa Cerintelor - Cuisine Web Helper</title>
+    <link rel="stylesheet" href="scholarly.css">
+    <script src="../../Documents/GitHub/TW/DGV/ProiectTW2018/app.js"></script>
+</head>
+<body>
+<header>
+    <h1>Fisa Cerintelor - Cuisine Web Helper</h1>
+</header>
+<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+    <section id="descriere">
+        <h3>Descriere</h3>
+        <p>Proiectul constă într-o aplicație Web care să vină în ajutorul persoanelor având un regim
+            alimentar special
+            -- e.g., restricții alimentare datorate unei boli (diabet, alergii la anumite substanțe), unui stil de viață
+            (vegetarianism) sau practică spirituală (post) ori vizând preferințe culinare (de pildă, gastronomie
+            franțuzească). Sistemul va recomanda în mod "inteligent" rețete pe care utilizatorul le poate prepara în
+            concordanță cu regimul alimentar, conform abilităților, timpului alocat, ingredientelor disponibile,
+            dotărilor din bucătărie (i.e. doar cuptor cu microunde).
+            Se vor oferi ghiduri interactive și resurse suplimentare de interes. Rețetele recomandate vor fi expuse și
+            în formatele CSV, JSON și RSS.
+        </p>
+    </section>
+    <section id="introducere">
+        <h3>Domenii</h3>
+        <p> Se vor descrie scenariile de utilizare, atât al clientului, cât și al administratorilor care întrețin sursa
+            de informații.
+        </p>
+    </section>
+    <section>
+        <h3>Acționari & Interese</h3>
+        <p><strong>Utilizatorul/Guest:</strong> să aibă la dispoziție posibilitatea de a căuta rețete în funcție de
+            nevoile sale.
+        </p>
+        <p><strong>Serverul:</strong> gestionează informațiile despre rețete și pune la dispoziția utilizatorilor
+            reprezentări în
+            formate diferite al acestora.</p>
+        <p><strong>Administratorul serverului:</strong> păstrează informațiile de pe server corecte și actualizate.
+        </p>
+    </section>
+
+    <section id="obiective">
+        <h3>Actori & Obiective</h3>
+        <p><strong>Utilizatorul/Guest:</strong> să poată găsi rețetele potrivite necesităților sale.
+        </p>
+        <p><strong>Serverul:</strong> să ofere rapid informațiile din baza de date. </p>
+        <p><strong>Administratorul serverului:</strong> să întrețină baza de date.
+        </p>
+    </section>
+
+    <section id="metode">
+        <h3>Scenarii de utilizare</h3>
+        <p>
+        <p><strong>Căutare rețete</strong></p>
+        <p><strong>Actor: User/Admin </strong></p>
+        <p><strong>Scenariu/Pași:</strong></p>
+        <p><strong>Metoda 1</strong></p>
+        <p>1. Utilizatorul dă click pe bara de search din pagina principală.</p>
+        <p>2. Utilizatorul scrie numele rețetei pe care dorește să o găsească.</p>
+        <p> 3. Utilizatorul apasă pe butonul de search sau apasă pe enter.</p>
+        <p> 4. Pe ecran vor apărea toate rețetele care respectă denumirea introdusă de utilizator.</p>
+        <p><strong>Metoda 2</strong></p>
+        <p> 1. Utilizatorul alege caracteristicile rețetei căutate din filtrul aflat pe partea stangă a paginii
+            principale.</p>
+        <p> 2. Utilizatorul apasă pe butonul de search.</p>
+        <p> 3. Pe ecran vor apărea toate rețetele din baza de date care respectă caracteristicile alese de
+            utilizator.</p>
+        <p><strong>Extensii</strong></p>
+        <p>Dacă în baza de date nu există nicio rețetă care să fie în concordanță cu cerințele utilizatorului se va
+            afișa un mesaj corespunzător.</p>
+
+        <p><strong>Adăugare rețete</strong></p>
+        <p><strong>Actor: User/Admin</strong></p>
+        <p><strong>Scenariu/Pași:</strong></p>
+        <p> 1. Utilizatorul logat intră pe pagina My Recipes prin intermediul paginii principale.</p>
+        <p> 2. Utilizatorul dă click pe butonul “Add recipe”.</p>
+        <p> 3. Utilizatorul este direcționat către o pagină care conține un formular.</p>
+        <p> 4. Utilizatorul completează toate câmpurile obligatorii cu informații despre rețeta pe care dorește să o
+            adauge.</p>
+        <p> 5. Utilizatorul apasă pe butonul “Submit” după ce este mulțumit de specificațiile rețetei.</p>
+        <p> 6. Utilizatorul este redirecționat către pagina rețetei.</p>
+        <p><strong>Extensii</strong></p>
+        <p> Dacă rețeta introdusă există deja în baza de date se va afișa un mesaj corespunzător.</p>
+        <p><strong>Sterge rețete</strong></p>
+        <p><strong>Actor: User/Admin</strong></p>
+        <p><strong>Scenariu/Pași:</strong></p>
+        <p> 1. Utilizatorul logat aflat pe pagina My recipes apasă pe butonul “Delete” din direcția rețetei pe care</p>
+        dorește să o șteargă.
+        <p> 2. Rețeta dorită este ștearsă din baza de date.</p>
+        <p> 3. Utilizatorul este redirectionat pe pagina My recipes.</p>
+
+        <p><strong>Creare lista de rețete</strong></p>
+        <p><strong> Actor: User/Admin</strong></p>
+        <p><strong> Scenariu/Pași:</strong></p>
+        <p> 1. Utilizatorul găsește o rețetă.</p>
+        <p> 2. Utilizatorul navighează pe pagina rețetei.</p>
+        <p> 3. Utilizatorul apasă pe butonul “Add to list”.</p>
+        <p> 4. Rețeta este adăugată în lista utilizatorului.</p>
+        <p><strong> Extensii</strong></p>
+        <p> În cazul în care rețeta exită deja în lista utilizatorului, se va afișa un mesaj corespunzător.</p>
+        <p><strong>Modificare rețete</strong></p>
+        <p><strong> Actor: User/Admin</strong></p>
+        <p><strong> Scenariu/Pași:</strong></p>
+        <p> 1. Utilizatorul logat aflat pe pagina My recipes apasă pe butonul “Edit” din direcția rețetei pe care</p>
+        dorește să o mdifice.</p>
+        <p> 2. Utilizatorul este direcționat către o pagină care conține un formular cu informațiile rețetei.</p>
+        <p> 3. Utilizatorul modifică toate câmpurile dorite.</p>
+        <p> 4. Utilizatorul apasă pe butonul “Submit” după ce este mulțumit de specificațiile rețetei.</p>
+        <p> 5. Utilizatorul este redirecționat către pagina rețetei.</p>
+        <p><strong>Descărcare rețete</strong></p>
+        <p><strong> Actor: User/Admin</strong></p>
+        <p><strong> Scenariu/Pași:</strong></p>
+        <p> 1. Utilizatorul aflat pe pagina unei rețete apasă pe butonul “Download”.</p>
+        <p> 2. Este afișat pe ecran un mesaj în care îi este cerut utilizatorului să aleagă formatul în care dorește să
+            descarce rețeta.</p>
+        <p> 3. Utilizatorul alege formatul dorit(JSON, CSV sau RSS).</p>
+        <p> 4. Rețeta este descărcată pe dispozitivul utilizatorului.</p>
+        </p>
+    </section>
+
+    <section>
+        <h3>Tehnologii utilizate</h3>
+        <p>Interfața aplicației a fost scrisă folosind HTML5 pentru a crea componentele necesare acesteia și
+            CSS3 pentru a le stiliza.
+        </p>
+        <p>HTML5 este un limbaj pentru structurarea si prezentarea continutului pentru World Wide Web, o
+            tehnologie nucleu pentru Internet, iar CSS
+            este un limbaj (style language) care defineste "layout-ul" pentru documentele HTML. CSS acopera culori,
+            font-uri, margini, linii,
+            imagini de fundal, pozitii avansate si multe alte optiuni utile in design.</p>
+        <p>Partea de backend a aplicației web se face folosingd Node.js.</p>
+        <p>Informațiile din aplicație sunt stocate într-o bază de date de tip NoSQL. Pentru aceasta, am ales
+            sa folosim MongoDB, avantajele constand în faptul
+            că aceasta foloseste documente ce stocheaza informatia in format JSON. Acest lucru duce la cereri rapide
+            facute de documente. Cu datele pentru o entitate stocată
+            într-un singur document, mai degrabă decât răspândirea în mai multe tabele relaționale, baza de date trebuie
+            doar să citească și să scrie
+            într-un singur loc. De asemenea documentele sunt flexibile. Fiecare document poate stoca date cu atribute
+            diferite din alte documente.
+            Pentru a interactiona mai usor cu baza de date MongoDB, am folosit Mongoose, un API simplu de validare
+            si interogare. Folosirea Mongoose a ajutat la dezvoltarea mai rapida a aplicatiei.</p>
+        <p> Pentru a comunica cu serverul am folosit AJAX. Pentru aceasta am folosit obiecte XMLHttpRequest prin care am 
+            trimis informatii in format JSON. O caracteristica importanta a AJAX este natura sa "asincronă", ceea ce
+             înseamnă că poate comunica cu serverul, poate schimba date și poate actualiza pagina fără a fi nevoită să 
+             actualizeze pagina. 
+        </p>
+        <p>Aplicația este REST deoarece utilizează solicitări HTTP de tipul GET, PUT, POST și DELETE.</p>
+    </section>
+    <section>
+        <h3>Detalii de implementare</h3>
+        <h4><strong>Login</strong></h4>
+        <p>  <strong> Front-end: </strong>
+             Cand se apasa butonul de logare se activeaza un script login.js care extrage valorile din text inputs
+             intr-un json si face un XMLHttpRequest de tip POST in care se trimite acest json cu headerul setat pe text/plain
+             si ruta necesara pentru a putea fi procesat requestul pe back. Raspunsul primit este un vector de string-uri ce contine
+             mesajul "succes/failure" si un token ce este folosit ulterior pentru a-i permite utilizatorului sa-si acceseze paginile de edit.</p>
+        <p>  <strong> Back-end: </strong>
+             Serverul primeste request-ul si extrage ruta dupa care intr-un switch se verifica si se apeleaza login.controller
+             pentru a procesa json-ul trimis. In acest controller se afla metoda login care pentru modelul de user apeleaza login(din user.js)
+             si verifica prin intermediul apelului functiei find() din mongoose daca utilizatorul exista. In caz afirmativ se compara parola
+             criptata si se trimite raspuns. In controller se trimite success si token-ul daca potrivirea are loc, respectiv failure.
+
+        </p>
+    </section>
+</article>
+<footer>
+    <p>
+        TW 2018 -
+        <a href="https://github.com/DanelGorgan/DGV">Github Repository</a>
+
+        - UAIC - Facultatea de Informatica Iasi
+    </p>
+</footer>
+</body>
+</html>
