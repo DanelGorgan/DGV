@@ -1,7 +1,7 @@
 var xhr = new XMLHttpRequest();
 
 function addInSession() {
-    localStorage.setItem('search', 'index');   
+    localStorage.setItem('search', 'index');
 }
 addInSession();
 
@@ -38,10 +38,14 @@ function latestRecipes() {
             if (xhr.status == 200) {
                 //console.log('afisam inner html si afisam ' + this.responseText)
                 var body = JSON.parse(this.responseText);
-                elem += "<h2 text-align=center>New recipes</h2><br>";
-                for (var i = 0; i < body.length; i++) {
-                    elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p>" + body[i].description +
-                        "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
+                if (xhr.responseText != 'Failure') {
+                    elem += "<h2 text-align=center>New recipes</h2><br>";
+                    for (var i = 0; i < body.length; i++) {
+                        elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p>" + body[i].description +
+                            "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
+                    }
+                } else {
+                    elem += "<h2> Ne pare rau, nu exista reteta cautata! <\h2>"
                 }
                 document.getElementById("nr").innerHTML = elem;
             }
@@ -207,20 +211,20 @@ function filter() {
                             "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     console.log(elem);
-                    document.getElementById("nr").innerHTML = elem;
                 }
                 else {
-                    console.log(xhr.responseText)
+                    elem += "<h2> Ne pare rau, nu exista reteta cautata! <\h2>"
                 }
+                document.getElementById("nr").innerHTML = elem;
             }
         }
     }
 }
 
-window.onload = function(){
-    if (localStorage.getItem('mere') == 'ceva'){
+window.onload = function () {
+    if (localStorage.getItem('mere') == 'ceva') {
         console.log('yeeeeeeeeeeeeeeeeeee')
-    }else{
+    } else {
         console.log('neeeeeeeeeeeeeeeeeee')
     }
 }
