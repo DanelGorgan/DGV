@@ -114,6 +114,9 @@ http.createServer(function (req, res) {
                 update.update(req, res)
             }
             break;
+        case '/modifyRecipe':
+                router.recipesRoute(req, res);
+            break;
         default:
             serverHandle.serverHandler(req, res);
     }
