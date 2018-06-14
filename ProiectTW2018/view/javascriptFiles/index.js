@@ -219,15 +219,6 @@ function filter() {
     }
 }
 
-<<<<<<< HEAD
-window.onload = function(){
-    if (localStorage.getItem('mere') == 'ceva'){
-        console.log('yeeeeeeeeeeeeeeeeeee')
-    }else{
-        console.log('neeeeeeeeeeeeeeeeeee')
-    }
-}
-=======
 function getId(url) {
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
@@ -247,4 +238,3 @@ function getIframe(url){
         + videoId + '" frameborder="0" allowfullscreen></iframe></p>';
     return iframeMarkup;
 }
->>>>>>> 7525e70a9791f6386f435f8646c235f16d275c9f
