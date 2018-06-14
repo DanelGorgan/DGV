@@ -14,6 +14,7 @@ const recipe = require('./controllers/recipe.controller')
 const myRecipe = require('./controllers/myrecipe.controller')
 const deletei = require('./controllers/delete.controller')
 const update = require('./controllers/update.controller')
+const format = require('./controllers/format.controller')
 const query = require('./helpers/stringParser')
 // const passport = require('passport')
 // require('./passport-custom')(passport)
@@ -27,7 +28,7 @@ http.createServer(function (req, res) {
     req.params = params
 
     var auth = req.headers['authorization'];  // auth is in base64(username:password)  so we need to decode the base64
-
+    console.log(path)
     switch (path) {
         case '/recipes':
             router.recipesRoute(req, res);
@@ -118,12 +119,14 @@ http.createServer(function (req, res) {
             router.recipesRoute(req, res);
             break;
         case '/json':
-            if(req.method == 'POST') {
+            if (req.method == 'POST') {
                 recipe.getDetails(req, res)
             }
             break;
         case '/csv':
-            router.recipesRoute(req, res);
+            if (req.method == 'POST') {
+                format.getCSV(req, res)
+            }
             break;
         default:
             serverHandle.serverHandler(req, res);
