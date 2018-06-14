@@ -5,6 +5,31 @@ function addInSession() {
 }
 addInSession();
 
+function delete1(name) {
+
+    console.log(name);
+    var url = 'http://localhost:8125/delete';
+    xhr.open('DELETE', url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+    var data = {
+        name: name
+    }
+    xhr.send(JSON.stringify(data));
+    var elem = '';
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            //console.log(xhr.status);
+            if (xhr.status == 200) {
+                //console.log('[recipe] Afisam inner html si afisam ' + this.responseText)
+                if(this.responseText==="Success")
+                    alert("Reteta stearsa!");
+                    window.location.href='http://localhost:8125/myRecipes';
+
+                 }
+        }
+    }
+}
+
 function findMyRecipes() {
     var url = 'http://localhost:8125/getMyRecipes';
     var un = localStorage.key(0);
@@ -31,7 +56,7 @@ function findMyRecipes() {
                             "<img class=\"image\" src=\"../img/"+body[i].picture+"\" alt=\"\" width=\"400\\\" height=\"200\" >" +
                             "<div class=\"middle\">" +
                             "<a onclick=\"recipe('" + body[i].name + "')\"><div class=\"text\">"+body[i].name+"</div></a>" +
-                            "<a onclick=\"\"><div class=\"delete\">Delete</div></a>" +
+                            "<a onclick=\"delete1('"+body[i].name+"')\"><div class=\"delete\">Delete</div></a>" +
                             "</div>" +
                             "</div>" +
                             "</div>" +

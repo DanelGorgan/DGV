@@ -25,10 +25,17 @@ module.exports.get = (name, callback) => {
 
 module.exports.getByUser = (user, callback) => {
     //console.log('[recipe.js] functia get cauta numele ' + name)
-    Recipes.find({user: user}, function (err, recipe) {
-        //console.log('[recipe.js] functia get a gasit ' + recipe)
-        callback(recipe)
-    });
+    if(user){
+        Recipes.find({user: user}, function (err, recipe) {
+            //console.log('[recipe.js] functia get a gasit ' + recipe)
+            callback(recipe)
+        });
+    } else {
+        Recipes.find({}, function (err, recipe) {
+            //console.log('[recipe.js] functia get a gasit ' + recipe)
+            callback(recipe)
+        });
+    }
 }
 
 
