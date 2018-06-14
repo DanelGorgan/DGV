@@ -18,24 +18,29 @@ function search() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 if (xhr.status == 200) {
                     //console.log('[search.] xhr.status = 200')
-                    //console.log('[search] ' + xhr.responseText)
-                    var body = JSON.parse(this.responseText);
-                    for (var i = 0; i < body.length; i++) {
-                        elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
-                            "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
-                    }
-                    //console.log(localStorage.getItem(localStorage.key(2)))
-                    if (localStorage.getItem('search') == 'myRecipe') {
-                        console.log('Schimbam pagina...')
-                        window.location.href = "http://localhost:8125/";
-                        localStorage.setItem('mere','ceva');
-                        //document.getElementById("main").innerHTML = elem;
-                    } else {
-                        console.log('Suntem pe index cu sesiunea')
+                    console.log('[search] ' + xhr.responseText)
+                    if (xhr.responseText != 'Failure') {
+                        var body = JSON.parse(this.responseText);
+                        for (var i = 0; i < body.length; i++) {
+                            elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p id=\"description\">" + body[i].description +
+                                "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
+                        }
+                        //console.log(localStorage.getItem(localStorage.key(2)))
+                        if (localStorage.getItem('search') == 'myRecipe') {
+                            console.log('Schimbam pagina...')
+                            window.location.href = "http://localhost:8125/";
+                            localStorage.setItem('mere', 'ceva');
+                            //document.getElementById("main").innerHTML = elem;
+                        } else {
+                            console.log('Suntem pe index cu sesiunea')
+                            document.getElementById("nr").innerHTML = elem;
+                        }
+                    }else{
+                        elem+="<h2> Ne pare rau, nu exista reteta cautata! <\h2>"
                         document.getElementById("nr").innerHTML = elem;
                     }
                 } else {
-                    //console.log(console.log('[search] xhr.status= ' + xhr.status))
+                    console.log(console.log('[search] xhr.status= ' + xhr.status))
                 }
             }
         }
