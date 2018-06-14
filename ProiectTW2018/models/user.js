@@ -79,7 +79,12 @@ module.exports.create = (username, email, password) => {
     let newUser = new User({
         username: username,
         email: email,
-        password: password
+        password: password,
+        name: 'nume',
+        surname : 'surname',
+        phone : 12,
+        adress : 'adress',
+        isAdmin: false,
     })
     return newUser.save().then(user => {
         return {
