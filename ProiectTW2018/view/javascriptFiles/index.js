@@ -3,6 +3,7 @@ var xhr = new XMLHttpRequest();
 function addInSession() {
     localStorage.setItem('search', 'index');
 }
+
 addInSession();
 
 function auth() {
@@ -80,7 +81,8 @@ function recipe(name) {
                 for (var i = 0; i < body[0].ingredients.length; i++) {
                     console.log('afisam i=' + i)
                     elem += "<li>" + body[0].ingredients[i] + "</li>";
-                };
+                }
+                ;
                 elem += "</ul></div>";
                 elem += "<div class=\"container1\"><img src=\"../img/bar.png\" alt=\"bar\" class=\"bar1\" >" +
                     "</div>" +
@@ -97,6 +99,8 @@ function recipe(name) {
                     "</div>" +
                     "<h1>" + body[0].name + ", rețetă video</h1>" +
                     link +
+                    "<p><a class=\"button\" onclick=\"json('" + body[0].name + "')\">Descarca reteta in format JSON</a></p>" +
+                    "<p><a class=\"button\" id=\"downloadAnchorElem\">Download</a></p>" +
                     "<p class=\"tag\">" + body[0].style + "</p>" +
                     "<p class=\"tag\">post: " + body[0].post + "</p>" +
                     "<p class=\"tag\">" + body[0].gastronomy + "</p>" +
@@ -109,8 +113,33 @@ function recipe(name) {
 }
 
 latestRecipes();
+
 //changeHeader();
 
+function json(nume) {
+    console.log('suntem in json')
+    var url = 'http://localhost:8125/json';
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+
+    data = {
+        name: nume
+    }
+
+    xhr.send(JSON.stringify(data));
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status == 200) {
+                console.log(xhr.responseText)
+            }
+        }
+    }
+}
+
+//functia pentru filtrarea elementelor
 function filter() {
     console.log('[filter] Am intrat in filter')
     var data = '';
@@ -234,7 +263,7 @@ function getId(url) {
 }
 
 
-function getIframe(url){
+function getIframe(url) {
     var videoId = getId(url);
     var iframeMarkup = '<p align="center"><iframe width="560" height="315" src="//www.youtube.com/embed/'
         + videoId + '" frameborder="0" allowfullscreen></iframe></p>';
