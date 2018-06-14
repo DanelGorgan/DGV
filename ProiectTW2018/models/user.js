@@ -22,7 +22,7 @@ let UserSchema = new mongoose.Schema({
         required: true
     },
     name: {
-        type:String,
+        type: String,
         unique: false,
         required: false,
         trim: true
@@ -70,8 +70,8 @@ UserSchema.pre('save', function (next) {
 
 let User = mongoose.model('User', UserSchema)
 
-module.exports.check = (username, email,callback) => {
-    User.find({email: email, username: username}, function (err, user) {
+module.exports.check = (username, email, callback) => {
+    User.find({ email: email, username: username }, function (err, user) {
         callback(user)
     });
 }
@@ -81,9 +81,9 @@ module.exports.create = (username, email, password) => {
         email: email,
         password: password,
         name: 'nume',
-        surname : 'surname',
-        phone : 12,
-        adress : 'adress',
+        surname: 'surname',
+        phone: 12,
+        adress: 'adress',
         isAdmin: false,
     })
     return newUser.save().then(user => {
@@ -94,10 +94,21 @@ module.exports.create = (username, email, password) => {
         }
     });
 }
+module.exports.checkAdmin = (email) => {
+    return User.find({ email:email,isAdmin: 'true' })
+        .then(found => {
+            console.log('----------' + found)
+            if (found) {
+                return Promise.resolve(found);
+            } else {
+                return Promise.reject();
+            }
+        });
+}
 
 module.exports.login = (email, password) => {
     return User
-        .findOne({email: email})
+        .findOne({ email: email })
         .then(user => {
             console.log('[user.js] Userul este ' + user)
             console.log(password)
@@ -108,15 +119,15 @@ module.exports.login = (email, password) => {
                         console.log('[user.js] itMatches este ' + itMatches)
                         if (itMatches) {
                             let payload = {
-                                _id:user.id
+                                _id: user.id
                             }
-                            let token = jwt.sign(payload, config.secret, {expiresIn: 6000000})
+                            let token = jwt.sign(payload, config.secret, { expiresIn: 6000000 })
 
                             return Promise.resolve(token);
                         } else {
                             return Promise.reject();
                         }
                     });
-            }   
+            }
         });
 }
