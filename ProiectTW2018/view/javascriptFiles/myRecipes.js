@@ -33,10 +33,17 @@ function delete1(name) {
 
 function findMyRecipes() {
     var url = 'http://localhost:8125/getMyRecipes';
-    var un = localStorage.key(0);
+    var un = localStorage.getItem(localStorage.key(0));
+    var un1 = localStorage.getItem(localStorage.key(1));
+    var user='';
+    if (un == 'retete')
+        user = localStorage.key(0);
+    if (un1 == 'retete')
+        user = localStorage.key(1);
+    console.log('SADAFSAFAFSA= ' + un1);
     var elem = '';
     var data = {
-        user: un
+        user: user
     }
 
     xhr.open('POST', url);

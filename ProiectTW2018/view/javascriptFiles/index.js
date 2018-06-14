@@ -99,8 +99,8 @@ function recipe(name) {
                     "</div>" +
                     "<h1>" + body[0].name + ", rețetă video</h1>" +
                     link +
-                    "<p><a class=\"button\" onclick=\"json('" + body[0].name + "')\">Descarca reteta in format JSON</a></p>" +
-                    "<p><a class=\"button\" id=\"downloadAnchorElem\">Download</a></p>" +
+                        "<p><a class=\"button\" onclick=\"json('" + body[0].name + "')\"> Vezi reteta in format JSON</a></p>" +
+                        "<p><a class=\"button\" onclick=\"csv('" + body[0].name + "')\">Vezi reteta in format CSV</a></p>" +
                     "<p class=\"tag\">" + body[0].style + "</p>" +
                     "<p class=\"tag\">post: " + body[0].post + "</p>" +
                     "<p class=\"tag\">" + body[0].gastronomy + "</p>" +
@@ -133,7 +133,32 @@ function json(nume) {
             console.log('xhr.readyState=XMLHttpRequest.done');
             console.log(xhr.status);
             if (xhr.status == 200) {
-                console.log(xhr.responseText)
+                document.getElementById("bcontainer").innerHTML = xhr.responseText;
+                // window.location.href = "http://localhost:8125/format"
+            }
+        }
+    }
+}
+
+function csv(nume) {
+    console.log('suntem in json')
+    var url = 'http://localhost:8125/csv';
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-type", "text/plain");
+
+    data = {
+        name: nume
+    }
+
+    xhr.send(JSON.stringify(data));
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log('xhr.readyState=XMLHttpRequest.done');
+            console.log(xhr.status);
+            if (xhr.status == 200) {
+                document.getElementById("bcontainer").innerHTML = xhr.responseText;
+                // window.location.href = "http://localhost:8125/format"
             }
         }
     }
@@ -174,7 +199,7 @@ function filter() {
         gastr = "\"gastronomy\" : [" + gastr + "] ";
 
     var post = [];
-    var pst = document.getElementsByClassName('post1');
+    var pst = document.getElementsByClassName('clasa');
     for (var i = 0; i < pst.length; i++) {
         if (pst[i].checked) {
             post.push("\"" + pst[i].value + "\"");
@@ -238,7 +263,7 @@ function filter() {
                     elem += "<h2 text-align=center>New recipes</h2><br>";
                     for (var i = 0; i < body.length; i++) {
                         elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p>" + body[i].description +
-                            "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
+                            "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     console.log(elem);
                 }
