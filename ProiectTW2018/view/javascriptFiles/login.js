@@ -24,7 +24,7 @@ function validateForm() {
                 if (r[0] === "Success"){
                     alert("You have succesfully logged in!");
                     window.location= "http://localhost:8125/";
-                    localStorage.setItem(data.email,JSON.stringify(true));
+                    localStorage.setItem(data.email,'retete');
                     localStorage.setItem('login',JSON.stringify(true));
                     localStorage.setItem('admin',r[1]);
                     localStorage.setItem('jwt',JSON.stringify(r[3]));

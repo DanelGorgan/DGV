@@ -199,7 +199,7 @@ function filter() {
         gastr = "\"gastronomy\" : [" + gastr + "] ";
 
     var post = [];
-    var pst = document.getElementsByClassName('post1');
+    var pst = document.getElementsByClassName('clasa');
     for (var i = 0; i < pst.length; i++) {
         if (pst[i].checked) {
             post.push("\"" + pst[i].value + "\"");
@@ -263,7 +263,7 @@ function filter() {
                     elem += "<h2 text-align=center>New recipes</h2><br>";
                     for (var i = 0; i < body.length; i++) {
                         elem += "<div><figure class=\"box-img\"><img src=\"./img/" + body[i].picture + "\" alt=\"\"></figure></div><div> <p>" + body[i].description +
-                            "</p> <a href=\"http://localhost:8125/recipe\" class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
+                            "</p> <a class=\"btn\" onclick=\"recipe('" + body[i].name + "')\">View recipe</a> </div>";
                     }
                     console.log(elem);
                 }
